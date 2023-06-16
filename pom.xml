@@ -7,7 +7,7 @@
     <packaging>pom</packaging>
     <groupId>io.github.g42cloud-sdk</groupId>
     <artifactId>g42cloud-sdk</artifactId>
-    <version>0.0.6-beta</version>
+    <version>0.0.7-beta</version>
     <name>G42 Cloud SDK for Java Parent</name>
     <description>G42 Cloud SDK for Java</description>
     <url>https://github.com/g42cloud-sdk/g42cloud-sdk-java</url>
@@ -36,10 +36,10 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <revision>0.0.6-beta</revision>
+        <revision>0.0.7-beta</revision>
         <snakeyaml.version>2.0</snakeyaml.version>
         <jackson.version>2.14.2</jackson.version>
-        <okhttp.version>3.14.9</okhttp.version>
+        <okhttp.version>4.11.0</okhttp.version>
         <bgmprovider.version>1.0.6</bgmprovider.version>
         <junit.version>4.13.1</junit.version>
         <slf4j.version>1.7.36</slf4j.version>
@@ -117,6 +117,9 @@
                 <configuration>
                     <source>8</source>
                     <target>8</target>
+                    <compilerArguments>
+                        <Xlint:-deprecation/>
+                    </compilerArguments>
                 </configuration>
             </plugin>
         </plugins>
@@ -130,7 +133,7 @@
                     <plugin>
                         <groupId>org.sonatype.plugins</groupId>
                         <artifactId>nexus-staging-maven-plugin</artifactId>
-                        <version>1.6.7</version>
+                        <version>1.6.13</version>
                         <extensions>true</extensions>
                         <configuration>
                             <serverId>ossrh</serverId>
@@ -146,7 +149,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-gpg-plugin</artifactId>
-                        <version>1.5</version>
+                        <version>3.0.1</version>
                         <executions>
                             <execution>
                                 <id>sign-artifacts</id>
@@ -154,6 +157,12 @@
                                 <goals>
                                     <goal>sign</goal>
                                 </goals>
+                                <configuration>
+                                    <gpgArguments>
+                                        <arg>--pinentry-mode</arg>
+                                        <arg>loopback</arg>
+                                    </gpgArguments>
+                                </configuration>
                             </execution>
                         </executions>
                     </plugin>

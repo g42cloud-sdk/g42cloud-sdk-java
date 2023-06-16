@@ -48,6 +48,14 @@ public class SmnClient {
             SmnMeta.cancelSubscription, hcClient);
     }
 
+    public CreateLogtankResponse createLogtank(CreateLogtankRequest request) {
+        return hcClient.syncInvokeHttp(request, SmnMeta.createLogtank);
+    }
+
+    public SyncInvoker<CreateLogtankRequest, CreateLogtankResponse> createLogtankInvoker(CreateLogtankRequest request) {
+        return new SyncInvoker<CreateLogtankRequest, CreateLogtankResponse>(request, SmnMeta.createLogtank, hcClient);
+    }
+
     public CreateMessageTemplateResponse createMessageTemplate(CreateMessageTemplateRequest request) {
         return hcClient.syncInvokeHttp(request, SmnMeta.createMessageTemplate);
     }
@@ -74,6 +82,14 @@ public class SmnClient {
 
     public SyncInvoker<CreateTopicRequest, CreateTopicResponse> createTopicInvoker(CreateTopicRequest request) {
         return new SyncInvoker<CreateTopicRequest, CreateTopicResponse>(request, SmnMeta.createTopic, hcClient);
+    }
+
+    public DeleteLogtankResponse deleteLogtank(DeleteLogtankRequest request) {
+        return hcClient.syncInvokeHttp(request, SmnMeta.deleteLogtank);
+    }
+
+    public SyncInvoker<DeleteLogtankRequest, DeleteLogtankResponse> deleteLogtankInvoker(DeleteLogtankRequest request) {
+        return new SyncInvoker<DeleteLogtankRequest, DeleteLogtankResponse>(request, SmnMeta.deleteLogtank, hcClient);
     }
 
     public DeleteMessageTemplateResponse deleteMessageTemplate(DeleteMessageTemplateRequest request) {
@@ -122,6 +138,14 @@ public class SmnClient {
         DeleteTopicAttributesRequest request) {
         return new SyncInvoker<DeleteTopicAttributesRequest, DeleteTopicAttributesResponse>(request,
             SmnMeta.deleteTopicAttributes, hcClient);
+    }
+
+    public ListLogtankResponse listLogtank(ListLogtankRequest request) {
+        return hcClient.syncInvokeHttp(request, SmnMeta.listLogtank);
+    }
+
+    public SyncInvoker<ListLogtankRequest, ListLogtankResponse> listLogtankInvoker(ListLogtankRequest request) {
+        return new SyncInvoker<ListLogtankRequest, ListLogtankResponse>(request, SmnMeta.listLogtank, hcClient);
     }
 
     public ListMessageTemplateDetailsResponse listMessageTemplateDetails(ListMessageTemplateDetailsRequest request) {
@@ -248,6 +272,14 @@ public class SmnClient {
             hcClient);
     }
 
+    public UpdateLogtankResponse updateLogtank(UpdateLogtankRequest request) {
+        return hcClient.syncInvokeHttp(request, SmnMeta.updateLogtank);
+    }
+
+    public SyncInvoker<UpdateLogtankRequest, UpdateLogtankResponse> updateLogtankInvoker(UpdateLogtankRequest request) {
+        return new SyncInvoker<UpdateLogtankRequest, UpdateLogtankResponse>(request, SmnMeta.updateLogtank, hcClient);
+    }
+
     public UpdateMessageTemplateResponse updateMessageTemplate(UpdateMessageTemplateRequest request) {
         return hcClient.syncInvokeHttp(request, SmnMeta.updateMessageTemplate);
     }
@@ -256,6 +288,16 @@ public class SmnClient {
         UpdateMessageTemplateRequest request) {
         return new SyncInvoker<UpdateMessageTemplateRequest, UpdateMessageTemplateResponse>(request,
             SmnMeta.updateMessageTemplate, hcClient);
+    }
+
+    public UpdateSubscriptionResponse updateSubscription(UpdateSubscriptionRequest request) {
+        return hcClient.syncInvokeHttp(request, SmnMeta.updateSubscription);
+    }
+
+    public SyncInvoker<UpdateSubscriptionRequest, UpdateSubscriptionResponse> updateSubscriptionInvoker(
+        UpdateSubscriptionRequest request) {
+        return new SyncInvoker<UpdateSubscriptionRequest, UpdateSubscriptionResponse>(request,
+            SmnMeta.updateSubscription, hcClient);
     }
 
     public UpdateTopicResponse updateTopic(UpdateTopicRequest request) {

@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.g42cloud.sdk.core.SdkResponse;
 
 import java.util.Objects;
+import java.util.function.Consumer;
 
 /**
  * Response Object
@@ -14,18 +15,27 @@ public class ListVersionResponse extends SdkResponse {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonProperty(value = "version")
 
-    private Object version;
+    private VersionItem version;
 
-    public ListVersionResponse withVersion(Object version) {
+    public ListVersionResponse withVersion(VersionItem version) {
         this.version = version;
         return this;
     }
 
-    public Object getVersion() {
+    public ListVersionResponse withVersion(Consumer<VersionItem> versionSetter) {
+        if (this.version == null) {
+            this.version = new VersionItem();
+            versionSetter.accept(this.version);
+        }
+
+        return this;
+    }
+
+    public VersionItem getVersion() {
         return version;
     }
 
-    public void setVersion(Object version) {
+    public void setVersion(VersionItem version) {
         this.version = version;
     }
 

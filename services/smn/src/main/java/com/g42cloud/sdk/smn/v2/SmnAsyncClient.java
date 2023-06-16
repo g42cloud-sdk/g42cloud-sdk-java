@@ -50,6 +50,15 @@ public class SmnAsyncClient {
             SmnMeta.cancelSubscription, hcClient);
     }
 
+    public CompletableFuture<CreateLogtankResponse> createLogtankAsync(CreateLogtankRequest request) {
+        return hcClient.asyncInvokeHttp(request, SmnMeta.createLogtank);
+    }
+
+    public AsyncInvoker<CreateLogtankRequest, CreateLogtankResponse> createLogtankAsyncInvoker(
+        CreateLogtankRequest request) {
+        return new AsyncInvoker<CreateLogtankRequest, CreateLogtankResponse>(request, SmnMeta.createLogtank, hcClient);
+    }
+
     public CompletableFuture<CreateMessageTemplateResponse> createMessageTemplateAsync(
         CreateMessageTemplateRequest request) {
         return hcClient.asyncInvokeHttp(request, SmnMeta.createMessageTemplate);
@@ -77,6 +86,15 @@ public class SmnAsyncClient {
 
     public AsyncInvoker<CreateTopicRequest, CreateTopicResponse> createTopicAsyncInvoker(CreateTopicRequest request) {
         return new AsyncInvoker<CreateTopicRequest, CreateTopicResponse>(request, SmnMeta.createTopic, hcClient);
+    }
+
+    public CompletableFuture<DeleteLogtankResponse> deleteLogtankAsync(DeleteLogtankRequest request) {
+        return hcClient.asyncInvokeHttp(request, SmnMeta.deleteLogtank);
+    }
+
+    public AsyncInvoker<DeleteLogtankRequest, DeleteLogtankResponse> deleteLogtankAsyncInvoker(
+        DeleteLogtankRequest request) {
+        return new AsyncInvoker<DeleteLogtankRequest, DeleteLogtankResponse>(request, SmnMeta.deleteLogtank, hcClient);
     }
 
     public CompletableFuture<DeleteMessageTemplateResponse> deleteMessageTemplateAsync(
@@ -128,6 +146,14 @@ public class SmnAsyncClient {
         DeleteTopicAttributesRequest request) {
         return new AsyncInvoker<DeleteTopicAttributesRequest, DeleteTopicAttributesResponse>(request,
             SmnMeta.deleteTopicAttributes, hcClient);
+    }
+
+    public CompletableFuture<ListLogtankResponse> listLogtankAsync(ListLogtankRequest request) {
+        return hcClient.asyncInvokeHttp(request, SmnMeta.listLogtank);
+    }
+
+    public AsyncInvoker<ListLogtankRequest, ListLogtankResponse> listLogtankAsyncInvoker(ListLogtankRequest request) {
+        return new AsyncInvoker<ListLogtankRequest, ListLogtankResponse>(request, SmnMeta.listLogtank, hcClient);
     }
 
     public CompletableFuture<ListMessageTemplateDetailsResponse> listMessageTemplateDetailsAsync(
@@ -259,6 +285,15 @@ public class SmnAsyncClient {
             hcClient);
     }
 
+    public CompletableFuture<UpdateLogtankResponse> updateLogtankAsync(UpdateLogtankRequest request) {
+        return hcClient.asyncInvokeHttp(request, SmnMeta.updateLogtank);
+    }
+
+    public AsyncInvoker<UpdateLogtankRequest, UpdateLogtankResponse> updateLogtankAsyncInvoker(
+        UpdateLogtankRequest request) {
+        return new AsyncInvoker<UpdateLogtankRequest, UpdateLogtankResponse>(request, SmnMeta.updateLogtank, hcClient);
+    }
+
     public CompletableFuture<UpdateMessageTemplateResponse> updateMessageTemplateAsync(
         UpdateMessageTemplateRequest request) {
         return hcClient.asyncInvokeHttp(request, SmnMeta.updateMessageTemplate);
@@ -268,6 +303,16 @@ public class SmnAsyncClient {
         UpdateMessageTemplateRequest request) {
         return new AsyncInvoker<UpdateMessageTemplateRequest, UpdateMessageTemplateResponse>(request,
             SmnMeta.updateMessageTemplate, hcClient);
+    }
+
+    public CompletableFuture<UpdateSubscriptionResponse> updateSubscriptionAsync(UpdateSubscriptionRequest request) {
+        return hcClient.asyncInvokeHttp(request, SmnMeta.updateSubscription);
+    }
+
+    public AsyncInvoker<UpdateSubscriptionRequest, UpdateSubscriptionResponse> updateSubscriptionAsyncInvoker(
+        UpdateSubscriptionRequest request) {
+        return new AsyncInvoker<UpdateSubscriptionRequest, UpdateSubscriptionResponse>(request,
+            SmnMeta.updateSubscription, hcClient);
     }
 
     public CompletableFuture<UpdateTopicResponse> updateTopicAsync(UpdateTopicRequest request) {

@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Objects;
+import java.util.function.Consumer;
 
 /**
  * AddSubscriptionRequestBody
@@ -24,6 +25,11 @@ public class AddSubscriptionRequestBody {
     @JsonProperty(value = "remark")
 
     private String remark;
+
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    @JsonProperty(value = "extension")
+
+    private SubscriptionExtension extension;
 
     public AddSubscriptionRequestBody withProtocol(String protocol) {
         this.protocol = protocol;
@@ -64,6 +70,28 @@ public class AddSubscriptionRequestBody {
         this.remark = remark;
     }
 
+    public AddSubscriptionRequestBody withExtension(SubscriptionExtension extension) {
+        this.extension = extension;
+        return this;
+    }
+
+    public AddSubscriptionRequestBody withExtension(Consumer<SubscriptionExtension> extensionSetter) {
+        if (this.extension == null) {
+            this.extension = new SubscriptionExtension();
+            extensionSetter.accept(this.extension);
+        }
+
+        return this;
+    }
+
+    public SubscriptionExtension getExtension() {
+        return extension;
+    }
+
+    public void setExtension(SubscriptionExtension extension) {
+        this.extension = extension;
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -75,12 +103,13 @@ public class AddSubscriptionRequestBody {
         AddSubscriptionRequestBody addSubscriptionRequestBody = (AddSubscriptionRequestBody) o;
         return Objects.equals(this.protocol, addSubscriptionRequestBody.protocol)
             && Objects.equals(this.endpoint, addSubscriptionRequestBody.endpoint)
-            && Objects.equals(this.remark, addSubscriptionRequestBody.remark);
+            && Objects.equals(this.remark, addSubscriptionRequestBody.remark)
+            && Objects.equals(this.extension, addSubscriptionRequestBody.extension);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(protocol, endpoint, remark);
+        return Objects.hash(protocol, endpoint, remark, extension);
     }
 
     @Override
@@ -90,6 +119,7 @@ public class AddSubscriptionRequestBody {
         sb.append("    protocol: ").append(toIndentedString(protocol)).append("\n");
         sb.append("    endpoint: ").append(toIndentedString(endpoint)).append("\n");
         sb.append("    remark: ").append(toIndentedString(remark)).append("\n");
+        sb.append("    extension: ").append(toIndentedString(extension)).append("\n");
         sb.append("}");
         return sb.toString();
     }

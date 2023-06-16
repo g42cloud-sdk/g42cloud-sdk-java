@@ -21,8 +21,8 @@
 
 package com.g42cloud.sdk.core.impl;
 
-import com.g42cloud.sdk.core.Constants.MEDIATYPE;
 import com.g42cloud.sdk.core.http.HttpResponse;
+import com.g42cloud.sdk.core.utils.HttpUtils;
 import okhttp3.Response;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -40,24 +40,22 @@ public class DefaultHttpResponse implements HttpResponse {
 
     private static final Logger logger = LoggerFactory.getLogger(DefaultHttpResponse.class);
 
-    private Response response;
+    private final Response response;
 
     private String strBody;
 
-    private static final String[] SHOULD_READ_BODY_CONTENT_TYPES = new String[]{
-            MEDIATYPE.APPLICATION_JSON,
-            MEDIATYPE.APPLICATION_XML,
-            MEDIATYPE.TEXT
-    };
+    private byte[] byteBody;
 
     private DefaultHttpResponse(Response response) {
         this.response = response;
-        if (shouldReadBody()) {
-            try {
+        try {
+            if (shouldReadBody()) {
                 strBody = response.body().string();
-            } catch (IOException e) {
-                logger.error("Read http response body error!", e);
+            } else if (shouldReadBodyAsByte()) {
+                byteBody = response.body().bytes();
             }
+        } catch (IOException e) {
+            logger.error("Read http response body error!", e);
         }
     }
 
@@ -65,17 +63,24 @@ public class DefaultHttpResponse implements HttpResponse {
         if (Objects.isNull(response.body())) {
             return false;
         }
-        if (Objects.isNull(response.body().contentType())) {
-            return response.body().contentLength() != 0;
+
+        if (Objects.isNull(response.body().contentType()) && response.body().contentLength() <= 0) {
+            return false;
+        } else {
+            return HttpUtils.isTextBasedContentType(response.body().contentType().toString());
+        }
+    }
+
+    private boolean shouldReadBodyAsByte() {
+        if (Objects.isNull(response.body())) {
+            return false;
         }
 
-        String contentType = response.body().contentType().toString();
-        for (String shouldReadBodyContentType : SHOULD_READ_BODY_CONTENT_TYPES) {
-            if (contentType.startsWith(shouldReadBodyContentType)) {
-                return true;
-            }
+        if (Objects.isNull(response.body().contentType()) && response.body().contentLength() <= 0) {
+            return false;
+        } else {
+            return HttpUtils.isBsonContentType(response.body().contentType().toString());
         }
-        return false;
     }
 
     static DefaultHttpResponse wrap(Response response) {
@@ -109,6 +114,11 @@ public class DefaultHttpResponse implements HttpResponse {
     @Override
     public String getBodyAsString() {
         return strBody;
+    }
+
+    @Override
+    public byte[] getBodyAsBytes() {
+        return byteBody;
     }
 
     @Override

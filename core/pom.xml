@@ -5,14 +5,14 @@
 
     <parent>
         <groupId>io.github.g42cloud-sdk</groupId>
-        <version>0.0.6-beta</version>
+        <version>0.0.7-beta</version>
         <artifactId>g42cloud-sdk</artifactId>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
     <packaging>jar</packaging>
     <artifactId>g42cloud-sdk-core</artifactId>
-    <version>0.0.6-beta</version>
+    <version>0.0.7-beta</version>
     <name>G42 Cloud SDK for Java Core</name>
     <description>Core library for G42 Cloud Java SDK</description>
     <url>https://github.com/g42cloud-sdk/g42cloud-sdk-java</url>

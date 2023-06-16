@@ -51,6 +51,11 @@ public class ListTopicDetailsResponse extends SdkResponse {
 
     private String enterpriseProjectId;
 
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    @JsonProperty(value = "topic_id")
+
+    private String topicId;
+
     public ListTopicDetailsResponse withUpdateTime(String updateTime) {
         this.updateTime = updateTime;
         return this;
@@ -155,6 +160,19 @@ public class ListTopicDetailsResponse extends SdkResponse {
         this.enterpriseProjectId = enterpriseProjectId;
     }
 
+    public ListTopicDetailsResponse withTopicId(String topicId) {
+        this.topicId = topicId;
+        return this;
+    }
+
+    public String getTopicId() {
+        return topicId;
+    }
+
+    public void setTopicId(String topicId) {
+        this.topicId = topicId;
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -171,13 +189,21 @@ public class ListTopicDetailsResponse extends SdkResponse {
             && Objects.equals(this.topicUrn, listTopicDetailsResponse.topicUrn)
             && Objects.equals(this.displayName, listTopicDetailsResponse.displayName)
             && Objects.equals(this.requestId, listTopicDetailsResponse.requestId)
-            && Objects.equals(this.enterpriseProjectId, listTopicDetailsResponse.enterpriseProjectId);
+            && Objects.equals(this.enterpriseProjectId, listTopicDetailsResponse.enterpriseProjectId)
+            && Objects.equals(this.topicId, listTopicDetailsResponse.topicId);
     }
 
     @Override
     public int hashCode() {
-        return Objects
-            .hash(updateTime, pushPolicy, createTime, name, topicUrn, displayName, requestId, enterpriseProjectId);
+        return Objects.hash(updateTime,
+            pushPolicy,
+            createTime,
+            name,
+            topicUrn,
+            displayName,
+            requestId,
+            enterpriseProjectId,
+            topicId);
     }
 
     @Override
@@ -192,6 +218,7 @@ public class ListTopicDetailsResponse extends SdkResponse {
         sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
         sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
         sb.append("    enterpriseProjectId: ").append(toIndentedString(enterpriseProjectId)).append("\n");
+        sb.append("    topicId: ").append(toIndentedString(topicId)).append("\n");
         sb.append("}");
         return sb.toString();
     }

@@ -238,6 +238,11 @@ public class PostPaidServerDataVolume {
 
     private String dataImageId;
 
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    @JsonProperty(value = "delete_on_termination")
+
+    private Boolean deleteOnTermination;
+
     public PostPaidServerDataVolume withVolumetype(VolumetypeEnum volumetype) {
         this.volumetype = volumetype;
         return this;
@@ -386,6 +391,19 @@ public class PostPaidServerDataVolume {
         this.dataImageId = dataImageId;
     }
 
+    public PostPaidServerDataVolume withDeleteOnTermination(Boolean deleteOnTermination) {
+        this.deleteOnTermination = deleteOnTermination;
+        return this;
+    }
+
+    public Boolean getDeleteOnTermination() {
+        return deleteOnTermination;
+    }
+
+    public void setDeleteOnTermination(Boolean deleteOnTermination) {
+        this.deleteOnTermination = deleteOnTermination;
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -404,7 +422,8 @@ public class PostPaidServerDataVolume {
             && Objects.equals(this.clusterType, postPaidServerDataVolume.clusterType)
             && Objects.equals(this.clusterId, postPaidServerDataVolume.clusterId)
             && Objects.equals(this.metadata, postPaidServerDataVolume.metadata)
-            && Objects.equals(this.dataImageId, postPaidServerDataVolume.dataImageId);
+            && Objects.equals(this.dataImageId, postPaidServerDataVolume.dataImageId)
+            && Objects.equals(this.deleteOnTermination, postPaidServerDataVolume.deleteOnTermination);
     }
 
     @Override
@@ -418,7 +437,8 @@ public class PostPaidServerDataVolume {
             clusterType,
             clusterId,
             metadata,
-            dataImageId);
+            dataImageId,
+            deleteOnTermination);
     }
 
     @Override
@@ -435,6 +455,7 @@ public class PostPaidServerDataVolume {
         sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
         sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
         sb.append("    dataImageId: ").append(toIndentedString(dataImageId)).append("\n");
+        sb.append("    deleteOnTermination: ").append(toIndentedString(deleteOnTermination)).append("\n");
         sb.append("}");
         return sb.toString();
     }

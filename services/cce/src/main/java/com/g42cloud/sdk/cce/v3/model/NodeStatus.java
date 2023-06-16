@@ -138,6 +138,11 @@ public class NodeStatus {
     private PhaseEnum phase;
 
     @JsonInclude(JsonInclude.Include.NON_NULL)
+    @JsonProperty(value = "lastProbeTime")
+
+    private String lastProbeTime;
+
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonProperty(value = "jobID")
 
     private String jobID;
@@ -178,6 +183,19 @@ public class NodeStatus {
 
     public void setPhase(PhaseEnum phase) {
         this.phase = phase;
+    }
+
+    public NodeStatus withLastProbeTime(String lastProbeTime) {
+        this.lastProbeTime = lastProbeTime;
+        return this;
+    }
+
+    public String getLastProbeTime() {
+        return lastProbeTime;
+    }
+
+    public void setLastProbeTime(String lastProbeTime) {
+        this.lastProbeTime = lastProbeTime;
     }
 
     public NodeStatus withJobID(String jobID) {
@@ -276,8 +294,9 @@ public class NodeStatus {
             return false;
         }
         NodeStatus nodeStatus = (NodeStatus) o;
-        return Objects.equals(this.phase, nodeStatus.phase) && Objects.equals(this.jobID, nodeStatus.jobID)
-            && Objects.equals(this.serverId, nodeStatus.serverId)
+        return Objects.equals(this.phase, nodeStatus.phase)
+            && Objects.equals(this.lastProbeTime, nodeStatus.lastProbeTime)
+            && Objects.equals(this.jobID, nodeStatus.jobID) && Objects.equals(this.serverId, nodeStatus.serverId)
             && Objects.equals(this.privateIP, nodeStatus.privateIP)
             && Objects.equals(this.privateIPv6IP, nodeStatus.privateIPv6IP)
             && Objects.equals(this.publicIP, nodeStatus.publicIP)
@@ -286,7 +305,7 @@ public class NodeStatus {
 
     @Override
     public int hashCode() {
-        return Objects.hash(phase, jobID, serverId, privateIP, privateIPv6IP, publicIP, deleteStatus);
+        return Objects.hash(phase, lastProbeTime, jobID, serverId, privateIP, privateIPv6IP, publicIP, deleteStatus);
     }
 
     @Override
@@ -294,6 +313,7 @@ public class NodeStatus {
         StringBuilder sb = new StringBuilder();
         sb.append("class NodeStatus {\n");
         sb.append("    phase: ").append(toIndentedString(phase)).append("\n");
+        sb.append("    lastProbeTime: ").append(toIndentedString(lastProbeTime)).append("\n");
         sb.append("    jobID: ").append(toIndentedString(jobID)).append("\n");
         sb.append("    serverId: ").append(toIndentedString(serverId)).append("\n");
         sb.append("    privateIP: ").append(toIndentedString(privateIP)).append("\n");
