@@ -3,12 +3,12 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<parent>
 		<groupId>io.github.g42cloud-sdk</groupId>
-		<version>0.0.7-beta</version>
+		<version>0.0.8-beta</version>
 		<artifactId>g42cloud-sdk-services</artifactId>
 		<relativePath>..</relativePath>
 	</parent>
 	<artifactId>g42cloud-sdk-rds</artifactId>
-	<version>0.0.7-beta</version>
+	<version>0.0.8-beta</version>
 	<name>G42 Cloud SDK for RDS</name>
 
 	<modelVersion>4.0.0</modelVersion>
@@ -17,7 +17,7 @@
 		<dependency>
 			<groupId>io.github.g42cloud-sdk</groupId>
 			<artifactId>g42cloud-sdk-core</artifactId>
-			<version>0.0.7-beta</version>
+			<version>0.0.8-beta</version>
 		</dependency>
 	</dependencies>
 
