@@ -523,39 +523,34 @@ public class CreateListenerOption {
     }
 
     @Override
-    public boolean equals(java.lang.Object o) {
-        if (this == o) {
+    public boolean equals(java.lang.Object obj) {
+        if (this == obj) {
             return true;
         }
-        if (o == null || getClass() != o.getClass()) {
+        if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
-        CreateListenerOption createListenerOption = (CreateListenerOption) o;
-        return Objects.equals(this.adminStateUp, createListenerOption.adminStateUp)
-            && Objects.equals(this.defaultPoolId, createListenerOption.defaultPoolId)
-            && Objects.equals(this.clientCaTlsContainerRef, createListenerOption.clientCaTlsContainerRef)
-            && Objects.equals(this.defaultTlsContainerRef, createListenerOption.defaultTlsContainerRef)
-            && Objects.equals(this.description, createListenerOption.description)
-            && Objects.equals(this.http2Enable, createListenerOption.http2Enable)
-            && Objects.equals(this.insertHeaders, createListenerOption.insertHeaders)
-            && Objects.equals(this.loadbalancerId, createListenerOption.loadbalancerId)
-            && Objects.equals(this.name, createListenerOption.name)
-            && Objects.equals(this.projectId, createListenerOption.projectId)
-            && Objects.equals(this.protocol, createListenerOption.protocol)
-            && Objects.equals(this.protocolPort, createListenerOption.protocolPort)
-            && Objects.equals(this.sniContainerRefs, createListenerOption.sniContainerRefs)
-            && Objects.equals(this.sniMatchAlgo, createListenerOption.sniMatchAlgo)
-            && Objects.equals(this.tags, createListenerOption.tags)
-            && Objects.equals(this.tlsCiphersPolicy, createListenerOption.tlsCiphersPolicy)
-            && Objects.equals(this.securityPolicyId, createListenerOption.securityPolicyId)
-            && Objects.equals(this.enableMemberRetry, createListenerOption.enableMemberRetry)
-            && Objects.equals(this.keepaliveTimeout, createListenerOption.keepaliveTimeout)
-            && Objects.equals(this.clientTimeout, createListenerOption.clientTimeout)
-            && Objects.equals(this.memberTimeout, createListenerOption.memberTimeout)
-            && Objects.equals(this.ipgroup, createListenerOption.ipgroup)
-            && Objects.equals(this.transparentClientIpEnable, createListenerOption.transparentClientIpEnable)
-            && Objects.equals(this.enhanceL7policyEnable, createListenerOption.enhanceL7policyEnable)
-            && Objects.equals(this.quicConfig, createListenerOption.quicConfig);
+        CreateListenerOption that = (CreateListenerOption) obj;
+        return Objects.equals(this.adminStateUp, that.adminStateUp)
+            && Objects.equals(this.defaultPoolId, that.defaultPoolId)
+            && Objects.equals(this.clientCaTlsContainerRef, that.clientCaTlsContainerRef)
+            && Objects.equals(this.defaultTlsContainerRef, that.defaultTlsContainerRef)
+            && Objects.equals(this.description, that.description) && Objects.equals(this.http2Enable, that.http2Enable)
+            && Objects.equals(this.insertHeaders, that.insertHeaders)
+            && Objects.equals(this.loadbalancerId, that.loadbalancerId) && Objects.equals(this.name, that.name)
+            && Objects.equals(this.projectId, that.projectId) && Objects.equals(this.protocol, that.protocol)
+            && Objects.equals(this.protocolPort, that.protocolPort)
+            && Objects.equals(this.sniContainerRefs, that.sniContainerRefs)
+            && Objects.equals(this.sniMatchAlgo, that.sniMatchAlgo) && Objects.equals(this.tags, that.tags)
+            && Objects.equals(this.tlsCiphersPolicy, that.tlsCiphersPolicy)
+            && Objects.equals(this.securityPolicyId, that.securityPolicyId)
+            && Objects.equals(this.enableMemberRetry, that.enableMemberRetry)
+            && Objects.equals(this.keepaliveTimeout, that.keepaliveTimeout)
+            && Objects.equals(this.clientTimeout, that.clientTimeout)
+            && Objects.equals(this.memberTimeout, that.memberTimeout) && Objects.equals(this.ipgroup, that.ipgroup)
+            && Objects.equals(this.transparentClientIpEnable, that.transparentClientIpEnable)
+            && Objects.equals(this.enhanceL7policyEnable, that.enhanceL7policyEnable)
+            && Objects.equals(this.quicConfig, that.quicConfig);
     }
 
     @Override

@@ -1,6 +1,27 @@
 package com.g42cloud.sdk.ces.v2;
 
-import com.g42cloud.sdk.ces.v2.model.*;
+import com.g42cloud.sdk.ces.v2.model.AddAlarmRuleResourcesRequest;
+import com.g42cloud.sdk.ces.v2.model.AddAlarmRuleResourcesResponse;
+import com.g42cloud.sdk.ces.v2.model.BatchDeleteAlarmRulesRequest;
+import com.g42cloud.sdk.ces.v2.model.BatchDeleteAlarmRulesResponse;
+import com.g42cloud.sdk.ces.v2.model.BatchEnableAlarmRulesRequest;
+import com.g42cloud.sdk.ces.v2.model.BatchEnableAlarmRulesResponse;
+import com.g42cloud.sdk.ces.v2.model.CreateAlarmRulesRequest;
+import com.g42cloud.sdk.ces.v2.model.CreateAlarmRulesResponse;
+import com.g42cloud.sdk.ces.v2.model.DeleteAlarmRuleResourcesRequest;
+import com.g42cloud.sdk.ces.v2.model.DeleteAlarmRuleResourcesResponse;
+import com.g42cloud.sdk.ces.v2.model.ListAgentDimensionInfoRequest;
+import com.g42cloud.sdk.ces.v2.model.ListAgentDimensionInfoResponse;
+import com.g42cloud.sdk.ces.v2.model.ListAlarmHistoriesRequest;
+import com.g42cloud.sdk.ces.v2.model.ListAlarmHistoriesResponse;
+import com.g42cloud.sdk.ces.v2.model.ListAlarmRulePoliciesRequest;
+import com.g42cloud.sdk.ces.v2.model.ListAlarmRulePoliciesResponse;
+import com.g42cloud.sdk.ces.v2.model.ListAlarmRuleResourcesRequest;
+import com.g42cloud.sdk.ces.v2.model.ListAlarmRuleResourcesResponse;
+import com.g42cloud.sdk.ces.v2.model.ListAlarmRulesRequest;
+import com.g42cloud.sdk.ces.v2.model.ListAlarmRulesResponse;
+import com.g42cloud.sdk.ces.v2.model.UpdateAlarmRulePoliciesRequest;
+import com.g42cloud.sdk.ces.v2.model.UpdateAlarmRulePoliciesResponse;
 import com.g42cloud.sdk.core.ClientBuilder;
 import com.g42cloud.sdk.core.HcClient;
 import com.g42cloud.sdk.core.invoker.AsyncInvoker;
@@ -16,7 +37,8 @@ public class CesAsyncClient {
     }
 
     public static ClientBuilder<CesAsyncClient> newBuilder() {
-        return new ClientBuilder<>(CesAsyncClient::new);
+        ClientBuilder<CesAsyncClient> clientBuilder = new ClientBuilder<>(CesAsyncClient::new);
+        return clientBuilder;
     }
 
     public CompletableFuture<AddAlarmRuleResourcesResponse> addAlarmRuleResourcesAsync(

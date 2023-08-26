@@ -3,7 +3,26 @@ package com.g42cloud.sdk.cts.v3;
 import com.g42cloud.sdk.core.ClientBuilder;
 import com.g42cloud.sdk.core.HcClient;
 import com.g42cloud.sdk.core.invoker.SyncInvoker;
-import com.g42cloud.sdk.cts.v3.model.*;
+import com.g42cloud.sdk.cts.v3.model.CreateNotificationRequest;
+import com.g42cloud.sdk.cts.v3.model.CreateNotificationResponse;
+import com.g42cloud.sdk.cts.v3.model.CreateTrackerRequest;
+import com.g42cloud.sdk.cts.v3.model.CreateTrackerResponse;
+import com.g42cloud.sdk.cts.v3.model.DeleteNotificationRequest;
+import com.g42cloud.sdk.cts.v3.model.DeleteNotificationResponse;
+import com.g42cloud.sdk.cts.v3.model.DeleteTrackerRequest;
+import com.g42cloud.sdk.cts.v3.model.DeleteTrackerResponse;
+import com.g42cloud.sdk.cts.v3.model.ListNotificationsRequest;
+import com.g42cloud.sdk.cts.v3.model.ListNotificationsResponse;
+import com.g42cloud.sdk.cts.v3.model.ListQuotasRequest;
+import com.g42cloud.sdk.cts.v3.model.ListQuotasResponse;
+import com.g42cloud.sdk.cts.v3.model.ListTracesRequest;
+import com.g42cloud.sdk.cts.v3.model.ListTracesResponse;
+import com.g42cloud.sdk.cts.v3.model.ListTrackersRequest;
+import com.g42cloud.sdk.cts.v3.model.ListTrackersResponse;
+import com.g42cloud.sdk.cts.v3.model.UpdateNotificationRequest;
+import com.g42cloud.sdk.cts.v3.model.UpdateNotificationResponse;
+import com.g42cloud.sdk.cts.v3.model.UpdateTrackerRequest;
+import com.g42cloud.sdk.cts.v3.model.UpdateTrackerResponse;
 
 public class CtsClient {
 
@@ -14,7 +33,8 @@ public class CtsClient {
     }
 
     public static ClientBuilder<CtsClient> newBuilder() {
-        return new ClientBuilder<>(CtsClient::new);
+        ClientBuilder<CtsClient> clientBuilder = new ClientBuilder<>(CtsClient::new);
+        return clientBuilder;
     }
 
     public CreateNotificationResponse createNotification(CreateNotificationRequest request) {

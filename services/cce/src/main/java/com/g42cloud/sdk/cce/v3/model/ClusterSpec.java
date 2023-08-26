@@ -60,22 +60,15 @@ public class ClusterSpec {
             if (value == null) {
                 return null;
             }
-            CategoryEnum result = STATIC_FIELDS.get(value);
-            if (result == null) {
-                result = new CategoryEnum(value);
-            }
-            return result;
+            return java.util.Optional.ofNullable(STATIC_FIELDS.get(value)).orElse(new CategoryEnum(value));
         }
 
         public static CategoryEnum valueOf(String value) {
             if (value == null) {
                 return null;
             }
-            CategoryEnum result = STATIC_FIELDS.get(value);
-            if (result != null) {
-                return result;
-            }
-            throw new IllegalArgumentException("Unexpected value '" + value + "'");
+            return java.util.Optional.ofNullable(STATIC_FIELDS.get(value))
+                .orElseThrow(() -> new IllegalArgumentException("Unexpected value '" + value + "'"));
         }
 
         @Override
@@ -139,22 +132,15 @@ public class ClusterSpec {
             if (value == null) {
                 return null;
             }
-            TypeEnum result = STATIC_FIELDS.get(value);
-            if (result == null) {
-                result = new TypeEnum(value);
-            }
-            return result;
+            return java.util.Optional.ofNullable(STATIC_FIELDS.get(value)).orElse(new TypeEnum(value));
         }
 
         public static TypeEnum valueOf(String value) {
             if (value == null) {
                 return null;
             }
-            TypeEnum result = STATIC_FIELDS.get(value);
-            if (result != null) {
-                return result;
-            }
-            throw new IllegalArgumentException("Unexpected value '" + value + "'");
+            return java.util.Optional.ofNullable(STATIC_FIELDS.get(value))
+                .orElseThrow(() -> new IllegalArgumentException("Unexpected value '" + value + "'"));
         }
 
         @Override
@@ -288,22 +274,15 @@ public class ClusterSpec {
             if (value == null) {
                 return null;
             }
-            KubeProxyModeEnum result = STATIC_FIELDS.get(value);
-            if (result == null) {
-                result = new KubeProxyModeEnum(value);
-            }
-            return result;
+            return java.util.Optional.ofNullable(STATIC_FIELDS.get(value)).orElse(new KubeProxyModeEnum(value));
         }
 
         public static KubeProxyModeEnum valueOf(String value) {
             if (value == null) {
                 return null;
             }
-            KubeProxyModeEnum result = STATIC_FIELDS.get(value);
-            if (result != null) {
-                return result;
-            }
-            throw new IllegalArgumentException("Unexpected value '" + value + "'");
+            return java.util.Optional.ofNullable(STATIC_FIELDS.get(value))
+                .orElseThrow(() -> new IllegalArgumentException("Unexpected value '" + value + "'"));
         }
 
         @Override
@@ -694,31 +673,28 @@ public class ClusterSpec {
     }
 
     @Override
-    public boolean equals(java.lang.Object o) {
-        if (this == o) {
+    public boolean equals(java.lang.Object obj) {
+        if (this == obj) {
             return true;
         }
-        if (o == null || getClass() != o.getClass()) {
+        if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
-        ClusterSpec clusterSpec = (ClusterSpec) o;
-        return Objects.equals(this.category, clusterSpec.category) && Objects.equals(this.type, clusterSpec.type)
-            && Objects.equals(this.flavor, clusterSpec.flavor) && Objects.equals(this.version, clusterSpec.version)
-            && Objects.equals(this.platformVersion, clusterSpec.platformVersion)
-            && Objects.equals(this.description, clusterSpec.description)
-            && Objects.equals(this.customSan, clusterSpec.customSan)
-            && Objects.equals(this.ipv6enable, clusterSpec.ipv6enable)
-            && Objects.equals(this.hostNetwork, clusterSpec.hostNetwork)
-            && Objects.equals(this.containerNetwork, clusterSpec.containerNetwork)
-            && Objects.equals(this.eniNetwork, clusterSpec.eniNetwork)
-            && Objects.equals(this.authentication, clusterSpec.authentication)
-            && Objects.equals(this.billingMode, clusterSpec.billingMode)
-            && Objects.equals(this.masters, clusterSpec.masters)
-            && Objects.equals(this.kubernetesSvcIpRange, clusterSpec.kubernetesSvcIpRange)
-            && Objects.equals(this.clusterTags, clusterSpec.clusterTags)
-            && Objects.equals(this.kubeProxyMode, clusterSpec.kubeProxyMode) && Objects.equals(this.az, clusterSpec.az)
-            && Objects.equals(this.extendParam, clusterSpec.extendParam)
-            && Objects.equals(this.supportIstio, clusterSpec.supportIstio);
+        ClusterSpec that = (ClusterSpec) obj;
+        return Objects.equals(this.category, that.category) && Objects.equals(this.type, that.type)
+            && Objects.equals(this.flavor, that.flavor) && Objects.equals(this.version, that.version)
+            && Objects.equals(this.platformVersion, that.platformVersion)
+            && Objects.equals(this.description, that.description) && Objects.equals(this.customSan, that.customSan)
+            && Objects.equals(this.ipv6enable, that.ipv6enable) && Objects.equals(this.hostNetwork, that.hostNetwork)
+            && Objects.equals(this.containerNetwork, that.containerNetwork)
+            && Objects.equals(this.eniNetwork, that.eniNetwork)
+            && Objects.equals(this.authentication, that.authentication)
+            && Objects.equals(this.billingMode, that.billingMode) && Objects.equals(this.masters, that.masters)
+            && Objects.equals(this.kubernetesSvcIpRange, that.kubernetesSvcIpRange)
+            && Objects.equals(this.clusterTags, that.clusterTags)
+            && Objects.equals(this.kubeProxyMode, that.kubeProxyMode) && Objects.equals(this.az, that.az)
+            && Objects.equals(this.extendParam, that.extendParam)
+            && Objects.equals(this.supportIstio, that.supportIstio);
     }
 
     @Override

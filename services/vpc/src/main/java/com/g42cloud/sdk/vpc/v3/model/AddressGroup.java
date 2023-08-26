@@ -175,20 +175,18 @@ public class AddressGroup {
     }
 
     @Override
-    public boolean equals(java.lang.Object o) {
-        if (this == o) {
+    public boolean equals(java.lang.Object obj) {
+        if (this == obj) {
             return true;
         }
-        if (o == null || getClass() != o.getClass()) {
+        if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
-        AddressGroup addressGroup = (AddressGroup) o;
-        return Objects.equals(this.id, addressGroup.id) && Objects.equals(this.name, addressGroup.name)
-            && Objects.equals(this.description, addressGroup.description)
-            && Objects.equals(this.ipSet, addressGroup.ipSet) && Objects.equals(this.ipVersion, addressGroup.ipVersion)
-            && Objects.equals(this.createdAt, addressGroup.createdAt)
-            && Objects.equals(this.updatedAt, addressGroup.updatedAt)
-            && Objects.equals(this.tenantId, addressGroup.tenantId);
+        AddressGroup that = (AddressGroup) obj;
+        return Objects.equals(this.id, that.id) && Objects.equals(this.name, that.name)
+            && Objects.equals(this.description, that.description) && Objects.equals(this.ipSet, that.ipSet)
+            && Objects.equals(this.ipVersion, that.ipVersion) && Objects.equals(this.createdAt, that.createdAt)
+            && Objects.equals(this.updatedAt, that.updatedAt) && Objects.equals(this.tenantId, that.tenantId);
     }
 
     @Override

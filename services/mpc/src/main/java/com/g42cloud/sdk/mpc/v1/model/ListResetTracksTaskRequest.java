@@ -19,21 +19,6 @@ import java.util.function.Consumer;
 public class ListResetTracksTaskRequest {
 
     @JsonInclude(JsonInclude.Include.NON_NULL)
-    @JsonProperty(value = "Authorization")
-
-    private String authorization;
-
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    @JsonProperty(value = "X-Project_Id")
-
-    private String xProjectId;
-
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    @JsonProperty(value = "X-Sdk-Date")
-
-    private String xSdkDate;
-
-    @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonProperty(value = "task_id")
 
     private List<String> taskId = null;
@@ -98,22 +83,15 @@ public class ListResetTracksTaskRequest {
             if (value == null) {
                 return null;
             }
-            StatusEnum result = STATIC_FIELDS.get(value);
-            if (result == null) {
-                result = new StatusEnum(value);
-            }
-            return result;
+            return java.util.Optional.ofNullable(STATIC_FIELDS.get(value)).orElse(new StatusEnum(value));
         }
 
         public static StatusEnum valueOf(String value) {
             if (value == null) {
                 return null;
             }
-            StatusEnum result = STATIC_FIELDS.get(value);
-            if (result != null) {
-                return result;
-            }
-            throw new IllegalArgumentException("Unexpected value '" + value + "'");
+            return java.util.Optional.ofNullable(STATIC_FIELDS.get(value))
+                .orElseThrow(() -> new IllegalArgumentException("Unexpected value '" + value + "'"));
         }
 
         @Override
@@ -154,49 +132,6 @@ public class ListResetTracksTaskRequest {
     @JsonProperty(value = "size")
 
     private Integer size;
-
-    public ListResetTracksTaskRequest withAuthorization(String authorization) {
-        this.authorization = authorization;
-        return this;
-    }
-
-    public String getAuthorization() {
-        return authorization;
-    }
-
-    public void setAuthorization(String authorization) {
-        this.authorization = authorization;
-    }
-
-    public ListResetTracksTaskRequest withXProjectId(String xProjectId) {
-        this.xProjectId = xProjectId;
-        return this;
-    }
-
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    @JsonProperty(value = "X-Project_Id")
-    public String getXProjectId() {
-        return xProjectId;
-    }
-
-    public void setXProjectId(String xProjectId) {
-        this.xProjectId = xProjectId;
-    }
-
-    public ListResetTracksTaskRequest withXSdkDate(String xSdkDate) {
-        this.xSdkDate = xSdkDate;
-        return this;
-    }
-
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    @JsonProperty(value = "X-Sdk-Date")
-    public String getXSdkDate() {
-        return xSdkDate;
-    }
-
-    public void setXSdkDate(String xSdkDate) {
-        this.xSdkDate = xSdkDate;
-    }
 
     public ListResetTracksTaskRequest withTaskId(List<String> taskId) {
         this.taskId = taskId;
@@ -293,37 +228,28 @@ public class ListResetTracksTaskRequest {
     }
 
     @Override
-    public boolean equals(java.lang.Object o) {
-        if (this == o) {
+    public boolean equals(java.lang.Object obj) {
+        if (this == obj) {
             return true;
         }
-        if (o == null || getClass() != o.getClass()) {
+        if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
-        ListResetTracksTaskRequest listResetTracksTaskRequest = (ListResetTracksTaskRequest) o;
-        return Objects.equals(this.authorization, listResetTracksTaskRequest.authorization)
-            && Objects.equals(this.xProjectId, listResetTracksTaskRequest.xProjectId)
-            && Objects.equals(this.xSdkDate, listResetTracksTaskRequest.xSdkDate)
-            && Objects.equals(this.taskId, listResetTracksTaskRequest.taskId)
-            && Objects.equals(this.status, listResetTracksTaskRequest.status)
-            && Objects.equals(this.startTime, listResetTracksTaskRequest.startTime)
-            && Objects.equals(this.endTime, listResetTracksTaskRequest.endTime)
-            && Objects.equals(this.page, listResetTracksTaskRequest.page)
-            && Objects.equals(this.size, listResetTracksTaskRequest.size);
+        ListResetTracksTaskRequest that = (ListResetTracksTaskRequest) obj;
+        return Objects.equals(this.taskId, that.taskId) && Objects.equals(this.status, that.status)
+            && Objects.equals(this.startTime, that.startTime) && Objects.equals(this.endTime, that.endTime)
+            && Objects.equals(this.page, that.page) && Objects.equals(this.size, that.size);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(authorization, xProjectId, xSdkDate, taskId, status, startTime, endTime, page, size);
+        return Objects.hash(taskId, status, startTime, endTime, page, size);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class ListResetTracksTaskRequest {\n");
-        sb.append("    authorization: ").append(toIndentedString(authorization)).append("\n");
-        sb.append("    xProjectId: ").append(toIndentedString(xProjectId)).append("\n");
-        sb.append("    xSdkDate: ").append(toIndentedString(xSdkDate)).append("\n");
         sb.append("    taskId: ").append(toIndentedString(taskId)).append("\n");
         sb.append("    status: ").append(toIndentedString(status)).append("\n");
         sb.append("    startTime: ").append(toIndentedString(startTime)).append("\n");

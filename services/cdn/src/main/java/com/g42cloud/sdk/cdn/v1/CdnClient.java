@@ -1,6 +1,81 @@
 package com.g42cloud.sdk.cdn.v1;
 
-import com.g42cloud.sdk.cdn.v1.model.*;
+import com.g42cloud.sdk.cdn.v1.model.CreateDomainRequest;
+import com.g42cloud.sdk.cdn.v1.model.CreateDomainResponse;
+import com.g42cloud.sdk.cdn.v1.model.CreatePreheatingTasksRequest;
+import com.g42cloud.sdk.cdn.v1.model.CreatePreheatingTasksResponse;
+import com.g42cloud.sdk.cdn.v1.model.CreateRefreshTasksRequest;
+import com.g42cloud.sdk.cdn.v1.model.CreateRefreshTasksResponse;
+import com.g42cloud.sdk.cdn.v1.model.DeleteDomainRequest;
+import com.g42cloud.sdk.cdn.v1.model.DeleteDomainResponse;
+import com.g42cloud.sdk.cdn.v1.model.DisableDomainRequest;
+import com.g42cloud.sdk.cdn.v1.model.DisableDomainResponse;
+import com.g42cloud.sdk.cdn.v1.model.EnableDomainRequest;
+import com.g42cloud.sdk.cdn.v1.model.EnableDomainResponse;
+import com.g42cloud.sdk.cdn.v1.model.ListDomainsRequest;
+import com.g42cloud.sdk.cdn.v1.model.ListDomainsResponse;
+import com.g42cloud.sdk.cdn.v1.model.ShowBlackWhiteListRequest;
+import com.g42cloud.sdk.cdn.v1.model.ShowBlackWhiteListResponse;
+import com.g42cloud.sdk.cdn.v1.model.ShowCacheRulesRequest;
+import com.g42cloud.sdk.cdn.v1.model.ShowCacheRulesResponse;
+import com.g42cloud.sdk.cdn.v1.model.ShowCertificatesHttpsInfoRequest;
+import com.g42cloud.sdk.cdn.v1.model.ShowCertificatesHttpsInfoResponse;
+import com.g42cloud.sdk.cdn.v1.model.ShowDomainDetailRequest;
+import com.g42cloud.sdk.cdn.v1.model.ShowDomainDetailResponse;
+import com.g42cloud.sdk.cdn.v1.model.ShowDomainFullConfigRequest;
+import com.g42cloud.sdk.cdn.v1.model.ShowDomainFullConfigResponse;
+import com.g42cloud.sdk.cdn.v1.model.ShowDomainItemDetailsRequest;
+import com.g42cloud.sdk.cdn.v1.model.ShowDomainItemDetailsResponse;
+import com.g42cloud.sdk.cdn.v1.model.ShowDomainItemLocationDetailsRequest;
+import com.g42cloud.sdk.cdn.v1.model.ShowDomainItemLocationDetailsResponse;
+import com.g42cloud.sdk.cdn.v1.model.ShowDomainLocationStatsRequest;
+import com.g42cloud.sdk.cdn.v1.model.ShowDomainLocationStatsResponse;
+import com.g42cloud.sdk.cdn.v1.model.ShowDomainStatsRequest;
+import com.g42cloud.sdk.cdn.v1.model.ShowDomainStatsResponse;
+import com.g42cloud.sdk.cdn.v1.model.ShowHistoryTaskDetailsRequest;
+import com.g42cloud.sdk.cdn.v1.model.ShowHistoryTaskDetailsResponse;
+import com.g42cloud.sdk.cdn.v1.model.ShowHistoryTasksRequest;
+import com.g42cloud.sdk.cdn.v1.model.ShowHistoryTasksResponse;
+import com.g42cloud.sdk.cdn.v1.model.ShowHttpInfoRequest;
+import com.g42cloud.sdk.cdn.v1.model.ShowHttpInfoResponse;
+import com.g42cloud.sdk.cdn.v1.model.ShowIpInfoRequest;
+import com.g42cloud.sdk.cdn.v1.model.ShowIpInfoResponse;
+import com.g42cloud.sdk.cdn.v1.model.ShowLogsRequest;
+import com.g42cloud.sdk.cdn.v1.model.ShowLogsResponse;
+import com.g42cloud.sdk.cdn.v1.model.ShowOriginHostRequest;
+import com.g42cloud.sdk.cdn.v1.model.ShowOriginHostResponse;
+import com.g42cloud.sdk.cdn.v1.model.ShowQuotaRequest;
+import com.g42cloud.sdk.cdn.v1.model.ShowQuotaResponse;
+import com.g42cloud.sdk.cdn.v1.model.ShowReferRequest;
+import com.g42cloud.sdk.cdn.v1.model.ShowReferResponse;
+import com.g42cloud.sdk.cdn.v1.model.ShowResponseHeaderRequest;
+import com.g42cloud.sdk.cdn.v1.model.ShowResponseHeaderResponse;
+import com.g42cloud.sdk.cdn.v1.model.ShowTopUrlRequest;
+import com.g42cloud.sdk.cdn.v1.model.ShowTopUrlResponse;
+import com.g42cloud.sdk.cdn.v1.model.UpdateBlackWhiteListRequest;
+import com.g42cloud.sdk.cdn.v1.model.UpdateBlackWhiteListResponse;
+import com.g42cloud.sdk.cdn.v1.model.UpdateCacheRulesRequest;
+import com.g42cloud.sdk.cdn.v1.model.UpdateCacheRulesResponse;
+import com.g42cloud.sdk.cdn.v1.model.UpdateDomainFullConfigRequest;
+import com.g42cloud.sdk.cdn.v1.model.UpdateDomainFullConfigResponse;
+import com.g42cloud.sdk.cdn.v1.model.UpdateDomainMultiCertificatesRequest;
+import com.g42cloud.sdk.cdn.v1.model.UpdateDomainMultiCertificatesResponse;
+import com.g42cloud.sdk.cdn.v1.model.UpdateDomainOriginRequest;
+import com.g42cloud.sdk.cdn.v1.model.UpdateDomainOriginResponse;
+import com.g42cloud.sdk.cdn.v1.model.UpdateFollow302SwitchRequest;
+import com.g42cloud.sdk.cdn.v1.model.UpdateFollow302SwitchResponse;
+import com.g42cloud.sdk.cdn.v1.model.UpdateHttpsInfoRequest;
+import com.g42cloud.sdk.cdn.v1.model.UpdateHttpsInfoResponse;
+import com.g42cloud.sdk.cdn.v1.model.UpdateOriginHostRequest;
+import com.g42cloud.sdk.cdn.v1.model.UpdateOriginHostResponse;
+import com.g42cloud.sdk.cdn.v1.model.UpdatePrivateBucketAccessRequest;
+import com.g42cloud.sdk.cdn.v1.model.UpdatePrivateBucketAccessResponse;
+import com.g42cloud.sdk.cdn.v1.model.UpdateRangeSwitchRequest;
+import com.g42cloud.sdk.cdn.v1.model.UpdateRangeSwitchResponse;
+import com.g42cloud.sdk.cdn.v1.model.UpdateReferRequest;
+import com.g42cloud.sdk.cdn.v1.model.UpdateReferResponse;
+import com.g42cloud.sdk.cdn.v1.model.UpdateResponseHeaderRequest;
+import com.g42cloud.sdk.cdn.v1.model.UpdateResponseHeaderResponse;
 import com.g42cloud.sdk.core.ClientBuilder;
 import com.g42cloud.sdk.core.HcClient;
 import com.g42cloud.sdk.core.invoker.SyncInvoker;
@@ -14,7 +89,8 @@ public class CdnClient {
     }
 
     public static ClientBuilder<CdnClient> newBuilder() {
-        return new ClientBuilder<>(CdnClient::new, "GlobalCredentials");
+        ClientBuilder<CdnClient> clientBuilder = new ClientBuilder<>(CdnClient::new, "GlobalCredentials");
+        return clientBuilder;
     }
 
     public CreateDomainResponse createDomain(CreateDomainRequest request) {

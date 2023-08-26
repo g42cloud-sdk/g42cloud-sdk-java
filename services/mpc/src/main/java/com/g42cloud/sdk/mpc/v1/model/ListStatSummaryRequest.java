@@ -11,21 +11,6 @@ import java.util.Objects;
 public class ListStatSummaryRequest {
 
     @JsonInclude(JsonInclude.Include.NON_NULL)
-    @JsonProperty(value = "Authorization")
-
-    private String authorization;
-
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    @JsonProperty(value = "X-Project_Id")
-
-    private String xProjectId;
-
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    @JsonProperty(value = "X-Sdk-Date")
-
-    private String xSdkDate;
-
-    @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonProperty(value = "start_time")
 
     private String startTime;
@@ -39,49 +24,6 @@ public class ListStatSummaryRequest {
     @JsonProperty(value = "stat_type")
 
     private String statType;
-
-    public ListStatSummaryRequest withAuthorization(String authorization) {
-        this.authorization = authorization;
-        return this;
-    }
-
-    public String getAuthorization() {
-        return authorization;
-    }
-
-    public void setAuthorization(String authorization) {
-        this.authorization = authorization;
-    }
-
-    public ListStatSummaryRequest withXProjectId(String xProjectId) {
-        this.xProjectId = xProjectId;
-        return this;
-    }
-
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    @JsonProperty(value = "X-Project_Id")
-    public String getXProjectId() {
-        return xProjectId;
-    }
-
-    public void setXProjectId(String xProjectId) {
-        this.xProjectId = xProjectId;
-    }
-
-    public ListStatSummaryRequest withXSdkDate(String xSdkDate) {
-        this.xSdkDate = xSdkDate;
-        return this;
-    }
-
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    @JsonProperty(value = "X-Sdk-Date")
-    public String getXSdkDate() {
-        return xSdkDate;
-    }
-
-    public void setXSdkDate(String xSdkDate) {
-        this.xSdkDate = xSdkDate;
-    }
 
     public ListStatSummaryRequest withStartTime(String startTime) {
         this.startTime = startTime;
@@ -123,34 +65,27 @@ public class ListStatSummaryRequest {
     }
 
     @Override
-    public boolean equals(java.lang.Object o) {
-        if (this == o) {
+    public boolean equals(java.lang.Object obj) {
+        if (this == obj) {
             return true;
         }
-        if (o == null || getClass() != o.getClass()) {
+        if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
-        ListStatSummaryRequest listStatSummaryRequest = (ListStatSummaryRequest) o;
-        return Objects.equals(this.authorization, listStatSummaryRequest.authorization)
-            && Objects.equals(this.xProjectId, listStatSummaryRequest.xProjectId)
-            && Objects.equals(this.xSdkDate, listStatSummaryRequest.xSdkDate)
-            && Objects.equals(this.startTime, listStatSummaryRequest.startTime)
-            && Objects.equals(this.endTime, listStatSummaryRequest.endTime)
-            && Objects.equals(this.statType, listStatSummaryRequest.statType);
+        ListStatSummaryRequest that = (ListStatSummaryRequest) obj;
+        return Objects.equals(this.startTime, that.startTime) && Objects.equals(this.endTime, that.endTime)
+            && Objects.equals(this.statType, that.statType);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(authorization, xProjectId, xSdkDate, startTime, endTime, statType);
+        return Objects.hash(startTime, endTime, statType);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class ListStatSummaryRequest {\n");
-        sb.append("    authorization: ").append(toIndentedString(authorization)).append("\n");
-        sb.append("    xProjectId: ").append(toIndentedString(xProjectId)).append("\n");
-        sb.append("    xSdkDate: ").append(toIndentedString(xSdkDate)).append("\n");
         sb.append("    startTime: ").append(toIndentedString(startTime)).append("\n");
         sb.append("    endTime: ").append(toIndentedString(endTime)).append("\n");
         sb.append("    statType: ").append(toIndentedString(statType)).append("\n");

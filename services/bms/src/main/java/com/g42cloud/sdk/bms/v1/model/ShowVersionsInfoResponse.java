@@ -49,15 +49,15 @@ public class ShowVersionsInfoResponse extends SdkResponse {
     }
 
     @Override
-    public boolean equals(java.lang.Object o) {
-        if (this == o) {
+    public boolean equals(java.lang.Object obj) {
+        if (this == obj) {
             return true;
         }
-        if (o == null || getClass() != o.getClass()) {
+        if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
-        ShowVersionsInfoResponse showVersionsInfoResponse = (ShowVersionsInfoResponse) o;
-        return Objects.equals(this.versions, showVersionsInfoResponse.versions);
+        ShowVersionsInfoResponse that = (ShowVersionsInfoResponse) obj;
+        return Objects.equals(this.versions, that.versions);
     }
 
     @Override

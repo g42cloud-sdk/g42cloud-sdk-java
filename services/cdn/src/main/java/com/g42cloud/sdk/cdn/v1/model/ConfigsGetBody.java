@@ -242,21 +242,19 @@ public class ConfigsGetBody {
     }
 
     @Override
-    public boolean equals(java.lang.Object o) {
-        if (this == o) {
+    public boolean equals(java.lang.Object obj) {
+        if (this == obj) {
             return true;
         }
-        if (o == null || getClass() != o.getClass()) {
+        if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
-        ConfigsGetBody configsGetBody = (ConfigsGetBody) o;
-        return Objects.equals(this.originRequestHeader, configsGetBody.originRequestHeader)
-            && Objects.equals(this.httpResponseHeader, configsGetBody.httpResponseHeader)
-            && Objects.equals(this.urlAuth, configsGetBody.urlAuth) && Objects.equals(this.https, configsGetBody.https)
-            && Objects.equals(this.sources, configsGetBody.sources)
-            && Objects.equals(this.originProtocol, configsGetBody.originProtocol)
-            && Objects.equals(this.forceRedirect, configsGetBody.forceRedirect)
-            && Objects.equals(this.compress, configsGetBody.compress);
+        ConfigsGetBody that = (ConfigsGetBody) obj;
+        return Objects.equals(this.originRequestHeader, that.originRequestHeader)
+            && Objects.equals(this.httpResponseHeader, that.httpResponseHeader)
+            && Objects.equals(this.urlAuth, that.urlAuth) && Objects.equals(this.https, that.https)
+            && Objects.equals(this.sources, that.sources) && Objects.equals(this.originProtocol, that.originProtocol)
+            && Objects.equals(this.forceRedirect, that.forceRedirect) && Objects.equals(this.compress, that.compress);
     }
 
     @Override

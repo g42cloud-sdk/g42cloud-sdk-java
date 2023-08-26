@@ -12,67 +12,9 @@ import java.util.function.Consumer;
 public class CreateQualityEnhanceTemplateRequest {
 
     @JsonInclude(JsonInclude.Include.NON_NULL)
-    @JsonProperty(value = "Authorization")
-
-    private String authorization;
-
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    @JsonProperty(value = "X-Project_Id")
-
-    private String xProjectId;
-
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    @JsonProperty(value = "X-Sdk-Date")
-
-    private String xSdkDate;
-
-    @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonProperty(value = "body")
 
     private QualityEnhanceTemplate body;
-
-    public CreateQualityEnhanceTemplateRequest withAuthorization(String authorization) {
-        this.authorization = authorization;
-        return this;
-    }
-
-    public String getAuthorization() {
-        return authorization;
-    }
-
-    public void setAuthorization(String authorization) {
-        this.authorization = authorization;
-    }
-
-    public CreateQualityEnhanceTemplateRequest withXProjectId(String xProjectId) {
-        this.xProjectId = xProjectId;
-        return this;
-    }
-
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    @JsonProperty(value = "X-Project_Id")
-    public String getXProjectId() {
-        return xProjectId;
-    }
-
-    public void setXProjectId(String xProjectId) {
-        this.xProjectId = xProjectId;
-    }
-
-    public CreateQualityEnhanceTemplateRequest withXSdkDate(String xSdkDate) {
-        this.xSdkDate = xSdkDate;
-        return this;
-    }
-
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    @JsonProperty(value = "X-Sdk-Date")
-    public String getXSdkDate() {
-        return xSdkDate;
-    }
-
-    public void setXSdkDate(String xSdkDate) {
-        this.xSdkDate = xSdkDate;
-    }
 
     public CreateQualityEnhanceTemplateRequest withBody(QualityEnhanceTemplate body) {
         this.body = body;
@@ -97,33 +39,26 @@ public class CreateQualityEnhanceTemplateRequest {
     }
 
     @Override
-    public boolean equals(java.lang.Object o) {
-        if (this == o) {
+    public boolean equals(java.lang.Object obj) {
+        if (this == obj) {
             return true;
         }
-        if (o == null || getClass() != o.getClass()) {
+        if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
-        CreateQualityEnhanceTemplateRequest createQualityEnhanceTemplateRequest =
-            (CreateQualityEnhanceTemplateRequest) o;
-        return Objects.equals(this.authorization, createQualityEnhanceTemplateRequest.authorization)
-            && Objects.equals(this.xProjectId, createQualityEnhanceTemplateRequest.xProjectId)
-            && Objects.equals(this.xSdkDate, createQualityEnhanceTemplateRequest.xSdkDate)
-            && Objects.equals(this.body, createQualityEnhanceTemplateRequest.body);
+        CreateQualityEnhanceTemplateRequest that = (CreateQualityEnhanceTemplateRequest) obj;
+        return Objects.equals(this.body, that.body);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(authorization, xProjectId, xSdkDate, body);
+        return Objects.hash(body);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class CreateQualityEnhanceTemplateRequest {\n");
-        sb.append("    authorization: ").append(toIndentedString(authorization)).append("\n");
-        sb.append("    xProjectId: ").append(toIndentedString(xProjectId)).append("\n");
-        sb.append("    xSdkDate: ").append(toIndentedString(xSdkDate)).append("\n");
         sb.append("    body: ").append(toIndentedString(body)).append("\n");
         sb.append("}");
         return sb.toString();

@@ -3,7 +3,78 @@ package com.g42cloud.sdk.er.v3;
 import com.g42cloud.sdk.core.ClientBuilder;
 import com.g42cloud.sdk.core.HcClient;
 import com.g42cloud.sdk.core.invoker.AsyncInvoker;
-import com.g42cloud.sdk.er.v3.model.*;
+import com.g42cloud.sdk.er.v3.model.AssociateRouteTableRequest;
+import com.g42cloud.sdk.er.v3.model.AssociateRouteTableResponse;
+import com.g42cloud.sdk.er.v3.model.ChangeAvailabilityZoneRequest;
+import com.g42cloud.sdk.er.v3.model.ChangeAvailabilityZoneResponse;
+import com.g42cloud.sdk.er.v3.model.CreateEnterpriseRouterRequest;
+import com.g42cloud.sdk.er.v3.model.CreateEnterpriseRouterResponse;
+import com.g42cloud.sdk.er.v3.model.CreateResourceTagRequest;
+import com.g42cloud.sdk.er.v3.model.CreateResourceTagResponse;
+import com.g42cloud.sdk.er.v3.model.CreateRouteTableRequest;
+import com.g42cloud.sdk.er.v3.model.CreateRouteTableResponse;
+import com.g42cloud.sdk.er.v3.model.CreateStaticRouteRequest;
+import com.g42cloud.sdk.er.v3.model.CreateStaticRouteResponse;
+import com.g42cloud.sdk.er.v3.model.CreateVpcAttachmentRequest;
+import com.g42cloud.sdk.er.v3.model.CreateVpcAttachmentResponse;
+import com.g42cloud.sdk.er.v3.model.DeleteEnterpriseRouterRequest;
+import com.g42cloud.sdk.er.v3.model.DeleteEnterpriseRouterResponse;
+import com.g42cloud.sdk.er.v3.model.DeleteResourceTagRequest;
+import com.g42cloud.sdk.er.v3.model.DeleteResourceTagResponse;
+import com.g42cloud.sdk.er.v3.model.DeleteRouteTableRequest;
+import com.g42cloud.sdk.er.v3.model.DeleteRouteTableResponse;
+import com.g42cloud.sdk.er.v3.model.DeleteStaticRouteRequest;
+import com.g42cloud.sdk.er.v3.model.DeleteStaticRouteResponse;
+import com.g42cloud.sdk.er.v3.model.DeleteVpcAttachmentRequest;
+import com.g42cloud.sdk.er.v3.model.DeleteVpcAttachmentResponse;
+import com.g42cloud.sdk.er.v3.model.DisablePropagationRequest;
+import com.g42cloud.sdk.er.v3.model.DisablePropagationResponse;
+import com.g42cloud.sdk.er.v3.model.DisassociateRouteTableRequest;
+import com.g42cloud.sdk.er.v3.model.DisassociateRouteTableResponse;
+import com.g42cloud.sdk.er.v3.model.EnablePropagationRequest;
+import com.g42cloud.sdk.er.v3.model.EnablePropagationResponse;
+import com.g42cloud.sdk.er.v3.model.ListAssociationsRequest;
+import com.g42cloud.sdk.er.v3.model.ListAssociationsResponse;
+import com.g42cloud.sdk.er.v3.model.ListAttachmentsRequest;
+import com.g42cloud.sdk.er.v3.model.ListAttachmentsResponse;
+import com.g42cloud.sdk.er.v3.model.ListAvailabilityZoneRequest;
+import com.g42cloud.sdk.er.v3.model.ListAvailabilityZoneResponse;
+import com.g42cloud.sdk.er.v3.model.ListEffectiveRoutesRequest;
+import com.g42cloud.sdk.er.v3.model.ListEffectiveRoutesResponse;
+import com.g42cloud.sdk.er.v3.model.ListEnterpriseRoutersRequest;
+import com.g42cloud.sdk.er.v3.model.ListEnterpriseRoutersResponse;
+import com.g42cloud.sdk.er.v3.model.ListProjectTagsRequest;
+import com.g42cloud.sdk.er.v3.model.ListProjectTagsResponse;
+import com.g42cloud.sdk.er.v3.model.ListPropagationsRequest;
+import com.g42cloud.sdk.er.v3.model.ListPropagationsResponse;
+import com.g42cloud.sdk.er.v3.model.ListRouteTablesRequest;
+import com.g42cloud.sdk.er.v3.model.ListRouteTablesResponse;
+import com.g42cloud.sdk.er.v3.model.ListStaticRoutesRequest;
+import com.g42cloud.sdk.er.v3.model.ListStaticRoutesResponse;
+import com.g42cloud.sdk.er.v3.model.ListVpcAttachmentsRequest;
+import com.g42cloud.sdk.er.v3.model.ListVpcAttachmentsResponse;
+import com.g42cloud.sdk.er.v3.model.ShowAttachmentRequest;
+import com.g42cloud.sdk.er.v3.model.ShowAttachmentResponse;
+import com.g42cloud.sdk.er.v3.model.ShowEnterpriseRouterRequest;
+import com.g42cloud.sdk.er.v3.model.ShowEnterpriseRouterResponse;
+import com.g42cloud.sdk.er.v3.model.ShowResourceTagRequest;
+import com.g42cloud.sdk.er.v3.model.ShowResourceTagResponse;
+import com.g42cloud.sdk.er.v3.model.ShowRouteTableRequest;
+import com.g42cloud.sdk.er.v3.model.ShowRouteTableResponse;
+import com.g42cloud.sdk.er.v3.model.ShowStaticRouteRequest;
+import com.g42cloud.sdk.er.v3.model.ShowStaticRouteResponse;
+import com.g42cloud.sdk.er.v3.model.ShowVpcAttachmentRequest;
+import com.g42cloud.sdk.er.v3.model.ShowVpcAttachmentResponse;
+import com.g42cloud.sdk.er.v3.model.UpdateAttachmentRequest;
+import com.g42cloud.sdk.er.v3.model.UpdateAttachmentResponse;
+import com.g42cloud.sdk.er.v3.model.UpdateEnterpriseRouterRequest;
+import com.g42cloud.sdk.er.v3.model.UpdateEnterpriseRouterResponse;
+import com.g42cloud.sdk.er.v3.model.UpdateRouteTableRequest;
+import com.g42cloud.sdk.er.v3.model.UpdateRouteTableResponse;
+import com.g42cloud.sdk.er.v3.model.UpdateStaticRouteRequest;
+import com.g42cloud.sdk.er.v3.model.UpdateStaticRouteResponse;
+import com.g42cloud.sdk.er.v3.model.UpdateVpcAttachmentRequest;
+import com.g42cloud.sdk.er.v3.model.UpdateVpcAttachmentResponse;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -16,7 +87,8 @@ public class ErAsyncClient {
     }
 
     public static ClientBuilder<ErAsyncClient> newBuilder() {
-        return new ClientBuilder<>(ErAsyncClient::new);
+        ClientBuilder<ErAsyncClient> clientBuilder = new ClientBuilder<>(ErAsyncClient::new);
+        return clientBuilder;
     }
 
     public CompletableFuture<AssociateRouteTableResponse> associateRouteTableAsync(AssociateRouteTableRequest request) {

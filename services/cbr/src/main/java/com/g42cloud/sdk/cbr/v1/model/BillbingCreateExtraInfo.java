@@ -47,16 +47,16 @@ public class BillbingCreateExtraInfo {
     }
 
     @Override
-    public boolean equals(java.lang.Object o) {
-        if (this == o) {
+    public boolean equals(java.lang.Object obj) {
+        if (this == obj) {
             return true;
         }
-        if (o == null || getClass() != o.getClass()) {
+        if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
-        BillbingCreateExtraInfo billbingCreateExtraInfo = (BillbingCreateExtraInfo) o;
-        return Objects.equals(this.combinedOrderId, billbingCreateExtraInfo.combinedOrderId)
-            && Objects.equals(this.combinedOrderEcsNum, billbingCreateExtraInfo.combinedOrderEcsNum);
+        BillbingCreateExtraInfo that = (BillbingCreateExtraInfo) obj;
+        return Objects.equals(this.combinedOrderId, that.combinedOrderId)
+            && Objects.equals(this.combinedOrderEcsNum, that.combinedOrderEcsNum);
     }
 
     @Override

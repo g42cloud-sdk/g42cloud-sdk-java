@@ -51,22 +51,15 @@ public class DisassociateServerVirtualIpOption {
             if (value == null) {
                 return null;
             }
-            SubnetIdEnum result = STATIC_FIELDS.get(value);
-            if (result == null) {
-                result = new SubnetIdEnum(value);
-            }
-            return result;
+            return java.util.Optional.ofNullable(STATIC_FIELDS.get(value)).orElse(new SubnetIdEnum(value));
         }
 
         public static SubnetIdEnum valueOf(String value) {
             if (value == null) {
                 return null;
             }
-            SubnetIdEnum result = STATIC_FIELDS.get(value);
-            if (result != null) {
-                return result;
-            }
-            throw new IllegalArgumentException("Unexpected value '" + value + "'");
+            return java.util.Optional.ofNullable(STATIC_FIELDS.get(value))
+                .orElseThrow(() -> new IllegalArgumentException("Unexpected value '" + value + "'"));
         }
 
         @Override
@@ -124,22 +117,15 @@ public class DisassociateServerVirtualIpOption {
             if (value == null) {
                 return null;
             }
-            IpAddressEnum result = STATIC_FIELDS.get(value);
-            if (result == null) {
-                result = new IpAddressEnum(value);
-            }
-            return result;
+            return java.util.Optional.ofNullable(STATIC_FIELDS.get(value)).orElse(new IpAddressEnum(value));
         }
 
         public static IpAddressEnum valueOf(String value) {
             if (value == null) {
                 return null;
             }
-            IpAddressEnum result = STATIC_FIELDS.get(value);
-            if (result != null) {
-                return result;
-            }
-            throw new IllegalArgumentException("Unexpected value '" + value + "'");
+            return java.util.Optional.ofNullable(STATIC_FIELDS.get(value))
+                .orElseThrow(() -> new IllegalArgumentException("Unexpected value '" + value + "'"));
         }
 
         @Override
@@ -206,17 +192,16 @@ public class DisassociateServerVirtualIpOption {
     }
 
     @Override
-    public boolean equals(java.lang.Object o) {
-        if (this == o) {
+    public boolean equals(java.lang.Object obj) {
+        if (this == obj) {
             return true;
         }
-        if (o == null || getClass() != o.getClass()) {
+        if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
-        DisassociateServerVirtualIpOption disassociateServerVirtualIpOption = (DisassociateServerVirtualIpOption) o;
-        return Objects.equals(this.subnetId, disassociateServerVirtualIpOption.subnetId)
-            && Objects.equals(this.ipAddress, disassociateServerVirtualIpOption.ipAddress)
-            && Objects.equals(this.reverseBinding, disassociateServerVirtualIpOption.reverseBinding);
+        DisassociateServerVirtualIpOption that = (DisassociateServerVirtualIpOption) obj;
+        return Objects.equals(this.subnetId, that.subnetId) && Objects.equals(this.ipAddress, that.ipAddress)
+            && Objects.equals(this.reverseBinding, that.reverseBinding);
     }
 
     @Override

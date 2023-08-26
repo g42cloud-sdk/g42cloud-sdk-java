@@ -265,26 +265,23 @@ public class CreatePoolOption {
     }
 
     @Override
-    public boolean equals(java.lang.Object o) {
-        if (this == o) {
+    public boolean equals(java.lang.Object obj) {
+        if (this == obj) {
             return true;
         }
-        if (o == null || getClass() != o.getClass()) {
+        if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
-        CreatePoolOption createPoolOption = (CreatePoolOption) o;
-        return Objects.equals(this.adminStateUp, createPoolOption.adminStateUp)
-            && Objects.equals(this.description, createPoolOption.description)
-            && Objects.equals(this.lbAlgorithm, createPoolOption.lbAlgorithm)
-            && Objects.equals(this.listenerId, createPoolOption.listenerId)
-            && Objects.equals(this.loadbalancerId, createPoolOption.loadbalancerId)
-            && Objects.equals(this.name, createPoolOption.name)
-            && Objects.equals(this.projectId, createPoolOption.projectId)
-            && Objects.equals(this.protocol, createPoolOption.protocol)
-            && Objects.equals(this.sessionPersistence, createPoolOption.sessionPersistence)
-            && Objects.equals(this.slowStart, createPoolOption.slowStart)
-            && Objects.equals(this.memberDeletionProtectionEnable, createPoolOption.memberDeletionProtectionEnable)
-            && Objects.equals(this.vpcId, createPoolOption.vpcId) && Objects.equals(this.type, createPoolOption.type);
+        CreatePoolOption that = (CreatePoolOption) obj;
+        return Objects.equals(this.adminStateUp, that.adminStateUp)
+            && Objects.equals(this.description, that.description) && Objects.equals(this.lbAlgorithm, that.lbAlgorithm)
+            && Objects.equals(this.listenerId, that.listenerId)
+            && Objects.equals(this.loadbalancerId, that.loadbalancerId) && Objects.equals(this.name, that.name)
+            && Objects.equals(this.projectId, that.projectId) && Objects.equals(this.protocol, that.protocol)
+            && Objects.equals(this.sessionPersistence, that.sessionPersistence)
+            && Objects.equals(this.slowStart, that.slowStart)
+            && Objects.equals(this.memberDeletionProtectionEnable, that.memberDeletionProtectionEnable)
+            && Objects.equals(this.vpcId, that.vpcId) && Objects.equals(this.type, that.type);
     }
 
     @Override

@@ -1,6 +1,11 @@
 package com.g42cloud.sdk.cdn.v2;
 
-import com.g42cloud.sdk.cdn.v2.model.*;
+import com.g42cloud.sdk.cdn.v2.model.ShowDomainLocationStatsRequest;
+import com.g42cloud.sdk.cdn.v2.model.ShowDomainLocationStatsResponse;
+import com.g42cloud.sdk.cdn.v2.model.ShowDomainStatsRequest;
+import com.g42cloud.sdk.cdn.v2.model.ShowDomainStatsResponse;
+import com.g42cloud.sdk.cdn.v2.model.ShowTopUrlRequest;
+import com.g42cloud.sdk.cdn.v2.model.ShowTopUrlResponse;
 import com.g42cloud.sdk.core.ClientBuilder;
 import com.g42cloud.sdk.core.HcClient;
 import com.g42cloud.sdk.core.invoker.SyncInvoker;
@@ -14,7 +19,8 @@ public class CdnClient {
     }
 
     public static ClientBuilder<CdnClient> newBuilder() {
-        return new ClientBuilder<>(CdnClient::new, "GlobalCredentials");
+        ClientBuilder<CdnClient> clientBuilder = new ClientBuilder<>(CdnClient::new, "GlobalCredentials");
+        return clientBuilder;
     }
 
     public ShowDomainLocationStatsResponse showDomainLocationStats(ShowDomainLocationStatsRequest request) {

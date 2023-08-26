@@ -5,7 +5,151 @@ import com.g42cloud.sdk.core.http.FieldExistence;
 import com.g42cloud.sdk.core.http.HttpMethod;
 import com.g42cloud.sdk.core.http.HttpRequestDef;
 import com.g42cloud.sdk.core.http.LocationType;
-import com.g42cloud.sdk.mpc.v1.model.*;
+import com.g42cloud.sdk.mpc.v1.model.AgenciesTaskReq;
+import com.g42cloud.sdk.mpc.v1.model.BucketAuthorizedReq;
+import com.g42cloud.sdk.mpc.v1.model.CancelRemuxTaskRequest;
+import com.g42cloud.sdk.mpc.v1.model.CancelRemuxTaskResponse;
+import com.g42cloud.sdk.mpc.v1.model.CreateAgenciesTaskRequest;
+import com.g42cloud.sdk.mpc.v1.model.CreateAgenciesTaskResponse;
+import com.g42cloud.sdk.mpc.v1.model.CreateAnimatedGraphicsTaskReq;
+import com.g42cloud.sdk.mpc.v1.model.CreateAnimatedGraphicsTaskRequest;
+import com.g42cloud.sdk.mpc.v1.model.CreateAnimatedGraphicsTaskResponse;
+import com.g42cloud.sdk.mpc.v1.model.CreateEditingJobReq;
+import com.g42cloud.sdk.mpc.v1.model.CreateEditingJobRequest;
+import com.g42cloud.sdk.mpc.v1.model.CreateEditingJobResponse;
+import com.g42cloud.sdk.mpc.v1.model.CreateEncryptReq;
+import com.g42cloud.sdk.mpc.v1.model.CreateEncryptTaskRequest;
+import com.g42cloud.sdk.mpc.v1.model.CreateEncryptTaskResponse;
+import com.g42cloud.sdk.mpc.v1.model.CreateExtractTaskReq;
+import com.g42cloud.sdk.mpc.v1.model.CreateExtractTaskRequest;
+import com.g42cloud.sdk.mpc.v1.model.CreateExtractTaskResponse;
+import com.g42cloud.sdk.mpc.v1.model.CreateMbTasksReportRequest;
+import com.g42cloud.sdk.mpc.v1.model.CreateMbTasksReportResponse;
+import com.g42cloud.sdk.mpc.v1.model.CreateMediaProcessReq;
+import com.g42cloud.sdk.mpc.v1.model.CreateMediaProcessTaskRequest;
+import com.g42cloud.sdk.mpc.v1.model.CreateMediaProcessTaskResponse;
+import com.g42cloud.sdk.mpc.v1.model.CreateMergeChannelsReq;
+import com.g42cloud.sdk.mpc.v1.model.CreateMergeChannelsTaskRequest;
+import com.g42cloud.sdk.mpc.v1.model.CreateMergeChannelsTaskResponse;
+import com.g42cloud.sdk.mpc.v1.model.CreateMpeCallBackRequest;
+import com.g42cloud.sdk.mpc.v1.model.CreateMpeCallBackResponse;
+import com.g42cloud.sdk.mpc.v1.model.CreateQualityEnhanceTemplateRequest;
+import com.g42cloud.sdk.mpc.v1.model.CreateQualityEnhanceTemplateResponse;
+import com.g42cloud.sdk.mpc.v1.model.CreateRemuxTaskReq;
+import com.g42cloud.sdk.mpc.v1.model.CreateRemuxTaskRequest;
+import com.g42cloud.sdk.mpc.v1.model.CreateRemuxTaskResponse;
+import com.g42cloud.sdk.mpc.v1.model.CreateResetTracksReq;
+import com.g42cloud.sdk.mpc.v1.model.CreateResetTracksTaskRequest;
+import com.g42cloud.sdk.mpc.v1.model.CreateResetTracksTaskResponse;
+import com.g42cloud.sdk.mpc.v1.model.CreateRetryRemuxTaskRequest;
+import com.g42cloud.sdk.mpc.v1.model.CreateRetryRemuxTaskResponse;
+import com.g42cloud.sdk.mpc.v1.model.CreateTemplateGroupRequest;
+import com.g42cloud.sdk.mpc.v1.model.CreateTemplateGroupResponse;
+import com.g42cloud.sdk.mpc.v1.model.CreateThumbReq;
+import com.g42cloud.sdk.mpc.v1.model.CreateThumbnailsTaskRequest;
+import com.g42cloud.sdk.mpc.v1.model.CreateThumbnailsTaskResponse;
+import com.g42cloud.sdk.mpc.v1.model.CreateTransTemplateRequest;
+import com.g42cloud.sdk.mpc.v1.model.CreateTransTemplateResponse;
+import com.g42cloud.sdk.mpc.v1.model.CreateTranscodingReq;
+import com.g42cloud.sdk.mpc.v1.model.CreateTranscodingTaskRequest;
+import com.g42cloud.sdk.mpc.v1.model.CreateTranscodingTaskResponse;
+import com.g42cloud.sdk.mpc.v1.model.CreateWatermarkTemplateRequest;
+import com.g42cloud.sdk.mpc.v1.model.CreateWatermarkTemplateResponse;
+import com.g42cloud.sdk.mpc.v1.model.DeleteAnimatedGraphicsTaskRequest;
+import com.g42cloud.sdk.mpc.v1.model.DeleteAnimatedGraphicsTaskResponse;
+import com.g42cloud.sdk.mpc.v1.model.DeleteEditingJobRequest;
+import com.g42cloud.sdk.mpc.v1.model.DeleteEditingJobResponse;
+import com.g42cloud.sdk.mpc.v1.model.DeleteEncryptTaskRequest;
+import com.g42cloud.sdk.mpc.v1.model.DeleteEncryptTaskResponse;
+import com.g42cloud.sdk.mpc.v1.model.DeleteExtractTaskRequest;
+import com.g42cloud.sdk.mpc.v1.model.DeleteExtractTaskResponse;
+import com.g42cloud.sdk.mpc.v1.model.DeleteMediaProcessTaskRequest;
+import com.g42cloud.sdk.mpc.v1.model.DeleteMediaProcessTaskResponse;
+import com.g42cloud.sdk.mpc.v1.model.DeleteMergeChannelsTaskRequest;
+import com.g42cloud.sdk.mpc.v1.model.DeleteMergeChannelsTaskResponse;
+import com.g42cloud.sdk.mpc.v1.model.DeleteQualityEnhanceTemplateRequest;
+import com.g42cloud.sdk.mpc.v1.model.DeleteQualityEnhanceTemplateResponse;
+import com.g42cloud.sdk.mpc.v1.model.DeleteRemuxTaskRequest;
+import com.g42cloud.sdk.mpc.v1.model.DeleteRemuxTaskResponse;
+import com.g42cloud.sdk.mpc.v1.model.DeleteResetTracksTaskRequest;
+import com.g42cloud.sdk.mpc.v1.model.DeleteResetTracksTaskResponse;
+import com.g42cloud.sdk.mpc.v1.model.DeleteTemplateGroupRequest;
+import com.g42cloud.sdk.mpc.v1.model.DeleteTemplateGroupResponse;
+import com.g42cloud.sdk.mpc.v1.model.DeleteTemplateRequest;
+import com.g42cloud.sdk.mpc.v1.model.DeleteTemplateResponse;
+import com.g42cloud.sdk.mpc.v1.model.DeleteThumbnailsTaskRequest;
+import com.g42cloud.sdk.mpc.v1.model.DeleteThumbnailsTaskResponse;
+import com.g42cloud.sdk.mpc.v1.model.DeleteTranscodingTaskByConsoleRequest;
+import com.g42cloud.sdk.mpc.v1.model.DeleteTranscodingTaskByConsoleResponse;
+import com.g42cloud.sdk.mpc.v1.model.DeleteTranscodingTaskRequest;
+import com.g42cloud.sdk.mpc.v1.model.DeleteTranscodingTaskResponse;
+import com.g42cloud.sdk.mpc.v1.model.DeleteWatermarkTemplateRequest;
+import com.g42cloud.sdk.mpc.v1.model.DeleteWatermarkTemplateResponse;
+import com.g42cloud.sdk.mpc.v1.model.ListAllBucketsRequest;
+import com.g42cloud.sdk.mpc.v1.model.ListAllBucketsResponse;
+import com.g42cloud.sdk.mpc.v1.model.ListAllObsObjListRequest;
+import com.g42cloud.sdk.mpc.v1.model.ListAllObsObjListResponse;
+import com.g42cloud.sdk.mpc.v1.model.ListAnimatedGraphicsTaskRequest;
+import com.g42cloud.sdk.mpc.v1.model.ListAnimatedGraphicsTaskResponse;
+import com.g42cloud.sdk.mpc.v1.model.ListEditingJobRequest;
+import com.g42cloud.sdk.mpc.v1.model.ListEditingJobResponse;
+import com.g42cloud.sdk.mpc.v1.model.ListEncryptTaskRequest;
+import com.g42cloud.sdk.mpc.v1.model.ListEncryptTaskResponse;
+import com.g42cloud.sdk.mpc.v1.model.ListExtractTaskRequest;
+import com.g42cloud.sdk.mpc.v1.model.ListExtractTaskResponse;
+import com.g42cloud.sdk.mpc.v1.model.ListMediaProcessTaskRequest;
+import com.g42cloud.sdk.mpc.v1.model.ListMediaProcessTaskResponse;
+import com.g42cloud.sdk.mpc.v1.model.ListMergeChannelsTaskRequest;
+import com.g42cloud.sdk.mpc.v1.model.ListMergeChannelsTaskResponse;
+import com.g42cloud.sdk.mpc.v1.model.ListNotifyEventRequest;
+import com.g42cloud.sdk.mpc.v1.model.ListNotifyEventResponse;
+import com.g42cloud.sdk.mpc.v1.model.ListNotifySmnTopicConfigRequest;
+import com.g42cloud.sdk.mpc.v1.model.ListNotifySmnTopicConfigResponse;
+import com.g42cloud.sdk.mpc.v1.model.ListQualityEnhanceDefaultTemplateRequest;
+import com.g42cloud.sdk.mpc.v1.model.ListQualityEnhanceDefaultTemplateResponse;
+import com.g42cloud.sdk.mpc.v1.model.ListRemuxTaskRequest;
+import com.g42cloud.sdk.mpc.v1.model.ListRemuxTaskResponse;
+import com.g42cloud.sdk.mpc.v1.model.ListResetTracksTaskRequest;
+import com.g42cloud.sdk.mpc.v1.model.ListResetTracksTaskResponse;
+import com.g42cloud.sdk.mpc.v1.model.ListStatSummaryRequest;
+import com.g42cloud.sdk.mpc.v1.model.ListStatSummaryResponse;
+import com.g42cloud.sdk.mpc.v1.model.ListTemplateGroupRequest;
+import com.g42cloud.sdk.mpc.v1.model.ListTemplateGroupResponse;
+import com.g42cloud.sdk.mpc.v1.model.ListTemplateRequest;
+import com.g42cloud.sdk.mpc.v1.model.ListTemplateResponse;
+import com.g42cloud.sdk.mpc.v1.model.ListThumbnailsTaskRequest;
+import com.g42cloud.sdk.mpc.v1.model.ListThumbnailsTaskResponse;
+import com.g42cloud.sdk.mpc.v1.model.ListTranscodeDetailRequest;
+import com.g42cloud.sdk.mpc.v1.model.ListTranscodeDetailResponse;
+import com.g42cloud.sdk.mpc.v1.model.ListTranscodingTaskRequest;
+import com.g42cloud.sdk.mpc.v1.model.ListTranscodingTaskResponse;
+import com.g42cloud.sdk.mpc.v1.model.ListWatermarkTemplateRequest;
+import com.g42cloud.sdk.mpc.v1.model.ListWatermarkTemplateResponse;
+import com.g42cloud.sdk.mpc.v1.model.MbTasksReportReq;
+import com.g42cloud.sdk.mpc.v1.model.ModifyTransTemplateGroup;
+import com.g42cloud.sdk.mpc.v1.model.ModifyTransTemplateReq;
+import com.g42cloud.sdk.mpc.v1.model.MpeCallBackReq;
+import com.g42cloud.sdk.mpc.v1.model.NotificationConfigReq;
+import com.g42cloud.sdk.mpc.v1.model.NotifySmnTopicConfigRequest;
+import com.g42cloud.sdk.mpc.v1.model.NotifySmnTopicConfigResponse;
+import com.g42cloud.sdk.mpc.v1.model.QualityEnhanceTemplate;
+import com.g42cloud.sdk.mpc.v1.model.RemuxRetryReq;
+import com.g42cloud.sdk.mpc.v1.model.ShowAgenciesTaskRequest;
+import com.g42cloud.sdk.mpc.v1.model.ShowAgenciesTaskResponse;
+import com.g42cloud.sdk.mpc.v1.model.TransTemplate;
+import com.g42cloud.sdk.mpc.v1.model.TransTemplateGroup;
+import com.g42cloud.sdk.mpc.v1.model.UpdateBucketAuthorizedRequest;
+import com.g42cloud.sdk.mpc.v1.model.UpdateBucketAuthorizedResponse;
+import com.g42cloud.sdk.mpc.v1.model.UpdateQualityEnhanceTemplateReq;
+import com.g42cloud.sdk.mpc.v1.model.UpdateQualityEnhanceTemplateRequest;
+import com.g42cloud.sdk.mpc.v1.model.UpdateQualityEnhanceTemplateResponse;
+import com.g42cloud.sdk.mpc.v1.model.UpdateTemplateGroupRequest;
+import com.g42cloud.sdk.mpc.v1.model.UpdateTemplateGroupResponse;
+import com.g42cloud.sdk.mpc.v1.model.UpdateTransTemplateRequest;
+import com.g42cloud.sdk.mpc.v1.model.UpdateTransTemplateResponse;
+import com.g42cloud.sdk.mpc.v1.model.UpdateWatermarkTemplateRequest;
+import com.g42cloud.sdk.mpc.v1.model.UpdateWatermarkTemplateResponse;
+import com.g42cloud.sdk.mpc.v1.model.WatermarkTemplate;
 
 import java.util.List;
 
@@ -27,27 +171,6 @@ public class MpcMeta {
                 .withContentType("application/json");
 
         // requests
-        builder.<String>withRequestField("Authorization",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(CreateAnimatedGraphicsTaskRequest::getAuthorization, (req, v) -> {
-                req.setAuthorization(v);
-            }));
-        builder.<String>withRequestField("X-Project_Id",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(CreateAnimatedGraphicsTaskRequest::getXProjectId, (req, v) -> {
-                req.setXProjectId(v);
-            }));
-        builder.<String>withRequestField("X-Sdk-Date",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(CreateAnimatedGraphicsTaskRequest::getXSdkDate, (req, v) -> {
-                req.setXSdkDate(v);
-            }));
         builder.<CreateAnimatedGraphicsTaskReq>withRequestField("body",
             LocationType.Body,
             FieldExistence.NON_NULL_NON_EMPTY,
@@ -82,27 +205,6 @@ public class MpcMeta {
             TypeCasts.uncheckedConversion(String.class),
             f -> f.withMarshaller(DeleteAnimatedGraphicsTaskRequest::getTaskId, (req, v) -> {
                 req.setTaskId(v);
-            }));
-        builder.<String>withRequestField("Authorization",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(DeleteAnimatedGraphicsTaskRequest::getAuthorization, (req, v) -> {
-                req.setAuthorization(v);
-            }));
-        builder.<String>withRequestField("X-Project_Id",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(DeleteAnimatedGraphicsTaskRequest::getXProjectId, (req, v) -> {
-                req.setXProjectId(v);
-            }));
-        builder.<String>withRequestField("X-Sdk-Date",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(DeleteAnimatedGraphicsTaskRequest::getXSdkDate, (req, v) -> {
-                req.setXSdkDate(v);
             }));
 
         // response
@@ -165,27 +267,6 @@ public class MpcMeta {
             f -> f.withMarshaller(ListAnimatedGraphicsTaskRequest::getSize, (req, v) -> {
                 req.setSize(v);
             }));
-        builder.<String>withRequestField("Authorization",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(ListAnimatedGraphicsTaskRequest::getAuthorization, (req, v) -> {
-                req.setAuthorization(v);
-            }));
-        builder.<String>withRequestField("X-Project_Id",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(ListAnimatedGraphicsTaskRequest::getXProjectId, (req, v) -> {
-                req.setXProjectId(v);
-            }));
-        builder.<String>withRequestField("X-Sdk-Date",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(ListAnimatedGraphicsTaskRequest::getXSdkDate, (req, v) -> {
-                req.setXSdkDate(v);
-            }));
         builder.<String>withRequestField("x-language",
             LocationType.Header,
             FieldExistence.NULL_IGNORE,
@@ -211,27 +292,6 @@ public class MpcMeta {
                 .withContentType("application/json");
 
         // requests
-        builder.<String>withRequestField("Authorization",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(CreateAgenciesTaskRequest::getAuthorization, (req, v) -> {
-                req.setAuthorization(v);
-            }));
-        builder.<String>withRequestField("X-Project_Id",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(CreateAgenciesTaskRequest::getXProjectId, (req, v) -> {
-                req.setXProjectId(v);
-            }));
-        builder.<String>withRequestField("X-Sdk-Date",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(CreateAgenciesTaskRequest::getXSdkDate, (req, v) -> {
-                req.setXSdkDate(v);
-            }));
         builder.<AgenciesTaskReq>withRequestField("body",
             LocationType.Body,
             FieldExistence.NON_NULL_NON_EMPTY,
@@ -257,27 +317,6 @@ public class MpcMeta {
                 .withContentType("application/json");
 
         // requests
-        builder.<String>withRequestField("Authorization",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(ListAllBucketsRequest::getAuthorization, (req, v) -> {
-                req.setAuthorization(v);
-            }));
-        builder.<String>withRequestField("X-Project_Id",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(ListAllBucketsRequest::getXProjectId, (req, v) -> {
-                req.setXProjectId(v);
-            }));
-        builder.<String>withRequestField("X-Sdk-Date",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(ListAllBucketsRequest::getXSdkDate, (req, v) -> {
-                req.setXSdkDate(v);
-            }));
 
         // response
 
@@ -317,27 +356,6 @@ public class MpcMeta {
             f -> f.withMarshaller(ListAllObsObjListRequest::getType, (req, v) -> {
                 req.setType(v);
             }));
-        builder.<String>withRequestField("Authorization",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(ListAllObsObjListRequest::getAuthorization, (req, v) -> {
-                req.setAuthorization(v);
-            }));
-        builder.<String>withRequestField("X-Project_Id",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(ListAllObsObjListRequest::getXProjectId, (req, v) -> {
-                req.setXProjectId(v);
-            }));
-        builder.<String>withRequestField("X-Sdk-Date",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(ListAllObsObjListRequest::getXSdkDate, (req, v) -> {
-                req.setXSdkDate(v);
-            }));
 
         // response
 
@@ -356,27 +374,6 @@ public class MpcMeta {
                 .withContentType("application/json");
 
         // requests
-        builder.<String>withRequestField("Authorization",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(ListNotifyEventRequest::getAuthorization, (req, v) -> {
-                req.setAuthorization(v);
-            }));
-        builder.<String>withRequestField("X-Project_Id",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(ListNotifyEventRequest::getXProjectId, (req, v) -> {
-                req.setXProjectId(v);
-            }));
-        builder.<String>withRequestField("X-Sdk-Date",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(ListNotifyEventRequest::getXSdkDate, (req, v) -> {
-                req.setXSdkDate(v);
-            }));
 
         // response
 
@@ -396,27 +393,6 @@ public class MpcMeta {
                 .withContentType("application/json");
 
         // requests
-        builder.<String>withRequestField("Authorization",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(ListNotifySmnTopicConfigRequest::getAuthorization, (req, v) -> {
-                req.setAuthorization(v);
-            }));
-        builder.<String>withRequestField("X-Project_Id",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(ListNotifySmnTopicConfigRequest::getXProjectId, (req, v) -> {
-                req.setXProjectId(v);
-            }));
-        builder.<String>withRequestField("X-Sdk-Date",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(ListNotifySmnTopicConfigRequest::getXSdkDate, (req, v) -> {
-                req.setXSdkDate(v);
-            }));
 
         // response
 
@@ -435,27 +411,6 @@ public class MpcMeta {
             .withContentType("application/json");
 
         // requests
-        builder.<String>withRequestField("Authorization",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(NotifySmnTopicConfigRequest::getAuthorization, (req, v) -> {
-                req.setAuthorization(v);
-            }));
-        builder.<String>withRequestField("X-Project_Id",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(NotifySmnTopicConfigRequest::getXProjectId, (req, v) -> {
-                req.setXProjectId(v);
-            }));
-        builder.<String>withRequestField("X-Sdk-Date",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(NotifySmnTopicConfigRequest::getXSdkDate, (req, v) -> {
-                req.setXSdkDate(v);
-            }));
         builder.<NotificationConfigReq>withRequestField("body",
             LocationType.Body,
             FieldExistence.NULL_IGNORE,
@@ -481,27 +436,6 @@ public class MpcMeta {
                 .withContentType("application/json");
 
         // requests
-        builder.<String>withRequestField("Authorization",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(ShowAgenciesTaskRequest::getAuthorization, (req, v) -> {
-                req.setAuthorization(v);
-            }));
-        builder.<String>withRequestField("X-Project_Id",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(ShowAgenciesTaskRequest::getXProjectId, (req, v) -> {
-                req.setXProjectId(v);
-            }));
-        builder.<String>withRequestField("X-Sdk-Date",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(ShowAgenciesTaskRequest::getXSdkDate, (req, v) -> {
-                req.setXSdkDate(v);
-            }));
 
         // response
 
@@ -520,27 +454,6 @@ public class MpcMeta {
             .withContentType("application/json");
 
         // requests
-        builder.<String>withRequestField("Authorization",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(UpdateBucketAuthorizedRequest::getAuthorization, (req, v) -> {
-                req.setAuthorization(v);
-            }));
-        builder.<String>withRequestField("X-Project_Id",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(UpdateBucketAuthorizedRequest::getXProjectId, (req, v) -> {
-                req.setXProjectId(v);
-            }));
-        builder.<String>withRequestField("X-Sdk-Date",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(UpdateBucketAuthorizedRequest::getXSdkDate, (req, v) -> {
-                req.setXSdkDate(v);
-            }));
         builder.<BucketAuthorizedReq>withRequestField("body",
             LocationType.Body,
             FieldExistence.NON_NULL_NON_EMPTY,
@@ -683,27 +596,6 @@ public class MpcMeta {
                 .withContentType("application/json");
 
         // requests
-        builder.<String>withRequestField("Authorization",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(CreateEncryptTaskRequest::getAuthorization, (req, v) -> {
-                req.setAuthorization(v);
-            }));
-        builder.<String>withRequestField("X-Project_Id",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(CreateEncryptTaskRequest::getXProjectId, (req, v) -> {
-                req.setXProjectId(v);
-            }));
-        builder.<String>withRequestField("X-Sdk-Date",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(CreateEncryptTaskRequest::getXSdkDate, (req, v) -> {
-                req.setXSdkDate(v);
-            }));
         builder.<CreateEncryptReq>withRequestField("body",
             LocationType.Body,
             FieldExistence.NON_NULL_NON_EMPTY,
@@ -735,27 +627,6 @@ public class MpcMeta {
             TypeCasts.uncheckedConversion(String.class),
             f -> f.withMarshaller(DeleteEncryptTaskRequest::getTaskId, (req, v) -> {
                 req.setTaskId(v);
-            }));
-        builder.<String>withRequestField("Authorization",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(DeleteEncryptTaskRequest::getAuthorization, (req, v) -> {
-                req.setAuthorization(v);
-            }));
-        builder.<String>withRequestField("X-Project_Id",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(DeleteEncryptTaskRequest::getXProjectId, (req, v) -> {
-                req.setXProjectId(v);
-            }));
-        builder.<String>withRequestField("X-Sdk-Date",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(DeleteEncryptTaskRequest::getXSdkDate, (req, v) -> {
-                req.setXSdkDate(v);
             }));
 
         // response
@@ -817,27 +688,6 @@ public class MpcMeta {
             f -> f.withMarshaller(ListEncryptTaskRequest::getSize, (req, v) -> {
                 req.setSize(v);
             }));
-        builder.<String>withRequestField("Authorization",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(ListEncryptTaskRequest::getAuthorization, (req, v) -> {
-                req.setAuthorization(v);
-            }));
-        builder.<String>withRequestField("X-Project_Id",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(ListEncryptTaskRequest::getXProjectId, (req, v) -> {
-                req.setXProjectId(v);
-            }));
-        builder.<String>withRequestField("X-Sdk-Date",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(ListEncryptTaskRequest::getXSdkDate, (req, v) -> {
-                req.setXSdkDate(v);
-            }));
 
         // response
 
@@ -856,27 +706,6 @@ public class MpcMeta {
                 .withContentType("application/json");
 
         // requests
-        builder.<String>withRequestField("Authorization",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(CreateExtractTaskRequest::getAuthorization, (req, v) -> {
-                req.setAuthorization(v);
-            }));
-        builder.<String>withRequestField("X-Project_Id",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(CreateExtractTaskRequest::getXProjectId, (req, v) -> {
-                req.setXProjectId(v);
-            }));
-        builder.<String>withRequestField("X-Sdk-Date",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(CreateExtractTaskRequest::getXSdkDate, (req, v) -> {
-                req.setXSdkDate(v);
-            }));
         builder.<CreateExtractTaskReq>withRequestField("body",
             LocationType.Body,
             FieldExistence.NON_NULL_NON_EMPTY,
@@ -908,27 +737,6 @@ public class MpcMeta {
             TypeCasts.uncheckedConversion(String.class),
             f -> f.withMarshaller(DeleteExtractTaskRequest::getTaskId, (req, v) -> {
                 req.setTaskId(v);
-            }));
-        builder.<String>withRequestField("Authorization",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(DeleteExtractTaskRequest::getAuthorization, (req, v) -> {
-                req.setAuthorization(v);
-            }));
-        builder.<String>withRequestField("X-Project_Id",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(DeleteExtractTaskRequest::getXProjectId, (req, v) -> {
-                req.setXProjectId(v);
-            }));
-        builder.<String>withRequestField("X-Sdk-Date",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(DeleteExtractTaskRequest::getXSdkDate, (req, v) -> {
-                req.setXSdkDate(v);
             }));
 
         // response
@@ -990,27 +798,6 @@ public class MpcMeta {
             f -> f.withMarshaller(ListExtractTaskRequest::getSize, (req, v) -> {
                 req.setSize(v);
             }));
-        builder.<String>withRequestField("Authorization",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(ListExtractTaskRequest::getAuthorization, (req, v) -> {
-                req.setAuthorization(v);
-            }));
-        builder.<String>withRequestField("X-Project_Id",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(ListExtractTaskRequest::getXProjectId, (req, v) -> {
-                req.setXProjectId(v);
-            }));
-        builder.<String>withRequestField("X-Sdk-Date",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(ListExtractTaskRequest::getXSdkDate, (req, v) -> {
-                req.setXSdkDate(v);
-            }));
         builder.<String>withRequestField("x-language",
             LocationType.Header,
             FieldExistence.NULL_IGNORE,
@@ -1061,27 +848,6 @@ public class MpcMeta {
             .withContentType("application/json");
 
         // requests
-        builder.<String>withRequestField("Authorization",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(CreateMergeChannelsTaskRequest::getAuthorization, (req, v) -> {
-                req.setAuthorization(v);
-            }));
-        builder.<String>withRequestField("X-Project_Id",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(CreateMergeChannelsTaskRequest::getXProjectId, (req, v) -> {
-                req.setXProjectId(v);
-            }));
-        builder.<String>withRequestField("X-Sdk-Date",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(CreateMergeChannelsTaskRequest::getXSdkDate, (req, v) -> {
-                req.setXSdkDate(v);
-            }));
         builder.<CreateMergeChannelsReq>withRequestField("body",
             LocationType.Body,
             FieldExistence.NON_NULL_NON_EMPTY,
@@ -1107,27 +873,6 @@ public class MpcMeta {
             .withContentType("application/json");
 
         // requests
-        builder.<String>withRequestField("Authorization",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(CreateResetTracksTaskRequest::getAuthorization, (req, v) -> {
-                req.setAuthorization(v);
-            }));
-        builder.<String>withRequestField("X-Project_Id",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(CreateResetTracksTaskRequest::getXProjectId, (req, v) -> {
-                req.setXProjectId(v);
-            }));
-        builder.<String>withRequestField("X-Sdk-Date",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(CreateResetTracksTaskRequest::getXSdkDate, (req, v) -> {
-                req.setXSdkDate(v);
-            }));
         builder.<CreateResetTracksReq>withRequestField("body",
             LocationType.Body,
             FieldExistence.NON_NULL_NON_EMPTY,
@@ -1160,27 +905,6 @@ public class MpcMeta {
             f -> f.withMarshaller(DeleteMergeChannelsTaskRequest::getTaskId, (req, v) -> {
                 req.setTaskId(v);
             }));
-        builder.<String>withRequestField("Authorization",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(DeleteMergeChannelsTaskRequest::getAuthorization, (req, v) -> {
-                req.setAuthorization(v);
-            }));
-        builder.<String>withRequestField("X-Project_Id",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(DeleteMergeChannelsTaskRequest::getXProjectId, (req, v) -> {
-                req.setXProjectId(v);
-            }));
-        builder.<String>withRequestField("X-Sdk-Date",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(DeleteMergeChannelsTaskRequest::getXSdkDate, (req, v) -> {
-                req.setXSdkDate(v);
-            }));
 
         // response
 
@@ -1205,27 +929,6 @@ public class MpcMeta {
             TypeCasts.uncheckedConversion(String.class),
             f -> f.withMarshaller(DeleteResetTracksTaskRequest::getTaskId, (req, v) -> {
                 req.setTaskId(v);
-            }));
-        builder.<String>withRequestField("Authorization",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(DeleteResetTracksTaskRequest::getAuthorization, (req, v) -> {
-                req.setAuthorization(v);
-            }));
-        builder.<String>withRequestField("X-Project_Id",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(DeleteResetTracksTaskRequest::getXProjectId, (req, v) -> {
-                req.setXProjectId(v);
-            }));
-        builder.<String>withRequestField("X-Sdk-Date",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(DeleteResetTracksTaskRequest::getXSdkDate, (req, v) -> {
-                req.setXSdkDate(v);
             }));
 
         // response
@@ -1287,27 +990,6 @@ public class MpcMeta {
             f -> f.withMarshaller(ListMergeChannelsTaskRequest::getSize, (req, v) -> {
                 req.setSize(v);
             }));
-        builder.<String>withRequestField("Authorization",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(ListMergeChannelsTaskRequest::getAuthorization, (req, v) -> {
-                req.setAuthorization(v);
-            }));
-        builder.<String>withRequestField("X-Project_Id",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(ListMergeChannelsTaskRequest::getXProjectId, (req, v) -> {
-                req.setXProjectId(v);
-            }));
-        builder.<String>withRequestField("X-Sdk-Date",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(ListMergeChannelsTaskRequest::getXSdkDate, (req, v) -> {
-                req.setXSdkDate(v);
-            }));
 
         // response
 
@@ -1368,27 +1050,6 @@ public class MpcMeta {
             f -> f.withMarshaller(ListResetTracksTaskRequest::getSize, (req, v) -> {
                 req.setSize(v);
             }));
-        builder.<String>withRequestField("Authorization",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(ListResetTracksTaskRequest::getAuthorization, (req, v) -> {
-                req.setAuthorization(v);
-            }));
-        builder.<String>withRequestField("X-Project_Id",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(ListResetTracksTaskRequest::getXProjectId, (req, v) -> {
-                req.setXProjectId(v);
-            }));
-        builder.<String>withRequestField("X-Sdk-Date",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(ListResetTracksTaskRequest::getXSdkDate, (req, v) -> {
-                req.setXSdkDate(v);
-            }));
 
         // response
 
@@ -1407,27 +1068,6 @@ public class MpcMeta {
             .withContentType("application/json");
 
         // requests
-        builder.<String>withRequestField("Authorization",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(CreateMediaProcessTaskRequest::getAuthorization, (req, v) -> {
-                req.setAuthorization(v);
-            }));
-        builder.<String>withRequestField("X-Project_Id",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(CreateMediaProcessTaskRequest::getXProjectId, (req, v) -> {
-                req.setXProjectId(v);
-            }));
-        builder.<String>withRequestField("X-Sdk-Date",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(CreateMediaProcessTaskRequest::getXSdkDate, (req, v) -> {
-                req.setXSdkDate(v);
-            }));
         builder.<CreateMediaProcessReq>withRequestField("body",
             LocationType.Body,
             FieldExistence.NON_NULL_NON_EMPTY,
@@ -1459,27 +1099,6 @@ public class MpcMeta {
             TypeCasts.uncheckedConversion(String.class),
             f -> f.withMarshaller(DeleteMediaProcessTaskRequest::getTaskId, (req, v) -> {
                 req.setTaskId(v);
-            }));
-        builder.<String>withRequestField("Authorization",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(DeleteMediaProcessTaskRequest::getAuthorization, (req, v) -> {
-                req.setAuthorization(v);
-            }));
-        builder.<String>withRequestField("X-Project_Id",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(DeleteMediaProcessTaskRequest::getXProjectId, (req, v) -> {
-                req.setXProjectId(v);
-            }));
-        builder.<String>withRequestField("X-Sdk-Date",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(DeleteMediaProcessTaskRequest::getXSdkDate, (req, v) -> {
-                req.setXSdkDate(v);
             }));
 
         // response
@@ -1541,27 +1160,6 @@ public class MpcMeta {
             f -> f.withMarshaller(ListMediaProcessTaskRequest::getSize, (req, v) -> {
                 req.setSize(v);
             }));
-        builder.<String>withRequestField("Authorization",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(ListMediaProcessTaskRequest::getAuthorization, (req, v) -> {
-                req.setAuthorization(v);
-            }));
-        builder.<String>withRequestField("X-Project_Id",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(ListMediaProcessTaskRequest::getXProjectId, (req, v) -> {
-                req.setXProjectId(v);
-            }));
-        builder.<String>withRequestField("X-Sdk-Date",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(ListMediaProcessTaskRequest::getXSdkDate, (req, v) -> {
-                req.setXSdkDate(v);
-            }));
 
         // response
 
@@ -1608,27 +1206,6 @@ public class MpcMeta {
                 .withContentType("application/json");
 
         // requests
-        builder.<String>withRequestField("Authorization",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(CreateQualityEnhanceTemplateRequest::getAuthorization, (req, v) -> {
-                req.setAuthorization(v);
-            }));
-        builder.<String>withRequestField("X-Project_Id",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(CreateQualityEnhanceTemplateRequest::getXProjectId, (req, v) -> {
-                req.setXProjectId(v);
-            }));
-        builder.<String>withRequestField("X-Sdk-Date",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(CreateQualityEnhanceTemplateRequest::getXSdkDate, (req, v) -> {
-                req.setXSdkDate(v);
-            }));
         builder.<QualityEnhanceTemplate>withRequestField("body",
             LocationType.Body,
             FieldExistence.NULL_IGNORE,
@@ -1664,27 +1241,6 @@ public class MpcMeta {
             f -> f.withMarshaller(DeleteQualityEnhanceTemplateRequest::getTemplateId, (req, v) -> {
                 req.setTemplateId(v);
             }));
-        builder.<String>withRequestField("Authorization",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(DeleteQualityEnhanceTemplateRequest::getAuthorization, (req, v) -> {
-                req.setAuthorization(v);
-            }));
-        builder.<String>withRequestField("X-Project_Id",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(DeleteQualityEnhanceTemplateRequest::getXProjectId, (req, v) -> {
-                req.setXProjectId(v);
-            }));
-        builder.<String>withRequestField("X-Sdk-Date",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(DeleteQualityEnhanceTemplateRequest::getXSdkDate, (req, v) -> {
-                req.setXSdkDate(v);
-            }));
 
         // response
 
@@ -1706,27 +1262,6 @@ public class MpcMeta {
                 .withContentType("application/json");
 
         // requests
-        builder.<String>withRequestField("Authorization",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(ListQualityEnhanceDefaultTemplateRequest::getAuthorization, (req, v) -> {
-                req.setAuthorization(v);
-            }));
-        builder.<String>withRequestField("X-Project_Id",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(ListQualityEnhanceDefaultTemplateRequest::getXProjectId, (req, v) -> {
-                req.setXProjectId(v);
-            }));
-        builder.<String>withRequestField("X-Sdk-Date",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(ListQualityEnhanceDefaultTemplateRequest::getXSdkDate, (req, v) -> {
-                req.setXSdkDate(v);
-            }));
 
         // response
 
@@ -1748,27 +1283,6 @@ public class MpcMeta {
                 .withContentType("application/json");
 
         // requests
-        builder.<String>withRequestField("Authorization",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(UpdateQualityEnhanceTemplateRequest::getAuthorization, (req, v) -> {
-                req.setAuthorization(v);
-            }));
-        builder.<String>withRequestField("X-Project_Id",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(UpdateQualityEnhanceTemplateRequest::getXProjectId, (req, v) -> {
-                req.setXProjectId(v);
-            }));
-        builder.<String>withRequestField("X-Sdk-Date",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(UpdateQualityEnhanceTemplateRequest::getXSdkDate, (req, v) -> {
-                req.setXSdkDate(v);
-            }));
         builder.<UpdateQualityEnhanceTemplateReq>withRequestField("body",
             LocationType.Body,
             FieldExistence.NON_NULL_NON_EMPTY,
@@ -1801,34 +1315,6 @@ public class MpcMeta {
             f -> f.withMarshaller(ListTranscodeDetailRequest::getTaskId, (req, v) -> {
                 req.setTaskId(v);
             }));
-        builder.<String>withRequestField("Authorization",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(ListTranscodeDetailRequest::getAuthorization, (req, v) -> {
-                req.setAuthorization(v);
-            }));
-        builder.<String>withRequestField("X-Project_Id",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(ListTranscodeDetailRequest::getXProjectId, (req, v) -> {
-                req.setXProjectId(v);
-            }));
-        builder.<String>withRequestField("X-Sdk-Date",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(ListTranscodeDetailRequest::getXSdkDate, (req, v) -> {
-                req.setXSdkDate(v);
-            }));
-        builder.<String>withRequestField("x-vod-projectId",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(ListTranscodeDetailRequest::getXVodProjectId, (req, v) -> {
-                req.setXVodProjectId(v);
-            }));
 
         // response
 
@@ -1854,27 +1340,6 @@ public class MpcMeta {
             f -> f.withMarshaller(CancelRemuxTaskRequest::getTaskId, (req, v) -> {
                 req.setTaskId(v);
             }));
-        builder.<String>withRequestField("Authorization",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(CancelRemuxTaskRequest::getAuthorization, (req, v) -> {
-                req.setAuthorization(v);
-            }));
-        builder.<String>withRequestField("X-Project_Id",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(CancelRemuxTaskRequest::getXProjectId, (req, v) -> {
-                req.setXProjectId(v);
-            }));
-        builder.<String>withRequestField("X-Sdk-Date",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(CancelRemuxTaskRequest::getXSdkDate, (req, v) -> {
-                req.setXSdkDate(v);
-            }));
 
         // response
 
@@ -1893,27 +1358,6 @@ public class MpcMeta {
                 .withContentType("application/json");
 
         // requests
-        builder.<String>withRequestField("Authorization",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(CreateRemuxTaskRequest::getAuthorization, (req, v) -> {
-                req.setAuthorization(v);
-            }));
-        builder.<String>withRequestField("X-Project_Id",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(CreateRemuxTaskRequest::getXProjectId, (req, v) -> {
-                req.setXProjectId(v);
-            }));
-        builder.<String>withRequestField("X-Sdk-Date",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(CreateRemuxTaskRequest::getXSdkDate, (req, v) -> {
-                req.setXSdkDate(v);
-            }));
         builder.<CreateRemuxTaskReq>withRequestField("body",
             LocationType.Body,
             FieldExistence.NON_NULL_NON_EMPTY,
@@ -1939,27 +1383,6 @@ public class MpcMeta {
             .withContentType("application/json");
 
         // requests
-        builder.<String>withRequestField("Authorization",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(CreateRetryRemuxTaskRequest::getAuthorization, (req, v) -> {
-                req.setAuthorization(v);
-            }));
-        builder.<String>withRequestField("X-Project_Id",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(CreateRetryRemuxTaskRequest::getXProjectId, (req, v) -> {
-                req.setXProjectId(v);
-            }));
-        builder.<String>withRequestField("X-Sdk-Date",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(CreateRetryRemuxTaskRequest::getXSdkDate, (req, v) -> {
-                req.setXSdkDate(v);
-            }));
         builder.<RemuxRetryReq>withRequestField("body",
             LocationType.Body,
             FieldExistence.NON_NULL_NON_EMPTY,
@@ -1991,27 +1414,6 @@ public class MpcMeta {
             TypeCasts.uncheckedConversion(String.class),
             f -> f.withMarshaller(DeleteRemuxTaskRequest::getTaskId, (req, v) -> {
                 req.setTaskId(v);
-            }));
-        builder.<String>withRequestField("Authorization",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(DeleteRemuxTaskRequest::getAuthorization, (req, v) -> {
-                req.setAuthorization(v);
-            }));
-        builder.<String>withRequestField("X-Project_Id",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(DeleteRemuxTaskRequest::getXProjectId, (req, v) -> {
-                req.setXProjectId(v);
-            }));
-        builder.<String>withRequestField("X-Sdk-Date",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(DeleteRemuxTaskRequest::getXSdkDate, (req, v) -> {
-                req.setXSdkDate(v);
             }));
 
         // response
@@ -2087,27 +1489,6 @@ public class MpcMeta {
             f -> f.withMarshaller(ListRemuxTaskRequest::getSize, (req, v) -> {
                 req.setSize(v);
             }));
-        builder.<String>withRequestField("Authorization",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(ListRemuxTaskRequest::getAuthorization, (req, v) -> {
-                req.setAuthorization(v);
-            }));
-        builder.<String>withRequestField("X-Project_Id",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(ListRemuxTaskRequest::getXProjectId, (req, v) -> {
-                req.setXProjectId(v);
-            }));
-        builder.<String>withRequestField("X-Sdk-Date",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(ListRemuxTaskRequest::getXSdkDate, (req, v) -> {
-                req.setXSdkDate(v);
-            }));
 
         // response
 
@@ -2126,27 +1507,6 @@ public class MpcMeta {
                 .withContentType("application/json");
 
         // requests
-        builder.<String>withRequestField("Authorization",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(CreateTemplateGroupRequest::getAuthorization, (req, v) -> {
-                req.setAuthorization(v);
-            }));
-        builder.<String>withRequestField("X-Project_Id",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(CreateTemplateGroupRequest::getXProjectId, (req, v) -> {
-                req.setXProjectId(v);
-            }));
-        builder.<String>withRequestField("X-Sdk-Date",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(CreateTemplateGroupRequest::getXSdkDate, (req, v) -> {
-                req.setXSdkDate(v);
-            }));
         builder.<TransTemplateGroup>withRequestField("body",
             LocationType.Body,
             FieldExistence.NON_NULL_NON_EMPTY,
@@ -2178,27 +1538,6 @@ public class MpcMeta {
             TypeCasts.uncheckedConversion(String.class),
             f -> f.withMarshaller(DeleteTemplateGroupRequest::getGroupId, (req, v) -> {
                 req.setGroupId(v);
-            }));
-        builder.<String>withRequestField("Authorization",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(DeleteTemplateGroupRequest::getAuthorization, (req, v) -> {
-                req.setAuthorization(v);
-            }));
-        builder.<String>withRequestField("X-Project_Id",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(DeleteTemplateGroupRequest::getXProjectId, (req, v) -> {
-                req.setXProjectId(v);
-            }));
-        builder.<String>withRequestField("X-Sdk-Date",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(DeleteTemplateGroupRequest::getXSdkDate, (req, v) -> {
-                req.setXSdkDate(v);
             }));
 
         // response
@@ -2246,27 +1585,6 @@ public class MpcMeta {
             f -> f.withMarshaller(ListTemplateGroupRequest::getSize, (req, v) -> {
                 req.setSize(v);
             }));
-        builder.<String>withRequestField("Authorization",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(ListTemplateGroupRequest::getAuthorization, (req, v) -> {
-                req.setAuthorization(v);
-            }));
-        builder.<String>withRequestField("X-Project_Id",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(ListTemplateGroupRequest::getXProjectId, (req, v) -> {
-                req.setXProjectId(v);
-            }));
-        builder.<String>withRequestField("X-Sdk-Date",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(ListTemplateGroupRequest::getXSdkDate, (req, v) -> {
-                req.setXSdkDate(v);
-            }));
 
         // response
 
@@ -2285,27 +1603,6 @@ public class MpcMeta {
                 .withContentType("application/json");
 
         // requests
-        builder.<String>withRequestField("Authorization",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(UpdateTemplateGroupRequest::getAuthorization, (req, v) -> {
-                req.setAuthorization(v);
-            }));
-        builder.<String>withRequestField("X-Project_Id",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(UpdateTemplateGroupRequest::getXProjectId, (req, v) -> {
-                req.setXProjectId(v);
-            }));
-        builder.<String>withRequestField("X-Sdk-Date",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(UpdateTemplateGroupRequest::getXSdkDate, (req, v) -> {
-                req.setXSdkDate(v);
-            }));
         builder.<ModifyTransTemplateGroup>withRequestField("body",
             LocationType.Body,
             FieldExistence.NON_NULL_NON_EMPTY,
@@ -2331,34 +1628,6 @@ public class MpcMeta {
             .withContentType("application/json");
 
         // requests
-        builder.<String>withRequestField("Authorization",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(CreateThumbnailsTaskRequest::getAuthorization, (req, v) -> {
-                req.setAuthorization(v);
-            }));
-        builder.<String>withRequestField("X-Project_Id",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(CreateThumbnailsTaskRequest::getXProjectId, (req, v) -> {
-                req.setXProjectId(v);
-            }));
-        builder.<String>withRequestField("X-Sdk-Date",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(CreateThumbnailsTaskRequest::getXSdkDate, (req, v) -> {
-                req.setXSdkDate(v);
-            }));
-        builder.<String>withRequestField("x-vod-projectId",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(CreateThumbnailsTaskRequest::getXVodProjectId, (req, v) -> {
-                req.setXVodProjectId(v);
-            }));
         builder.<CreateThumbReq>withRequestField("body",
             LocationType.Body,
             FieldExistence.NON_NULL_NON_EMPTY,
@@ -2390,27 +1659,6 @@ public class MpcMeta {
             TypeCasts.uncheckedConversion(String.class),
             f -> f.withMarshaller(DeleteThumbnailsTaskRequest::getTaskId, (req, v) -> {
                 req.setTaskId(v);
-            }));
-        builder.<String>withRequestField("Authorization",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(DeleteThumbnailsTaskRequest::getAuthorization, (req, v) -> {
-                req.setAuthorization(v);
-            }));
-        builder.<String>withRequestField("X-Project_Id",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(DeleteThumbnailsTaskRequest::getXProjectId, (req, v) -> {
-                req.setXProjectId(v);
-            }));
-        builder.<String>withRequestField("X-Sdk-Date",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(DeleteThumbnailsTaskRequest::getXSdkDate, (req, v) -> {
-                req.setXSdkDate(v);
             }));
 
         // response
@@ -2472,27 +1720,6 @@ public class MpcMeta {
             f -> f.withMarshaller(ListThumbnailsTaskRequest::getSize, (req, v) -> {
                 req.setSize(v);
             }));
-        builder.<String>withRequestField("Authorization",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(ListThumbnailsTaskRequest::getAuthorization, (req, v) -> {
-                req.setAuthorization(v);
-            }));
-        builder.<String>withRequestField("X-Project_Id",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(ListThumbnailsTaskRequest::getXProjectId, (req, v) -> {
-                req.setXProjectId(v);
-            }));
-        builder.<String>withRequestField("X-Sdk-Date",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(ListThumbnailsTaskRequest::getXSdkDate, (req, v) -> {
-                req.setXSdkDate(v);
-            }));
         builder.<String>withRequestField("x-language",
             LocationType.Header,
             FieldExistence.NULL_IGNORE,
@@ -2518,34 +1745,6 @@ public class MpcMeta {
             .withContentType("application/json");
 
         // requests
-        builder.<String>withRequestField("Authorization",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(CreateTranscodingTaskRequest::getAuthorization, (req, v) -> {
-                req.setAuthorization(v);
-            }));
-        builder.<String>withRequestField("X-Project_Id",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(CreateTranscodingTaskRequest::getXProjectId, (req, v) -> {
-                req.setXProjectId(v);
-            }));
-        builder.<String>withRequestField("X-Sdk-Date",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(CreateTranscodingTaskRequest::getXSdkDate, (req, v) -> {
-                req.setXSdkDate(v);
-            }));
-        builder.<String>withRequestField("x-vod-projectId",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(CreateTranscodingTaskRequest::getXVodProjectId, (req, v) -> {
-                req.setXVodProjectId(v);
-            }));
         builder.<CreateTranscodingReq>withRequestField("body",
             LocationType.Body,
             FieldExistence.NULL_IGNORE,
@@ -2578,27 +1777,6 @@ public class MpcMeta {
             f -> f.withMarshaller(DeleteTranscodingTaskRequest::getTaskId, (req, v) -> {
                 req.setTaskId(v);
             }));
-        builder.<String>withRequestField("Authorization",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(DeleteTranscodingTaskRequest::getAuthorization, (req, v) -> {
-                req.setAuthorization(v);
-            }));
-        builder.<String>withRequestField("X-Project_Id",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(DeleteTranscodingTaskRequest::getXProjectId, (req, v) -> {
-                req.setXProjectId(v);
-            }));
-        builder.<String>withRequestField("X-Sdk-Date",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(DeleteTranscodingTaskRequest::getXSdkDate, (req, v) -> {
-                req.setXSdkDate(v);
-            }));
 
         // response
 
@@ -2626,27 +1804,6 @@ public class MpcMeta {
             TypeCasts.uncheckedConversion(Integer.class),
             f -> f.withMarshaller(DeleteTranscodingTaskByConsoleRequest::getTaskId, (req, v) -> {
                 req.setTaskId(v);
-            }));
-        builder.<String>withRequestField("Authorization",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(DeleteTranscodingTaskByConsoleRequest::getAuthorization, (req, v) -> {
-                req.setAuthorization(v);
-            }));
-        builder.<String>withRequestField("X-Project_Id",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(DeleteTranscodingTaskByConsoleRequest::getXProjectId, (req, v) -> {
-                req.setXProjectId(v);
-            }));
-        builder.<String>withRequestField("X-Sdk-Date",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(DeleteTranscodingTaskByConsoleRequest::getXSdkDate, (req, v) -> {
-                req.setXSdkDate(v);
             }));
 
         // response
@@ -2686,27 +1843,6 @@ public class MpcMeta {
             TypeCasts.uncheckedConversion(String.class),
             f -> f.withMarshaller(ListStatSummaryRequest::getStatType, (req, v) -> {
                 req.setStatType(v);
-            }));
-        builder.<String>withRequestField("Authorization",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(ListStatSummaryRequest::getAuthorization, (req, v) -> {
-                req.setAuthorization(v);
-            }));
-        builder.<String>withRequestField("X-Project_Id",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(ListStatSummaryRequest::getXProjectId, (req, v) -> {
-                req.setXProjectId(v);
-            }));
-        builder.<String>withRequestField("X-Sdk-Date",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(ListStatSummaryRequest::getXSdkDate, (req, v) -> {
-                req.setXSdkDate(v);
             }));
 
         // response
@@ -2775,27 +1911,6 @@ public class MpcMeta {
             f -> f.withMarshaller(ListTranscodingTaskRequest::getXLanguage, (req, v) -> {
                 req.setXLanguage(v);
             }));
-        builder.<String>withRequestField("Authorization",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(ListTranscodingTaskRequest::getAuthorization, (req, v) -> {
-                req.setAuthorization(v);
-            }));
-        builder.<String>withRequestField("X-Project_Id",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(ListTranscodingTaskRequest::getXProjectId, (req, v) -> {
-                req.setXProjectId(v);
-            }));
-        builder.<String>withRequestField("X-Sdk-Date",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(ListTranscodingTaskRequest::getXSdkDate, (req, v) -> {
-                req.setXSdkDate(v);
-            }));
 
         // response
 
@@ -2814,34 +1929,6 @@ public class MpcMeta {
                 .withContentType("application/json");
 
         // requests
-        builder.<String>withRequestField("Authorization",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(CreateTransTemplateRequest::getAuthorization, (req, v) -> {
-                req.setAuthorization(v);
-            }));
-        builder.<String>withRequestField("X-Project_Id",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(CreateTransTemplateRequest::getXProjectId, (req, v) -> {
-                req.setXProjectId(v);
-            }));
-        builder.<String>withRequestField("X-Sdk-Date",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(CreateTransTemplateRequest::getXSdkDate, (req, v) -> {
-                req.setXSdkDate(v);
-            }));
-        builder.<String>withRequestField("x-vod-projectId",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(CreateTransTemplateRequest::getXVodProjectId, (req, v) -> {
-                req.setXVodProjectId(v);
-            }));
         builder.<TransTemplate>withRequestField("body",
             LocationType.Body,
             FieldExistence.NULL_IGNORE,
@@ -2873,34 +1960,6 @@ public class MpcMeta {
             TypeCasts.uncheckedConversion(Long.class),
             f -> f.withMarshaller(DeleteTemplateRequest::getTemplateId, (req, v) -> {
                 req.setTemplateId(v);
-            }));
-        builder.<String>withRequestField("Authorization",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(DeleteTemplateRequest::getAuthorization, (req, v) -> {
-                req.setAuthorization(v);
-            }));
-        builder.<String>withRequestField("X-Project_Id",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(DeleteTemplateRequest::getXProjectId, (req, v) -> {
-                req.setXProjectId(v);
-            }));
-        builder.<String>withRequestField("X-Sdk-Date",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(DeleteTemplateRequest::getXSdkDate, (req, v) -> {
-                req.setXSdkDate(v);
-            }));
-        builder.<String>withRequestField("x-vod-projectId",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(DeleteTemplateRequest::getXVodProjectId, (req, v) -> {
-                req.setXVodProjectId(v);
             }));
 
         // response
@@ -2940,34 +1999,6 @@ public class MpcMeta {
             f -> f.withMarshaller(ListTemplateRequest::getSize, (req, v) -> {
                 req.setSize(v);
             }));
-        builder.<String>withRequestField("Authorization",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(ListTemplateRequest::getAuthorization, (req, v) -> {
-                req.setAuthorization(v);
-            }));
-        builder.<String>withRequestField("X-Project_Id",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(ListTemplateRequest::getXProjectId, (req, v) -> {
-                req.setXProjectId(v);
-            }));
-        builder.<String>withRequestField("X-Sdk-Date",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(ListTemplateRequest::getXSdkDate, (req, v) -> {
-                req.setXSdkDate(v);
-            }));
-        builder.<String>withRequestField("x-vod-projectId",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(ListTemplateRequest::getXVodProjectId, (req, v) -> {
-                req.setXVodProjectId(v);
-            }));
 
         // response
 
@@ -2986,27 +2017,6 @@ public class MpcMeta {
                 .withContentType("application/json");
 
         // requests
-        builder.<String>withRequestField("Authorization",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(UpdateTransTemplateRequest::getAuthorization, (req, v) -> {
-                req.setAuthorization(v);
-            }));
-        builder.<String>withRequestField("X-Project_Id",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(UpdateTransTemplateRequest::getXProjectId, (req, v) -> {
-                req.setXProjectId(v);
-            }));
-        builder.<String>withRequestField("X-Sdk-Date",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(UpdateTransTemplateRequest::getXSdkDate, (req, v) -> {
-                req.setXSdkDate(v);
-            }));
         builder.<ModifyTransTemplateReq>withRequestField("body",
             LocationType.Body,
             FieldExistence.NULL_IGNORE,
@@ -3032,34 +2042,6 @@ public class MpcMeta {
             .withContentType("application/json");
 
         // requests
-        builder.<String>withRequestField("Authorization",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(CreateWatermarkTemplateRequest::getAuthorization, (req, v) -> {
-                req.setAuthorization(v);
-            }));
-        builder.<String>withRequestField("X-Project_Id",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(CreateWatermarkTemplateRequest::getXProjectId, (req, v) -> {
-                req.setXProjectId(v);
-            }));
-        builder.<String>withRequestField("X-Sdk-Date",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(CreateWatermarkTemplateRequest::getXSdkDate, (req, v) -> {
-                req.setXSdkDate(v);
-            }));
-        builder.<String>withRequestField("x-vod-projectId",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(CreateWatermarkTemplateRequest::getXVodProjectId, (req, v) -> {
-                req.setXVodProjectId(v);
-            }));
         builder.<WatermarkTemplate>withRequestField("body",
             LocationType.Body,
             FieldExistence.NULL_IGNORE,
@@ -3091,34 +2073,6 @@ public class MpcMeta {
             TypeCasts.uncheckedConversion(Integer.class),
             f -> f.withMarshaller(DeleteWatermarkTemplateRequest::getTemplateId, (req, v) -> {
                 req.setTemplateId(v);
-            }));
-        builder.<String>withRequestField("Authorization",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(DeleteWatermarkTemplateRequest::getAuthorization, (req, v) -> {
-                req.setAuthorization(v);
-            }));
-        builder.<String>withRequestField("X-Project_Id",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(DeleteWatermarkTemplateRequest::getXProjectId, (req, v) -> {
-                req.setXProjectId(v);
-            }));
-        builder.<String>withRequestField("X-Sdk-Date",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(DeleteWatermarkTemplateRequest::getXSdkDate, (req, v) -> {
-                req.setXSdkDate(v);
-            }));
-        builder.<String>withRequestField("x-vod-projectId",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(DeleteWatermarkTemplateRequest::getXVodProjectId, (req, v) -> {
-                req.setXVodProjectId(v);
             }));
 
         // response
@@ -3159,27 +2113,6 @@ public class MpcMeta {
             f -> f.withMarshaller(ListWatermarkTemplateRequest::getSize, (req, v) -> {
                 req.setSize(v);
             }));
-        builder.<String>withRequestField("Authorization",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(ListWatermarkTemplateRequest::getAuthorization, (req, v) -> {
-                req.setAuthorization(v);
-            }));
-        builder.<String>withRequestField("X-Project_Id",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(ListWatermarkTemplateRequest::getXProjectId, (req, v) -> {
-                req.setXProjectId(v);
-            }));
-        builder.<String>withRequestField("X-Sdk-Date",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(ListWatermarkTemplateRequest::getXSdkDate, (req, v) -> {
-                req.setXSdkDate(v);
-            }));
 
         // response
 
@@ -3198,34 +2131,6 @@ public class MpcMeta {
             .withContentType("application/json");
 
         // requests
-        builder.<String>withRequestField("Authorization",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(UpdateWatermarkTemplateRequest::getAuthorization, (req, v) -> {
-                req.setAuthorization(v);
-            }));
-        builder.<String>withRequestField("X-Project_Id",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(UpdateWatermarkTemplateRequest::getXProjectId, (req, v) -> {
-                req.setXProjectId(v);
-            }));
-        builder.<String>withRequestField("X-Sdk-Date",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(UpdateWatermarkTemplateRequest::getXSdkDate, (req, v) -> {
-                req.setXSdkDate(v);
-            }));
-        builder.<String>withRequestField("x-vod-projectId",
-            LocationType.Header,
-            FieldExistence.NULL_IGNORE,
-            TypeCasts.uncheckedConversion(String.class),
-            f -> f.withMarshaller(UpdateWatermarkTemplateRequest::getXVodProjectId, (req, v) -> {
-                req.setXVodProjectId(v);
-            }));
         builder.<WatermarkTemplate>withRequestField("body",
             LocationType.Body,
             FieldExistence.NULL_IGNORE,

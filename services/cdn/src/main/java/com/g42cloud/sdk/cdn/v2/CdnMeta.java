@@ -1,6 +1,11 @@
 package com.g42cloud.sdk.cdn.v2;
 
-import com.g42cloud.sdk.cdn.v2.model.*;
+import com.g42cloud.sdk.cdn.v2.model.ShowDomainLocationStatsRequest;
+import com.g42cloud.sdk.cdn.v2.model.ShowDomainLocationStatsResponse;
+import com.g42cloud.sdk.cdn.v2.model.ShowDomainStatsRequest;
+import com.g42cloud.sdk.cdn.v2.model.ShowDomainStatsResponse;
+import com.g42cloud.sdk.cdn.v2.model.ShowTopUrlRequest;
+import com.g42cloud.sdk.cdn.v2.model.ShowTopUrlResponse;
 import com.g42cloud.sdk.core.TypeCasts;
 import com.g42cloud.sdk.core.http.FieldExistence;
 import com.g42cloud.sdk.core.http.HttpMethod;

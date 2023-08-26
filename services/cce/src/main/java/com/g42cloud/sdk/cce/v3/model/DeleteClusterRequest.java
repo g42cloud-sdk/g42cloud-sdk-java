@@ -80,22 +80,15 @@ public class DeleteClusterRequest {
             if (value == null) {
                 return null;
             }
-            DeleteEfsEnum result = STATIC_FIELDS.get(value);
-            if (result == null) {
-                result = new DeleteEfsEnum(value);
-            }
-            return result;
+            return java.util.Optional.ofNullable(STATIC_FIELDS.get(value)).orElse(new DeleteEfsEnum(value));
         }
 
         public static DeleteEfsEnum valueOf(String value) {
             if (value == null) {
                 return null;
             }
-            DeleteEfsEnum result = STATIC_FIELDS.get(value);
-            if (result != null) {
-                return result;
-            }
-            throw new IllegalArgumentException("Unexpected value '" + value + "'");
+            return java.util.Optional.ofNullable(STATIC_FIELDS.get(value))
+                .orElseThrow(() -> new IllegalArgumentException("Unexpected value '" + value + "'"));
         }
 
         @Override
@@ -177,22 +170,15 @@ public class DeleteClusterRequest {
             if (value == null) {
                 return null;
             }
-            DeleteEniEnum result = STATIC_FIELDS.get(value);
-            if (result == null) {
-                result = new DeleteEniEnum(value);
-            }
-            return result;
+            return java.util.Optional.ofNullable(STATIC_FIELDS.get(value)).orElse(new DeleteEniEnum(value));
         }
 
         public static DeleteEniEnum valueOf(String value) {
             if (value == null) {
                 return null;
             }
-            DeleteEniEnum result = STATIC_FIELDS.get(value);
-            if (result != null) {
-                return result;
-            }
-            throw new IllegalArgumentException("Unexpected value '" + value + "'");
+            return java.util.Optional.ofNullable(STATIC_FIELDS.get(value))
+                .orElseThrow(() -> new IllegalArgumentException("Unexpected value '" + value + "'"));
         }
 
         @Override
@@ -274,22 +260,15 @@ public class DeleteClusterRequest {
             if (value == null) {
                 return null;
             }
-            DeleteEvsEnum result = STATIC_FIELDS.get(value);
-            if (result == null) {
-                result = new DeleteEvsEnum(value);
-            }
-            return result;
+            return java.util.Optional.ofNullable(STATIC_FIELDS.get(value)).orElse(new DeleteEvsEnum(value));
         }
 
         public static DeleteEvsEnum valueOf(String value) {
             if (value == null) {
                 return null;
             }
-            DeleteEvsEnum result = STATIC_FIELDS.get(value);
-            if (result != null) {
-                return result;
-            }
-            throw new IllegalArgumentException("Unexpected value '" + value + "'");
+            return java.util.Optional.ofNullable(STATIC_FIELDS.get(value))
+                .orElseThrow(() -> new IllegalArgumentException("Unexpected value '" + value + "'"));
         }
 
         @Override
@@ -371,22 +350,15 @@ public class DeleteClusterRequest {
             if (value == null) {
                 return null;
             }
-            DeleteNetEnum result = STATIC_FIELDS.get(value);
-            if (result == null) {
-                result = new DeleteNetEnum(value);
-            }
-            return result;
+            return java.util.Optional.ofNullable(STATIC_FIELDS.get(value)).orElse(new DeleteNetEnum(value));
         }
 
         public static DeleteNetEnum valueOf(String value) {
             if (value == null) {
                 return null;
             }
-            DeleteNetEnum result = STATIC_FIELDS.get(value);
-            if (result != null) {
-                return result;
-            }
-            throw new IllegalArgumentException("Unexpected value '" + value + "'");
+            return java.util.Optional.ofNullable(STATIC_FIELDS.get(value))
+                .orElseThrow(() -> new IllegalArgumentException("Unexpected value '" + value + "'"));
         }
 
         @Override
@@ -468,22 +440,15 @@ public class DeleteClusterRequest {
             if (value == null) {
                 return null;
             }
-            DeleteObsEnum result = STATIC_FIELDS.get(value);
-            if (result == null) {
-                result = new DeleteObsEnum(value);
-            }
-            return result;
+            return java.util.Optional.ofNullable(STATIC_FIELDS.get(value)).orElse(new DeleteObsEnum(value));
         }
 
         public static DeleteObsEnum valueOf(String value) {
             if (value == null) {
                 return null;
             }
-            DeleteObsEnum result = STATIC_FIELDS.get(value);
-            if (result != null) {
-                return result;
-            }
-            throw new IllegalArgumentException("Unexpected value '" + value + "'");
+            return java.util.Optional.ofNullable(STATIC_FIELDS.get(value))
+                .orElseThrow(() -> new IllegalArgumentException("Unexpected value '" + value + "'"));
         }
 
         @Override
@@ -565,22 +530,15 @@ public class DeleteClusterRequest {
             if (value == null) {
                 return null;
             }
-            DeleteSfsEnum result = STATIC_FIELDS.get(value);
-            if (result == null) {
-                result = new DeleteSfsEnum(value);
-            }
-            return result;
+            return java.util.Optional.ofNullable(STATIC_FIELDS.get(value)).orElse(new DeleteSfsEnum(value));
         }
 
         public static DeleteSfsEnum valueOf(String value) {
             if (value == null) {
                 return null;
             }
-            DeleteSfsEnum result = STATIC_FIELDS.get(value);
-            if (result != null) {
-                return result;
-            }
-            throw new IllegalArgumentException("Unexpected value '" + value + "'");
+            return java.util.Optional.ofNullable(STATIC_FIELDS.get(value))
+                .orElseThrow(() -> new IllegalArgumentException("Unexpected value '" + value + "'"));
         }
 
         @Override
@@ -638,22 +596,15 @@ public class DeleteClusterRequest {
             if (value == null) {
                 return null;
             }
-            TobedeletedEnum result = STATIC_FIELDS.get(value);
-            if (result == null) {
-                result = new TobedeletedEnum(value);
-            }
-            return result;
+            return java.util.Optional.ofNullable(STATIC_FIELDS.get(value)).orElse(new TobedeletedEnum(value));
         }
 
         public static TobedeletedEnum valueOf(String value) {
             if (value == null) {
                 return null;
             }
-            TobedeletedEnum result = STATIC_FIELDS.get(value);
-            if (result != null) {
-                return result;
-            }
-            throw new IllegalArgumentException("Unexpected value '" + value + "'");
+            return java.util.Optional.ofNullable(STATIC_FIELDS.get(value))
+                .orElseThrow(() -> new IllegalArgumentException("Unexpected value '" + value + "'"));
         }
 
         @Override
@@ -780,22 +731,18 @@ public class DeleteClusterRequest {
     }
 
     @Override
-    public boolean equals(java.lang.Object o) {
-        if (this == o) {
+    public boolean equals(java.lang.Object obj) {
+        if (this == obj) {
             return true;
         }
-        if (o == null || getClass() != o.getClass()) {
+        if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
-        DeleteClusterRequest deleteClusterRequest = (DeleteClusterRequest) o;
-        return Objects.equals(this.clusterId, deleteClusterRequest.clusterId)
-            && Objects.equals(this.deleteEfs, deleteClusterRequest.deleteEfs)
-            && Objects.equals(this.deleteEni, deleteClusterRequest.deleteEni)
-            && Objects.equals(this.deleteEvs, deleteClusterRequest.deleteEvs)
-            && Objects.equals(this.deleteNet, deleteClusterRequest.deleteNet)
-            && Objects.equals(this.deleteObs, deleteClusterRequest.deleteObs)
-            && Objects.equals(this.deleteSfs, deleteClusterRequest.deleteSfs)
-            && Objects.equals(this.tobedeleted, deleteClusterRequest.tobedeleted);
+        DeleteClusterRequest that = (DeleteClusterRequest) obj;
+        return Objects.equals(this.clusterId, that.clusterId) && Objects.equals(this.deleteEfs, that.deleteEfs)
+            && Objects.equals(this.deleteEni, that.deleteEni) && Objects.equals(this.deleteEvs, that.deleteEvs)
+            && Objects.equals(this.deleteNet, that.deleteNet) && Objects.equals(this.deleteObs, that.deleteObs)
+            && Objects.equals(this.deleteSfs, that.deleteSfs) && Objects.equals(this.tobedeleted, that.tobedeleted);
     }
 
     @Override

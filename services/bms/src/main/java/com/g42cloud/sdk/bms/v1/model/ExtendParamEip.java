@@ -57,22 +57,15 @@ public class ExtendParamEip {
             if (value == null) {
                 return null;
             }
-            ChargingmodeEnum result = STATIC_FIELDS.get(value);
-            if (result == null) {
-                result = new ChargingmodeEnum(value);
-            }
-            return result;
+            return java.util.Optional.ofNullable(STATIC_FIELDS.get(value)).orElse(new ChargingmodeEnum(value));
         }
 
         public static ChargingmodeEnum valueOf(String value) {
             if (value == null) {
                 return null;
             }
-            ChargingmodeEnum result = STATIC_FIELDS.get(value);
-            if (result != null) {
-                return result;
-            }
-            throw new IllegalArgumentException("Unexpected value '" + value + "'");
+            return java.util.Optional.ofNullable(STATIC_FIELDS.get(value))
+                .orElseThrow(() -> new IllegalArgumentException("Unexpected value '" + value + "'"));
         }
 
         @Override
@@ -108,15 +101,15 @@ public class ExtendParamEip {
     }
 
     @Override
-    public boolean equals(java.lang.Object o) {
-        if (this == o) {
+    public boolean equals(java.lang.Object obj) {
+        if (this == obj) {
             return true;
         }
-        if (o == null || getClass() != o.getClass()) {
+        if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
-        ExtendParamEip extendParamEip = (ExtendParamEip) o;
-        return Objects.equals(this.chargingmode, extendParamEip.chargingmode);
+        ExtendParamEip that = (ExtendParamEip) obj;
+        return Objects.equals(this.chargingmode, that.chargingmode);
     }
 
     @Override

@@ -193,22 +193,20 @@ public class UpdatePoolOption {
     }
 
     @Override
-    public boolean equals(java.lang.Object o) {
-        if (this == o) {
+    public boolean equals(java.lang.Object obj) {
+        if (this == obj) {
             return true;
         }
-        if (o == null || getClass() != o.getClass()) {
+        if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
-        UpdatePoolOption updatePoolOption = (UpdatePoolOption) o;
-        return Objects.equals(this.adminStateUp, updatePoolOption.adminStateUp)
-            && Objects.equals(this.description, updatePoolOption.description)
-            && Objects.equals(this.lbAlgorithm, updatePoolOption.lbAlgorithm)
-            && Objects.equals(this.name, updatePoolOption.name)
-            && Objects.equals(this.sessionPersistence, updatePoolOption.sessionPersistence)
-            && Objects.equals(this.slowStart, updatePoolOption.slowStart)
-            && Objects.equals(this.memberDeletionProtectionEnable, updatePoolOption.memberDeletionProtectionEnable)
-            && Objects.equals(this.vpcId, updatePoolOption.vpcId) && Objects.equals(this.type, updatePoolOption.type);
+        UpdatePoolOption that = (UpdatePoolOption) obj;
+        return Objects.equals(this.adminStateUp, that.adminStateUp)
+            && Objects.equals(this.description, that.description) && Objects.equals(this.lbAlgorithm, that.lbAlgorithm)
+            && Objects.equals(this.name, that.name) && Objects.equals(this.sessionPersistence, that.sessionPersistence)
+            && Objects.equals(this.slowStart, that.slowStart)
+            && Objects.equals(this.memberDeletionProtectionEnable, that.memberDeletionProtectionEnable)
+            && Objects.equals(this.vpcId, that.vpcId) && Objects.equals(this.type, that.type);
     }
 
     @Override

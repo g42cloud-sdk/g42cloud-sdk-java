@@ -88,22 +88,15 @@ public class BillingCreate {
             if (value == null) {
                 return null;
             }
-            PeriodTypeEnum result = STATIC_FIELDS.get(value);
-            if (result == null) {
-                result = new PeriodTypeEnum(value);
-            }
-            return result;
+            return java.util.Optional.ofNullable(STATIC_FIELDS.get(value)).orElse(new PeriodTypeEnum(value));
         }
 
         public static PeriodTypeEnum valueOf(String value) {
             if (value == null) {
                 return null;
             }
-            PeriodTypeEnum result = STATIC_FIELDS.get(value);
-            if (result != null) {
-                return result;
-            }
-            throw new IllegalArgumentException("Unexpected value '" + value + "'");
+            return java.util.Optional.ofNullable(STATIC_FIELDS.get(value))
+                .orElseThrow(() -> new IllegalArgumentException("Unexpected value '" + value + "'"));
         }
 
         @Override
@@ -388,30 +381,24 @@ public class BillingCreate {
     }
 
     @Override
-    public boolean equals(java.lang.Object o) {
-        if (this == o) {
+    public boolean equals(java.lang.Object obj) {
+        if (this == obj) {
             return true;
         }
-        if (o == null || getClass() != o.getClass()) {
+        if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
-        BillingCreate billingCreate = (BillingCreate) o;
-        return Objects.equals(this.cloudType, billingCreate.cloudType)
-            && Objects.equals(this.consistentLevel, billingCreate.consistentLevel)
-            && Objects.equals(this.objectType, billingCreate.objectType)
-            && Objects.equals(this.protectType, billingCreate.protectType)
-            && Objects.equals(this.size, billingCreate.size)
-            && Objects.equals(this.chargingMode, billingCreate.chargingMode)
-            && Objects.equals(this.periodType, billingCreate.periodType)
-            && Objects.equals(this.periodNum, billingCreate.periodNum)
-            && Objects.equals(this.isAutoRenew, billingCreate.isAutoRenew)
-            && Objects.equals(this.isAutoPay, billingCreate.isAutoPay)
-            && Objects.equals(this.consoleUrl, billingCreate.consoleUrl)
-            && Objects.equals(this.isMultiAz, billingCreate.isMultiAz)
-            && Objects.equals(this.promotionInfo, billingCreate.promotionInfo)
-            && Objects.equals(this.purchaseMode, billingCreate.purchaseMode)
-            && Objects.equals(this.orderId, billingCreate.orderId)
-            && Objects.equals(this.extraInfo, billingCreate.extraInfo);
+        BillingCreate that = (BillingCreate) obj;
+        return Objects.equals(this.cloudType, that.cloudType)
+            && Objects.equals(this.consistentLevel, that.consistentLevel)
+            && Objects.equals(this.objectType, that.objectType) && Objects.equals(this.protectType, that.protectType)
+            && Objects.equals(this.size, that.size) && Objects.equals(this.chargingMode, that.chargingMode)
+            && Objects.equals(this.periodType, that.periodType) && Objects.equals(this.periodNum, that.periodNum)
+            && Objects.equals(this.isAutoRenew, that.isAutoRenew) && Objects.equals(this.isAutoPay, that.isAutoPay)
+            && Objects.equals(this.consoleUrl, that.consoleUrl) && Objects.equals(this.isMultiAz, that.isMultiAz)
+            && Objects.equals(this.promotionInfo, that.promotionInfo)
+            && Objects.equals(this.purchaseMode, that.purchaseMode) && Objects.equals(this.orderId, that.orderId)
+            && Objects.equals(this.extraInfo, that.extraInfo);
     }
 
     @Override

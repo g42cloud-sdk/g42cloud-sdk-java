@@ -11,67 +11,9 @@ import java.util.Objects;
 public class DeleteExtractTaskRequest {
 
     @JsonInclude(JsonInclude.Include.NON_NULL)
-    @JsonProperty(value = "Authorization")
-
-    private String authorization;
-
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    @JsonProperty(value = "X-Project_Id")
-
-    private String xProjectId;
-
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    @JsonProperty(value = "X-Sdk-Date")
-
-    private String xSdkDate;
-
-    @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonProperty(value = "task_id")
 
     private String taskId;
-
-    public DeleteExtractTaskRequest withAuthorization(String authorization) {
-        this.authorization = authorization;
-        return this;
-    }
-
-    public String getAuthorization() {
-        return authorization;
-    }
-
-    public void setAuthorization(String authorization) {
-        this.authorization = authorization;
-    }
-
-    public DeleteExtractTaskRequest withXProjectId(String xProjectId) {
-        this.xProjectId = xProjectId;
-        return this;
-    }
-
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    @JsonProperty(value = "X-Project_Id")
-    public String getXProjectId() {
-        return xProjectId;
-    }
-
-    public void setXProjectId(String xProjectId) {
-        this.xProjectId = xProjectId;
-    }
-
-    public DeleteExtractTaskRequest withXSdkDate(String xSdkDate) {
-        this.xSdkDate = xSdkDate;
-        return this;
-    }
-
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    @JsonProperty(value = "X-Sdk-Date")
-    public String getXSdkDate() {
-        return xSdkDate;
-    }
-
-    public void setXSdkDate(String xSdkDate) {
-        this.xSdkDate = xSdkDate;
-    }
 
     public DeleteExtractTaskRequest withTaskId(String taskId) {
         this.taskId = taskId;
@@ -87,32 +29,26 @@ public class DeleteExtractTaskRequest {
     }
 
     @Override
-    public boolean equals(java.lang.Object o) {
-        if (this == o) {
+    public boolean equals(java.lang.Object obj) {
+        if (this == obj) {
             return true;
         }
-        if (o == null || getClass() != o.getClass()) {
+        if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
-        DeleteExtractTaskRequest deleteExtractTaskRequest = (DeleteExtractTaskRequest) o;
-        return Objects.equals(this.authorization, deleteExtractTaskRequest.authorization)
-            && Objects.equals(this.xProjectId, deleteExtractTaskRequest.xProjectId)
-            && Objects.equals(this.xSdkDate, deleteExtractTaskRequest.xSdkDate)
-            && Objects.equals(this.taskId, deleteExtractTaskRequest.taskId);
+        DeleteExtractTaskRequest that = (DeleteExtractTaskRequest) obj;
+        return Objects.equals(this.taskId, that.taskId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(authorization, xProjectId, xSdkDate, taskId);
+        return Objects.hash(taskId);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class DeleteExtractTaskRequest {\n");
-        sb.append("    authorization: ").append(toIndentedString(authorization)).append("\n");
-        sb.append("    xProjectId: ").append(toIndentedString(xProjectId)).append("\n");
-        sb.append("    xSdkDate: ").append(toIndentedString(xSdkDate)).append("\n");
         sb.append("    taskId: ").append(toIndentedString(taskId)).append("\n");
         sb.append("}");
         return sb.toString();

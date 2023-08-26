@@ -14,21 +14,6 @@ import java.util.function.Consumer;
 public class ListWatermarkTemplateRequest {
 
     @JsonInclude(JsonInclude.Include.NON_NULL)
-    @JsonProperty(value = "Authorization")
-
-    private String authorization;
-
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    @JsonProperty(value = "X-Project_Id")
-
-    private String xProjectId;
-
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    @JsonProperty(value = "X-Sdk-Date")
-
-    private String xSdkDate;
-
-    @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonProperty(value = "template_id")
 
     private List<Integer> templateId = null;
@@ -42,49 +27,6 @@ public class ListWatermarkTemplateRequest {
     @JsonProperty(value = "size")
 
     private Integer size;
-
-    public ListWatermarkTemplateRequest withAuthorization(String authorization) {
-        this.authorization = authorization;
-        return this;
-    }
-
-    public String getAuthorization() {
-        return authorization;
-    }
-
-    public void setAuthorization(String authorization) {
-        this.authorization = authorization;
-    }
-
-    public ListWatermarkTemplateRequest withXProjectId(String xProjectId) {
-        this.xProjectId = xProjectId;
-        return this;
-    }
-
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    @JsonProperty(value = "X-Project_Id")
-    public String getXProjectId() {
-        return xProjectId;
-    }
-
-    public void setXProjectId(String xProjectId) {
-        this.xProjectId = xProjectId;
-    }
-
-    public ListWatermarkTemplateRequest withXSdkDate(String xSdkDate) {
-        this.xSdkDate = xSdkDate;
-        return this;
-    }
-
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    @JsonProperty(value = "X-Sdk-Date")
-    public String getXSdkDate() {
-        return xSdkDate;
-    }
-
-    public void setXSdkDate(String xSdkDate) {
-        this.xSdkDate = xSdkDate;
-    }
 
     public ListWatermarkTemplateRequest withTemplateId(List<Integer> templateId) {
         this.templateId = templateId;
@@ -142,34 +84,27 @@ public class ListWatermarkTemplateRequest {
     }
 
     @Override
-    public boolean equals(java.lang.Object o) {
-        if (this == o) {
+    public boolean equals(java.lang.Object obj) {
+        if (this == obj) {
             return true;
         }
-        if (o == null || getClass() != o.getClass()) {
+        if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
-        ListWatermarkTemplateRequest listWatermarkTemplateRequest = (ListWatermarkTemplateRequest) o;
-        return Objects.equals(this.authorization, listWatermarkTemplateRequest.authorization)
-            && Objects.equals(this.xProjectId, listWatermarkTemplateRequest.xProjectId)
-            && Objects.equals(this.xSdkDate, listWatermarkTemplateRequest.xSdkDate)
-            && Objects.equals(this.templateId, listWatermarkTemplateRequest.templateId)
-            && Objects.equals(this.page, listWatermarkTemplateRequest.page)
-            && Objects.equals(this.size, listWatermarkTemplateRequest.size);
+        ListWatermarkTemplateRequest that = (ListWatermarkTemplateRequest) obj;
+        return Objects.equals(this.templateId, that.templateId) && Objects.equals(this.page, that.page)
+            && Objects.equals(this.size, that.size);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(authorization, xProjectId, xSdkDate, templateId, page, size);
+        return Objects.hash(templateId, page, size);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class ListWatermarkTemplateRequest {\n");
-        sb.append("    authorization: ").append(toIndentedString(authorization)).append("\n");
-        sb.append("    xProjectId: ").append(toIndentedString(xProjectId)).append("\n");
-        sb.append("    xSdkDate: ").append(toIndentedString(xSdkDate)).append("\n");
         sb.append("    templateId: ").append(toIndentedString(templateId)).append("\n");
         sb.append("    page: ").append(toIndentedString(page)).append("\n");
         sb.append("    size: ").append(toIndentedString(size)).append("\n");

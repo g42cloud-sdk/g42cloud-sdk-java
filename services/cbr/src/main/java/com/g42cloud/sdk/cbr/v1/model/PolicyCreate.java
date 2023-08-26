@@ -120,18 +120,17 @@ public class PolicyCreate {
     }
 
     @Override
-    public boolean equals(java.lang.Object o) {
-        if (this == o) {
+    public boolean equals(java.lang.Object obj) {
+        if (this == obj) {
             return true;
         }
-        if (o == null || getClass() != o.getClass()) {
+        if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
-        PolicyCreate policyCreate = (PolicyCreate) o;
-        return Objects.equals(this.enabled, policyCreate.enabled) && Objects.equals(this.name, policyCreate.name)
-            && Objects.equals(this.operationDefinition, policyCreate.operationDefinition)
-            && Objects.equals(this.operationType, policyCreate.operationType)
-            && Objects.equals(this.trigger, policyCreate.trigger);
+        PolicyCreate that = (PolicyCreate) obj;
+        return Objects.equals(this.enabled, that.enabled) && Objects.equals(this.name, that.name)
+            && Objects.equals(this.operationDefinition, that.operationDefinition)
+            && Objects.equals(this.operationType, that.operationType) && Objects.equals(this.trigger, that.trigger);
     }
 
     @Override

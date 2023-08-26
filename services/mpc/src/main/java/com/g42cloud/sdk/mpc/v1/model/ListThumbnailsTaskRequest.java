@@ -19,21 +19,6 @@ import java.util.function.Consumer;
 public class ListThumbnailsTaskRequest {
 
     @JsonInclude(JsonInclude.Include.NON_NULL)
-    @JsonProperty(value = "Authorization")
-
-    private String authorization;
-
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    @JsonProperty(value = "X-Project_Id")
-
-    private String xProjectId;
-
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    @JsonProperty(value = "X-Sdk-Date")
-
-    private String xSdkDate;
-
-    @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonProperty(value = "x-language")
 
     private String xLanguage;
@@ -103,22 +88,15 @@ public class ListThumbnailsTaskRequest {
             if (value == null) {
                 return null;
             }
-            StatusEnum result = STATIC_FIELDS.get(value);
-            if (result == null) {
-                result = new StatusEnum(value);
-            }
-            return result;
+            return java.util.Optional.ofNullable(STATIC_FIELDS.get(value)).orElse(new StatusEnum(value));
         }
 
         public static StatusEnum valueOf(String value) {
             if (value == null) {
                 return null;
             }
-            StatusEnum result = STATIC_FIELDS.get(value);
-            if (result != null) {
-                return result;
-            }
-            throw new IllegalArgumentException("Unexpected value '" + value + "'");
+            return java.util.Optional.ofNullable(STATIC_FIELDS.get(value))
+                .orElseThrow(() -> new IllegalArgumentException("Unexpected value '" + value + "'"));
         }
 
         @Override
@@ -159,49 +137,6 @@ public class ListThumbnailsTaskRequest {
     @JsonProperty(value = "size")
 
     private Integer size;
-
-    public ListThumbnailsTaskRequest withAuthorization(String authorization) {
-        this.authorization = authorization;
-        return this;
-    }
-
-    public String getAuthorization() {
-        return authorization;
-    }
-
-    public void setAuthorization(String authorization) {
-        this.authorization = authorization;
-    }
-
-    public ListThumbnailsTaskRequest withXProjectId(String xProjectId) {
-        this.xProjectId = xProjectId;
-        return this;
-    }
-
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    @JsonProperty(value = "X-Project_Id")
-    public String getXProjectId() {
-        return xProjectId;
-    }
-
-    public void setXProjectId(String xProjectId) {
-        this.xProjectId = xProjectId;
-    }
-
-    public ListThumbnailsTaskRequest withXSdkDate(String xSdkDate) {
-        this.xSdkDate = xSdkDate;
-        return this;
-    }
-
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    @JsonProperty(value = "X-Sdk-Date")
-    public String getXSdkDate() {
-        return xSdkDate;
-    }
-
-    public void setXSdkDate(String xSdkDate) {
-        this.xSdkDate = xSdkDate;
-    }
 
     public ListThumbnailsTaskRequest withXLanguage(String xLanguage) {
         this.xLanguage = xLanguage;
@@ -313,39 +248,29 @@ public class ListThumbnailsTaskRequest {
     }
 
     @Override
-    public boolean equals(java.lang.Object o) {
-        if (this == o) {
+    public boolean equals(java.lang.Object obj) {
+        if (this == obj) {
             return true;
         }
-        if (o == null || getClass() != o.getClass()) {
+        if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
-        ListThumbnailsTaskRequest listThumbnailsTaskRequest = (ListThumbnailsTaskRequest) o;
-        return Objects.equals(this.authorization, listThumbnailsTaskRequest.authorization)
-            && Objects.equals(this.xProjectId, listThumbnailsTaskRequest.xProjectId)
-            && Objects.equals(this.xSdkDate, listThumbnailsTaskRequest.xSdkDate)
-            && Objects.equals(this.xLanguage, listThumbnailsTaskRequest.xLanguage)
-            && Objects.equals(this.taskId, listThumbnailsTaskRequest.taskId)
-            && Objects.equals(this.status, listThumbnailsTaskRequest.status)
-            && Objects.equals(this.startTime, listThumbnailsTaskRequest.startTime)
-            && Objects.equals(this.endTime, listThumbnailsTaskRequest.endTime)
-            && Objects.equals(this.page, listThumbnailsTaskRequest.page)
-            && Objects.equals(this.size, listThumbnailsTaskRequest.size);
+        ListThumbnailsTaskRequest that = (ListThumbnailsTaskRequest) obj;
+        return Objects.equals(this.xLanguage, that.xLanguage) && Objects.equals(this.taskId, that.taskId)
+            && Objects.equals(this.status, that.status) && Objects.equals(this.startTime, that.startTime)
+            && Objects.equals(this.endTime, that.endTime) && Objects.equals(this.page, that.page)
+            && Objects.equals(this.size, that.size);
     }
 
     @Override
     public int hashCode() {
-        return Objects
-            .hash(authorization, xProjectId, xSdkDate, xLanguage, taskId, status, startTime, endTime, page, size);
+        return Objects.hash(xLanguage, taskId, status, startTime, endTime, page, size);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class ListThumbnailsTaskRequest {\n");
-        sb.append("    authorization: ").append(toIndentedString(authorization)).append("\n");
-        sb.append("    xProjectId: ").append(toIndentedString(xProjectId)).append("\n");
-        sb.append("    xSdkDate: ").append(toIndentedString(xSdkDate)).append("\n");
         sb.append("    xLanguage: ").append(toIndentedString(xLanguage)).append("\n");
         sb.append("    taskId: ").append(toIndentedString(taskId)).append("\n");
         sb.append("    status: ").append(toIndentedString(status)).append("\n");

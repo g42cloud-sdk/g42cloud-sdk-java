@@ -35,6 +35,11 @@ public class ThumbnailPara {
          */
         public static final TypeEnum DOTS = new TypeEnum("DOTS");
 
+        /**
+         * Enum DOTS_MS for value: "DOTS_MS"
+         */
+        public static final TypeEnum DOTS_MS = new TypeEnum("DOTS_MS");
+
         private static final Map<String, TypeEnum> STATIC_FIELDS = createStaticFields();
 
         private static Map<String, TypeEnum> createStaticFields() {
@@ -42,6 +47,7 @@ public class ThumbnailPara {
             map.put("PERCENT", PERCENT);
             map.put("TIME", TIME);
             map.put("DOTS", DOTS);
+            map.put("DOTS_MS", DOTS_MS);
             return Collections.unmodifiableMap(map);
         }
 
@@ -66,22 +72,15 @@ public class ThumbnailPara {
             if (value == null) {
                 return null;
             }
-            TypeEnum result = STATIC_FIELDS.get(value);
-            if (result == null) {
-                result = new TypeEnum(value);
-            }
-            return result;
+            return java.util.Optional.ofNullable(STATIC_FIELDS.get(value)).orElse(new TypeEnum(value));
         }
 
         public static TypeEnum valueOf(String value) {
             if (value == null) {
                 return null;
             }
-            TypeEnum result = STATIC_FIELDS.get(value);
-            if (result != null) {
-                return result;
-            }
-            throw new IllegalArgumentException("Unexpected value '" + value + "'");
+            return java.util.Optional.ofNullable(STATIC_FIELDS.get(value))
+                .orElseThrow(() -> new IllegalArgumentException("Unexpected value '" + value + "'"));
         }
 
         @Override
@@ -122,6 +121,11 @@ public class ThumbnailPara {
     @JsonProperty(value = "dots")
 
     private List<Integer> dots = null;
+
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    @JsonProperty(value = "dots_ms")
+
+    private List<Integer> dotsMs = null;
 
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonProperty(value = "output_filename")
@@ -229,6 +233,35 @@ public class ThumbnailPara {
         this.dots = dots;
     }
 
+    public ThumbnailPara withDotsMs(List<Integer> dotsMs) {
+        this.dotsMs = dotsMs;
+        return this;
+    }
+
+    public ThumbnailPara addDotsMsItem(Integer dotsMsItem) {
+        if (this.dotsMs == null) {
+            this.dotsMs = new ArrayList<>();
+        }
+        this.dotsMs.add(dotsMsItem);
+        return this;
+    }
+
+    public ThumbnailPara withDotsMs(Consumer<List<Integer>> dotsMsSetter) {
+        if (this.dotsMs == null) {
+            this.dotsMs = new ArrayList<>();
+        }
+        dotsMsSetter.accept(this.dotsMs);
+        return this;
+    }
+
+    public List<Integer> getDotsMs() {
+        return dotsMs;
+    }
+
+    public void setDotsMs(List<Integer> dotsMs) {
+        this.dotsMs = dotsMs;
+    }
+
     public ThumbnailPara withOutputFilename(String outputFilename) {
         this.outputFilename = outputFilename;
         return this;
@@ -295,26 +328,26 @@ public class ThumbnailPara {
     }
 
     @Override
-    public boolean equals(java.lang.Object o) {
-        if (this == o) {
+    public boolean equals(java.lang.Object obj) {
+        if (this == obj) {
             return true;
         }
-        if (o == null || getClass() != o.getClass()) {
+        if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
-        ThumbnailPara thumbnailPara = (ThumbnailPara) o;
-        return Objects.equals(this.type, thumbnailPara.type) && Objects.equals(this.time, thumbnailPara.time)
-            && Objects.equals(this.startTime, thumbnailPara.startTime)
-            && Objects.equals(this.duration, thumbnailPara.duration) && Objects.equals(this.dots, thumbnailPara.dots)
-            && Objects.equals(this.outputFilename, thumbnailPara.outputFilename)
-            && Objects.equals(this.format, thumbnailPara.format) && Objects.equals(this.width, thumbnailPara.width)
-            && Objects.equals(this.height, thumbnailPara.height)
-            && Objects.equals(this.maxLength, thumbnailPara.maxLength);
+        ThumbnailPara that = (ThumbnailPara) obj;
+        return Objects.equals(this.type, that.type) && Objects.equals(this.time, that.time)
+            && Objects.equals(this.startTime, that.startTime) && Objects.equals(this.duration, that.duration)
+            && Objects.equals(this.dots, that.dots) && Objects.equals(this.dotsMs, that.dotsMs)
+            && Objects.equals(this.outputFilename, that.outputFilename) && Objects.equals(this.format, that.format)
+            && Objects.equals(this.width, that.width) && Objects.equals(this.height, that.height)
+            && Objects.equals(this.maxLength, that.maxLength);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(type, time, startTime, duration, dots, outputFilename, format, width, height, maxLength);
+        return Objects
+            .hash(type, time, startTime, duration, dots, dotsMs, outputFilename, format, width, height, maxLength);
     }
 
     @Override
@@ -326,6 +359,7 @@ public class ThumbnailPara {
         sb.append("    startTime: ").append(toIndentedString(startTime)).append("\n");
         sb.append("    duration: ").append(toIndentedString(duration)).append("\n");
         sb.append("    dots: ").append(toIndentedString(dots)).append("\n");
+        sb.append("    dotsMs: ").append(toIndentedString(dotsMs)).append("\n");
         sb.append("    outputFilename: ").append(toIndentedString(outputFilename)).append("\n");
         sb.append("    format: ").append(toIndentedString(format)).append("\n");
         sb.append("    width: ").append(toIndentedString(width)).append("\n");

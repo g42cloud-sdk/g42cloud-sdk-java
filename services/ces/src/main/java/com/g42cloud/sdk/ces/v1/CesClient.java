@@ -1,6 +1,55 @@
 package com.g42cloud.sdk.ces.v1;
 
-import com.g42cloud.sdk.ces.v1.model.*;
+import com.g42cloud.sdk.ces.v1.model.BatchListMetricDataRequest;
+import com.g42cloud.sdk.ces.v1.model.BatchListMetricDataResponse;
+import com.g42cloud.sdk.ces.v1.model.CreateAlarmRequest;
+import com.g42cloud.sdk.ces.v1.model.CreateAlarmResponse;
+import com.g42cloud.sdk.ces.v1.model.CreateAlarmTemplateRequest;
+import com.g42cloud.sdk.ces.v1.model.CreateAlarmTemplateResponse;
+import com.g42cloud.sdk.ces.v1.model.CreateEventsRequest;
+import com.g42cloud.sdk.ces.v1.model.CreateEventsResponse;
+import com.g42cloud.sdk.ces.v1.model.CreateMetricDataRequest;
+import com.g42cloud.sdk.ces.v1.model.CreateMetricDataResponse;
+import com.g42cloud.sdk.ces.v1.model.CreateResourceGroupRequest;
+import com.g42cloud.sdk.ces.v1.model.CreateResourceGroupResponse;
+import com.g42cloud.sdk.ces.v1.model.DeleteAlarmRequest;
+import com.g42cloud.sdk.ces.v1.model.DeleteAlarmResponse;
+import com.g42cloud.sdk.ces.v1.model.DeleteAlarmTemplateRequest;
+import com.g42cloud.sdk.ces.v1.model.DeleteAlarmTemplateResponse;
+import com.g42cloud.sdk.ces.v1.model.DeleteResourceGroupRequest;
+import com.g42cloud.sdk.ces.v1.model.DeleteResourceGroupResponse;
+import com.g42cloud.sdk.ces.v1.model.ListAlarmHistoriesRequest;
+import com.g42cloud.sdk.ces.v1.model.ListAlarmHistoriesResponse;
+import com.g42cloud.sdk.ces.v1.model.ListAlarmTemplatesRequest;
+import com.g42cloud.sdk.ces.v1.model.ListAlarmTemplatesResponse;
+import com.g42cloud.sdk.ces.v1.model.ListAlarmsRequest;
+import com.g42cloud.sdk.ces.v1.model.ListAlarmsResponse;
+import com.g42cloud.sdk.ces.v1.model.ListEventDetailRequest;
+import com.g42cloud.sdk.ces.v1.model.ListEventDetailResponse;
+import com.g42cloud.sdk.ces.v1.model.ListEventsRequest;
+import com.g42cloud.sdk.ces.v1.model.ListEventsResponse;
+import com.g42cloud.sdk.ces.v1.model.ListMetricsRequest;
+import com.g42cloud.sdk.ces.v1.model.ListMetricsResponse;
+import com.g42cloud.sdk.ces.v1.model.ListResourceGroupRequest;
+import com.g42cloud.sdk.ces.v1.model.ListResourceGroupResponse;
+import com.g42cloud.sdk.ces.v1.model.ShowAlarmRequest;
+import com.g42cloud.sdk.ces.v1.model.ShowAlarmResponse;
+import com.g42cloud.sdk.ces.v1.model.ShowEventDataRequest;
+import com.g42cloud.sdk.ces.v1.model.ShowEventDataResponse;
+import com.g42cloud.sdk.ces.v1.model.ShowMetricDataRequest;
+import com.g42cloud.sdk.ces.v1.model.ShowMetricDataResponse;
+import com.g42cloud.sdk.ces.v1.model.ShowQuotasRequest;
+import com.g42cloud.sdk.ces.v1.model.ShowQuotasResponse;
+import com.g42cloud.sdk.ces.v1.model.ShowResourceGroupRequest;
+import com.g42cloud.sdk.ces.v1.model.ShowResourceGroupResponse;
+import com.g42cloud.sdk.ces.v1.model.UpdateAlarmActionRequest;
+import com.g42cloud.sdk.ces.v1.model.UpdateAlarmActionResponse;
+import com.g42cloud.sdk.ces.v1.model.UpdateAlarmRequest;
+import com.g42cloud.sdk.ces.v1.model.UpdateAlarmResponse;
+import com.g42cloud.sdk.ces.v1.model.UpdateAlarmTemplateRequest;
+import com.g42cloud.sdk.ces.v1.model.UpdateAlarmTemplateResponse;
+import com.g42cloud.sdk.ces.v1.model.UpdateResourceGroupRequest;
+import com.g42cloud.sdk.ces.v1.model.UpdateResourceGroupResponse;
 import com.g42cloud.sdk.core.ClientBuilder;
 import com.g42cloud.sdk.core.HcClient;
 import com.g42cloud.sdk.core.invoker.SyncInvoker;
@@ -14,7 +63,8 @@ public class CesClient {
     }
 
     public static ClientBuilder<CesClient> newBuilder() {
-        return new ClientBuilder<>(CesClient::new);
+        ClientBuilder<CesClient> clientBuilder = new ClientBuilder<>(CesClient::new);
+        return clientBuilder;
     }
 
     public BatchListMetricDataResponse batchListMetricData(BatchListMetricDataRequest request) {

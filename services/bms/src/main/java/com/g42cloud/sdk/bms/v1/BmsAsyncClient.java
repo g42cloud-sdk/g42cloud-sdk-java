@@ -1,6 +1,57 @@
 package com.g42cloud.sdk.bms.v1;
 
-import com.g42cloud.sdk.bms.v1.model.*;
+import com.g42cloud.sdk.bms.v1.model.AttachBaremetalServerVolumeRequest;
+import com.g42cloud.sdk.bms.v1.model.AttachBaremetalServerVolumeResponse;
+import com.g42cloud.sdk.bms.v1.model.BatchCreateBaremetalServerTagsRequest;
+import com.g42cloud.sdk.bms.v1.model.BatchCreateBaremetalServerTagsResponse;
+import com.g42cloud.sdk.bms.v1.model.BatchDeleteBaremetalServerTagsRequest;
+import com.g42cloud.sdk.bms.v1.model.BatchDeleteBaremetalServerTagsResponse;
+import com.g42cloud.sdk.bms.v1.model.BatchRebootBaremetalServersRequest;
+import com.g42cloud.sdk.bms.v1.model.BatchRebootBaremetalServersResponse;
+import com.g42cloud.sdk.bms.v1.model.BatchStartBaremetalServersRequest;
+import com.g42cloud.sdk.bms.v1.model.BatchStartBaremetalServersResponse;
+import com.g42cloud.sdk.bms.v1.model.BatchStopBaremetalServersRequest;
+import com.g42cloud.sdk.bms.v1.model.BatchStopBaremetalServersResponse;
+import com.g42cloud.sdk.bms.v1.model.ChangeBaremetalServerNameRequest;
+import com.g42cloud.sdk.bms.v1.model.ChangeBaremetalServerNameResponse;
+import com.g42cloud.sdk.bms.v1.model.ChangeBaremetalServerOsRequest;
+import com.g42cloud.sdk.bms.v1.model.ChangeBaremetalServerOsResponse;
+import com.g42cloud.sdk.bms.v1.model.CreateBareMetalServersRequest;
+import com.g42cloud.sdk.bms.v1.model.CreateBareMetalServersResponse;
+import com.g42cloud.sdk.bms.v1.model.DeleteWindowsBareMetalServerPasswordRequest;
+import com.g42cloud.sdk.bms.v1.model.DeleteWindowsBareMetalServerPasswordResponse;
+import com.g42cloud.sdk.bms.v1.model.DetachBaremetalServerVolumeRequest;
+import com.g42cloud.sdk.bms.v1.model.DetachBaremetalServerVolumeResponse;
+import com.g42cloud.sdk.bms.v1.model.ListBareMetalServerDetailsRequest;
+import com.g42cloud.sdk.bms.v1.model.ListBareMetalServerDetailsResponse;
+import com.g42cloud.sdk.bms.v1.model.ListBareMetalServersRequest;
+import com.g42cloud.sdk.bms.v1.model.ListBareMetalServersResponse;
+import com.g42cloud.sdk.bms.v1.model.ListBaremetalFlavorDetailExtendsRequest;
+import com.g42cloud.sdk.bms.v1.model.ListBaremetalFlavorDetailExtendsResponse;
+import com.g42cloud.sdk.bms.v1.model.ReinstallBaremetalServerOsRequest;
+import com.g42cloud.sdk.bms.v1.model.ReinstallBaremetalServerOsResponse;
+import com.g42cloud.sdk.bms.v1.model.ResetPwdOneClickRequest;
+import com.g42cloud.sdk.bms.v1.model.ResetPwdOneClickResponse;
+import com.g42cloud.sdk.bms.v1.model.ShowBaremetalServerInterfaceAttachmentsRequest;
+import com.g42cloud.sdk.bms.v1.model.ShowBaremetalServerInterfaceAttachmentsResponse;
+import com.g42cloud.sdk.bms.v1.model.ShowBaremetalServerTagsRequest;
+import com.g42cloud.sdk.bms.v1.model.ShowBaremetalServerTagsResponse;
+import com.g42cloud.sdk.bms.v1.model.ShowBaremetalServerVolumeInfoRequest;
+import com.g42cloud.sdk.bms.v1.model.ShowBaremetalServerVolumeInfoResponse;
+import com.g42cloud.sdk.bms.v1.model.ShowJobInfosRequest;
+import com.g42cloud.sdk.bms.v1.model.ShowJobInfosResponse;
+import com.g42cloud.sdk.bms.v1.model.ShowResetPwdRequest;
+import com.g42cloud.sdk.bms.v1.model.ShowResetPwdResponse;
+import com.g42cloud.sdk.bms.v1.model.ShowSpecifiedVersionRequest;
+import com.g42cloud.sdk.bms.v1.model.ShowSpecifiedVersionResponse;
+import com.g42cloud.sdk.bms.v1.model.ShowTenantQuotaRequest;
+import com.g42cloud.sdk.bms.v1.model.ShowTenantQuotaResponse;
+import com.g42cloud.sdk.bms.v1.model.ShowVersionsInfoRequest;
+import com.g42cloud.sdk.bms.v1.model.ShowVersionsInfoResponse;
+import com.g42cloud.sdk.bms.v1.model.ShowWindowsBaremetalServerPwdRequest;
+import com.g42cloud.sdk.bms.v1.model.ShowWindowsBaremetalServerPwdResponse;
+import com.g42cloud.sdk.bms.v1.model.UpdateBaremetalServerMetadataRequest;
+import com.g42cloud.sdk.bms.v1.model.UpdateBaremetalServerMetadataResponse;
 import com.g42cloud.sdk.core.ClientBuilder;
 import com.g42cloud.sdk.core.HcClient;
 import com.g42cloud.sdk.core.invoker.AsyncInvoker;
@@ -16,7 +67,8 @@ public class BmsAsyncClient {
     }
 
     public static ClientBuilder<BmsAsyncClient> newBuilder() {
-        return new ClientBuilder<>(BmsAsyncClient::new);
+        ClientBuilder<BmsAsyncClient> clientBuilder = new ClientBuilder<>(BmsAsyncClient::new);
+        return clientBuilder;
     }
 
     public CompletableFuture<AttachBaremetalServerVolumeResponse> attachBaremetalServerVolumeAsync(

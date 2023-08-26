@@ -138,18 +138,17 @@ public class MasterInstance {
     }
 
     @Override
-    public boolean equals(java.lang.Object o) {
-        if (this == o) {
+    public boolean equals(java.lang.Object obj) {
+        if (this == obj) {
             return true;
         }
-        if (o == null || getClass() != o.getClass()) {
+        if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
-        MasterInstance masterInstance = (MasterInstance) o;
-        return Objects.equals(this.id, masterInstance.id) && Objects.equals(this.status, masterInstance.status)
-            && Objects.equals(this.name, masterInstance.name) && Objects.equals(this.weight, masterInstance.weight)
-            && Objects.equals(this.availableZones, masterInstance.availableZones)
-            && Objects.equals(this.cpuNum, masterInstance.cpuNum);
+        MasterInstance that = (MasterInstance) obj;
+        return Objects.equals(this.id, that.id) && Objects.equals(this.status, that.status)
+            && Objects.equals(this.name, that.name) && Objects.equals(this.weight, that.weight)
+            && Objects.equals(this.availableZones, that.availableZones) && Objects.equals(this.cpuNum, that.cpuNum);
     }
 
     @Override

@@ -110,22 +110,15 @@ public class ListEffectiveRoutesRequest {
             if (value == null) {
                 return null;
             }
-            ResourceTypeEnum result = STATIC_FIELDS.get(value);
-            if (result == null) {
-                result = new ResourceTypeEnum(value);
-            }
-            return result;
+            return java.util.Optional.ofNullable(STATIC_FIELDS.get(value)).orElse(new ResourceTypeEnum(value));
         }
 
         public static ResourceTypeEnum valueOf(String value) {
             if (value == null) {
                 return null;
             }
-            ResourceTypeEnum result = STATIC_FIELDS.get(value);
-            if (result != null) {
-                return result;
-            }
-            throw new IllegalArgumentException("Unexpected value '" + value + "'");
+            return java.util.Optional.ofNullable(STATIC_FIELDS.get(value))
+                .orElseThrow(() -> new IllegalArgumentException("Unexpected value '" + value + "'"));
         }
 
         @Override
@@ -245,19 +238,17 @@ public class ListEffectiveRoutesRequest {
     }
 
     @Override
-    public boolean equals(java.lang.Object o) {
-        if (this == o) {
+    public boolean equals(java.lang.Object obj) {
+        if (this == obj) {
             return true;
         }
-        if (o == null || getClass() != o.getClass()) {
+        if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
-        ListEffectiveRoutesRequest listEffectiveRoutesRequest = (ListEffectiveRoutesRequest) o;
-        return Objects.equals(this.routeTableId, listEffectiveRoutesRequest.routeTableId)
-            && Objects.equals(this.limit, listEffectiveRoutesRequest.limit)
-            && Objects.equals(this.marker, listEffectiveRoutesRequest.marker)
-            && Objects.equals(this.destination, listEffectiveRoutesRequest.destination)
-            && Objects.equals(this.resourceType, listEffectiveRoutesRequest.resourceType);
+        ListEffectiveRoutesRequest that = (ListEffectiveRoutesRequest) obj;
+        return Objects.equals(this.routeTableId, that.routeTableId) && Objects.equals(this.limit, that.limit)
+            && Objects.equals(this.marker, that.marker) && Objects.equals(this.destination, that.destination)
+            && Objects.equals(this.resourceType, that.resourceType);
     }
 
     @Override

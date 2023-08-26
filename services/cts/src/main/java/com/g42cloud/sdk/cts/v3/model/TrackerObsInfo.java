@@ -83,18 +83,18 @@ public class TrackerObsInfo {
     }
 
     @Override
-    public boolean equals(java.lang.Object o) {
-        if (this == o) {
+    public boolean equals(java.lang.Object obj) {
+        if (this == obj) {
             return true;
         }
-        if (o == null || getClass() != o.getClass()) {
+        if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
-        TrackerObsInfo trackerObsInfo = (TrackerObsInfo) o;
-        return Objects.equals(this.bucketName, trackerObsInfo.bucketName)
-            && Objects.equals(this.filePrefixName, trackerObsInfo.filePrefixName)
-            && Objects.equals(this.isObsCreated, trackerObsInfo.isObsCreated)
-            && Objects.equals(this.bucketLifecycle, trackerObsInfo.bucketLifecycle);
+        TrackerObsInfo that = (TrackerObsInfo) obj;
+        return Objects.equals(this.bucketName, that.bucketName)
+            && Objects.equals(this.filePrefixName, that.filePrefixName)
+            && Objects.equals(this.isObsCreated, that.isObsCreated)
+            && Objects.equals(this.bucketLifecycle, that.bucketLifecycle);
     }
 
     @Override

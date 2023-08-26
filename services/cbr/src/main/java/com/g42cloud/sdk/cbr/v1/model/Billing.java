@@ -125,22 +125,15 @@ public class Billing {
             if (value == null) {
                 return null;
             }
-            StatusEnum result = STATIC_FIELDS.get(value);
-            if (result == null) {
-                result = new StatusEnum(value);
-            }
-            return result;
+            return java.util.Optional.ofNullable(STATIC_FIELDS.get(value)).orElse(new StatusEnum(value));
         }
 
         public static StatusEnum valueOf(String value) {
             if (value == null) {
                 return null;
             }
-            StatusEnum result = STATIC_FIELDS.get(value);
-            if (result != null) {
-                return result;
-            }
-            throw new IllegalArgumentException("Unexpected value '" + value + "'");
+            return java.util.Optional.ofNullable(STATIC_FIELDS.get(value))
+                .orElseThrow(() -> new IllegalArgumentException("Unexpected value '" + value + "'"));
         }
 
         @Override
@@ -378,25 +371,23 @@ public class Billing {
     }
 
     @Override
-    public boolean equals(java.lang.Object o) {
-        if (this == o) {
+    public boolean equals(java.lang.Object obj) {
+        if (this == obj) {
             return true;
         }
-        if (o == null || getClass() != o.getClass()) {
+        if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
-        Billing billing = (Billing) o;
-        return Objects.equals(this.allocated, billing.allocated)
-            && Objects.equals(this.chargingMode, billing.chargingMode)
-            && Objects.equals(this.cloudType, billing.cloudType)
-            && Objects.equals(this.consistentLevel, billing.consistentLevel)
-            && Objects.equals(this.objectType, billing.objectType) && Objects.equals(this.orderId, billing.orderId)
-            && Objects.equals(this.productId, billing.productId)
-            && Objects.equals(this.protectType, billing.protectType) && Objects.equals(this.size, billing.size)
-            && Objects.equals(this.specCode, billing.specCode) && Objects.equals(this.status, billing.status)
-            && Objects.equals(this.storageUnit, billing.storageUnit) && Objects.equals(this.used, billing.used)
-            && Objects.equals(this.frozenScene, billing.frozenScene)
-            && Objects.equals(this.isMultiAz, billing.isMultiAz);
+        Billing that = (Billing) obj;
+        return Objects.equals(this.allocated, that.allocated) && Objects.equals(this.chargingMode, that.chargingMode)
+            && Objects.equals(this.cloudType, that.cloudType)
+            && Objects.equals(this.consistentLevel, that.consistentLevel)
+            && Objects.equals(this.objectType, that.objectType) && Objects.equals(this.orderId, that.orderId)
+            && Objects.equals(this.productId, that.productId) && Objects.equals(this.protectType, that.protectType)
+            && Objects.equals(this.size, that.size) && Objects.equals(this.specCode, that.specCode)
+            && Objects.equals(this.status, that.status) && Objects.equals(this.storageUnit, that.storageUnit)
+            && Objects.equals(this.used, that.used) && Objects.equals(this.frozenScene, that.frozenScene)
+            && Objects.equals(this.isMultiAz, that.isMultiAz);
     }
 
     @Override

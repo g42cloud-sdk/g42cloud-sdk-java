@@ -14,26 +14,6 @@ import java.util.function.Consumer;
 public class ListTemplateRequest {
 
     @JsonInclude(JsonInclude.Include.NON_NULL)
-    @JsonProperty(value = "Authorization")
-
-    private String authorization;
-
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    @JsonProperty(value = "X-Project_Id")
-
-    private String xProjectId;
-
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    @JsonProperty(value = "X-Sdk-Date")
-
-    private String xSdkDate;
-
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    @JsonProperty(value = "x-vod-projectId")
-
-    private String xVodProjectId;
-
-    @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonProperty(value = "template_id")
 
     private List<Integer> templateId = null;
@@ -47,64 +27,6 @@ public class ListTemplateRequest {
     @JsonProperty(value = "size")
 
     private Integer size;
-
-    public ListTemplateRequest withAuthorization(String authorization) {
-        this.authorization = authorization;
-        return this;
-    }
-
-    public String getAuthorization() {
-        return authorization;
-    }
-
-    public void setAuthorization(String authorization) {
-        this.authorization = authorization;
-    }
-
-    public ListTemplateRequest withXProjectId(String xProjectId) {
-        this.xProjectId = xProjectId;
-        return this;
-    }
-
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    @JsonProperty(value = "X-Project_Id")
-    public String getXProjectId() {
-        return xProjectId;
-    }
-
-    public void setXProjectId(String xProjectId) {
-        this.xProjectId = xProjectId;
-    }
-
-    public ListTemplateRequest withXSdkDate(String xSdkDate) {
-        this.xSdkDate = xSdkDate;
-        return this;
-    }
-
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    @JsonProperty(value = "X-Sdk-Date")
-    public String getXSdkDate() {
-        return xSdkDate;
-    }
-
-    public void setXSdkDate(String xSdkDate) {
-        this.xSdkDate = xSdkDate;
-    }
-
-    public ListTemplateRequest withXVodProjectId(String xVodProjectId) {
-        this.xVodProjectId = xVodProjectId;
-        return this;
-    }
-
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    @JsonProperty(value = "x-vod-projectId")
-    public String getXVodProjectId() {
-        return xVodProjectId;
-    }
-
-    public void setXVodProjectId(String xVodProjectId) {
-        this.xVodProjectId = xVodProjectId;
-    }
 
     public ListTemplateRequest withTemplateId(List<Integer> templateId) {
         this.templateId = templateId;
@@ -162,36 +84,27 @@ public class ListTemplateRequest {
     }
 
     @Override
-    public boolean equals(java.lang.Object o) {
-        if (this == o) {
+    public boolean equals(java.lang.Object obj) {
+        if (this == obj) {
             return true;
         }
-        if (o == null || getClass() != o.getClass()) {
+        if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
-        ListTemplateRequest listTemplateRequest = (ListTemplateRequest) o;
-        return Objects.equals(this.authorization, listTemplateRequest.authorization)
-            && Objects.equals(this.xProjectId, listTemplateRequest.xProjectId)
-            && Objects.equals(this.xSdkDate, listTemplateRequest.xSdkDate)
-            && Objects.equals(this.xVodProjectId, listTemplateRequest.xVodProjectId)
-            && Objects.equals(this.templateId, listTemplateRequest.templateId)
-            && Objects.equals(this.page, listTemplateRequest.page)
-            && Objects.equals(this.size, listTemplateRequest.size);
+        ListTemplateRequest that = (ListTemplateRequest) obj;
+        return Objects.equals(this.templateId, that.templateId) && Objects.equals(this.page, that.page)
+            && Objects.equals(this.size, that.size);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(authorization, xProjectId, xSdkDate, xVodProjectId, templateId, page, size);
+        return Objects.hash(templateId, page, size);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class ListTemplateRequest {\n");
-        sb.append("    authorization: ").append(toIndentedString(authorization)).append("\n");
-        sb.append("    xProjectId: ").append(toIndentedString(xProjectId)).append("\n");
-        sb.append("    xSdkDate: ").append(toIndentedString(xSdkDate)).append("\n");
-        sb.append("    xVodProjectId: ").append(toIndentedString(xVodProjectId)).append("\n");
         sb.append("    templateId: ").append(toIndentedString(templateId)).append("\n");
         sb.append("    page: ").append(toIndentedString(page)).append("\n");
         sb.append("    size: ").append(toIndentedString(size)).append("\n");

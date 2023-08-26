@@ -115,22 +115,15 @@ public class ListPropagationsRequest {
             if (value == null) {
                 return null;
             }
-            ResourceTypeEnum result = STATIC_FIELDS.get(value);
-            if (result == null) {
-                result = new ResourceTypeEnum(value);
-            }
-            return result;
+            return java.util.Optional.ofNullable(STATIC_FIELDS.get(value)).orElse(new ResourceTypeEnum(value));
         }
 
         public static ResourceTypeEnum valueOf(String value) {
             if (value == null) {
                 return null;
             }
-            ResourceTypeEnum result = STATIC_FIELDS.get(value);
-            if (result != null) {
-                return result;
-            }
-            throw new IllegalArgumentException("Unexpected value '" + value + "'");
+            return java.util.Optional.ofNullable(STATIC_FIELDS.get(value))
+                .orElseThrow(() -> new IllegalArgumentException("Unexpected value '" + value + "'"));
         }
 
         @Override
@@ -218,22 +211,15 @@ public class ListPropagationsRequest {
             if (value == null) {
                 return null;
             }
-            StateEnum result = STATIC_FIELDS.get(value);
-            if (result == null) {
-                result = new StateEnum(value);
-            }
-            return result;
+            return java.util.Optional.ofNullable(STATIC_FIELDS.get(value)).orElse(new StateEnum(value));
         }
 
         public static StateEnum valueOf(String value) {
             if (value == null) {
                 return null;
             }
-            StateEnum result = STATIC_FIELDS.get(value);
-            if (result != null) {
-                return result;
-            }
-            throw new IllegalArgumentException("Unexpected value '" + value + "'");
+            return java.util.Optional.ofNullable(STATIC_FIELDS.get(value))
+                .orElseThrow(() -> new IllegalArgumentException("Unexpected value '" + value + "'"));
         }
 
         @Override
@@ -302,22 +288,15 @@ public class ListPropagationsRequest {
             if (value == null) {
                 return null;
             }
-            SortDirEnum result = STATIC_FIELDS.get(value);
-            if (result == null) {
-                result = new SortDirEnum(value);
-            }
-            return result;
+            return java.util.Optional.ofNullable(STATIC_FIELDS.get(value)).orElse(new SortDirEnum(value));
         }
 
         public static SortDirEnum valueOf(String value) {
             if (value == null) {
                 return null;
             }
-            SortDirEnum result = STATIC_FIELDS.get(value);
-            if (result != null) {
-                return result;
-            }
-            throw new IllegalArgumentException("Unexpected value '" + value + "'");
+            return java.util.Optional.ofNullable(STATIC_FIELDS.get(value))
+                .orElseThrow(() -> new IllegalArgumentException("Unexpected value '" + value + "'"));
         }
 
         @Override
@@ -537,23 +516,19 @@ public class ListPropagationsRequest {
     }
 
     @Override
-    public boolean equals(java.lang.Object o) {
-        if (this == o) {
+    public boolean equals(java.lang.Object obj) {
+        if (this == obj) {
             return true;
         }
-        if (o == null || getClass() != o.getClass()) {
+        if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
-        ListPropagationsRequest listPropagationsRequest = (ListPropagationsRequest) o;
-        return Objects.equals(this.erId, listPropagationsRequest.erId)
-            && Objects.equals(this.routeTableId, listPropagationsRequest.routeTableId)
-            && Objects.equals(this.limit, listPropagationsRequest.limit)
-            && Objects.equals(this.marker, listPropagationsRequest.marker)
-            && Objects.equals(this.attachmentId, listPropagationsRequest.attachmentId)
-            && Objects.equals(this.resourceType, listPropagationsRequest.resourceType)
-            && Objects.equals(this.state, listPropagationsRequest.state)
-            && Objects.equals(this.sortKey, listPropagationsRequest.sortKey)
-            && Objects.equals(this.sortDir, listPropagationsRequest.sortDir);
+        ListPropagationsRequest that = (ListPropagationsRequest) obj;
+        return Objects.equals(this.erId, that.erId) && Objects.equals(this.routeTableId, that.routeTableId)
+            && Objects.equals(this.limit, that.limit) && Objects.equals(this.marker, that.marker)
+            && Objects.equals(this.attachmentId, that.attachmentId)
+            && Objects.equals(this.resourceType, that.resourceType) && Objects.equals(this.state, that.state)
+            && Objects.equals(this.sortKey, that.sortKey) && Objects.equals(this.sortDir, that.sortDir);
     }
 
     @Override

@@ -1,6 +1,63 @@
 package com.g42cloud.sdk.cce.v3;
 
-import com.g42cloud.sdk.cce.v3.model.*;
+import com.g42cloud.sdk.cce.v3.model.AwakeClusterRequest;
+import com.g42cloud.sdk.cce.v3.model.AwakeClusterResponse;
+import com.g42cloud.sdk.cce.v3.model.CreateAddonInstanceRequest;
+import com.g42cloud.sdk.cce.v3.model.CreateAddonInstanceResponse;
+import com.g42cloud.sdk.cce.v3.model.CreateCloudPersistentVolumeClaimsRequest;
+import com.g42cloud.sdk.cce.v3.model.CreateCloudPersistentVolumeClaimsResponse;
+import com.g42cloud.sdk.cce.v3.model.CreateClusterRequest;
+import com.g42cloud.sdk.cce.v3.model.CreateClusterResponse;
+import com.g42cloud.sdk.cce.v3.model.CreateKubernetesClusterCertRequest;
+import com.g42cloud.sdk.cce.v3.model.CreateKubernetesClusterCertResponse;
+import com.g42cloud.sdk.cce.v3.model.CreateNodePoolRequest;
+import com.g42cloud.sdk.cce.v3.model.CreateNodePoolResponse;
+import com.g42cloud.sdk.cce.v3.model.CreateNodeRequest;
+import com.g42cloud.sdk.cce.v3.model.CreateNodeResponse;
+import com.g42cloud.sdk.cce.v3.model.DeleteAddonInstanceRequest;
+import com.g42cloud.sdk.cce.v3.model.DeleteAddonInstanceResponse;
+import com.g42cloud.sdk.cce.v3.model.DeleteCloudPersistentVolumeClaimsRequest;
+import com.g42cloud.sdk.cce.v3.model.DeleteCloudPersistentVolumeClaimsResponse;
+import com.g42cloud.sdk.cce.v3.model.DeleteClusterRequest;
+import com.g42cloud.sdk.cce.v3.model.DeleteClusterResponse;
+import com.g42cloud.sdk.cce.v3.model.DeleteNodePoolRequest;
+import com.g42cloud.sdk.cce.v3.model.DeleteNodePoolResponse;
+import com.g42cloud.sdk.cce.v3.model.DeleteNodeRequest;
+import com.g42cloud.sdk.cce.v3.model.DeleteNodeResponse;
+import com.g42cloud.sdk.cce.v3.model.HibernateClusterRequest;
+import com.g42cloud.sdk.cce.v3.model.HibernateClusterResponse;
+import com.g42cloud.sdk.cce.v3.model.ListAddonInstancesRequest;
+import com.g42cloud.sdk.cce.v3.model.ListAddonInstancesResponse;
+import com.g42cloud.sdk.cce.v3.model.ListAddonTemplatesRequest;
+import com.g42cloud.sdk.cce.v3.model.ListAddonTemplatesResponse;
+import com.g42cloud.sdk.cce.v3.model.ListClustersRequest;
+import com.g42cloud.sdk.cce.v3.model.ListClustersResponse;
+import com.g42cloud.sdk.cce.v3.model.ListNodePoolsRequest;
+import com.g42cloud.sdk.cce.v3.model.ListNodePoolsResponse;
+import com.g42cloud.sdk.cce.v3.model.ListNodesRequest;
+import com.g42cloud.sdk.cce.v3.model.ListNodesResponse;
+import com.g42cloud.sdk.cce.v3.model.MigrateNodeRequest;
+import com.g42cloud.sdk.cce.v3.model.MigrateNodeResponse;
+import com.g42cloud.sdk.cce.v3.model.RemoveNodeRequest;
+import com.g42cloud.sdk.cce.v3.model.RemoveNodeResponse;
+import com.g42cloud.sdk.cce.v3.model.ShowAddonInstanceRequest;
+import com.g42cloud.sdk.cce.v3.model.ShowAddonInstanceResponse;
+import com.g42cloud.sdk.cce.v3.model.ShowClusterRequest;
+import com.g42cloud.sdk.cce.v3.model.ShowClusterResponse;
+import com.g42cloud.sdk.cce.v3.model.ShowJobRequest;
+import com.g42cloud.sdk.cce.v3.model.ShowJobResponse;
+import com.g42cloud.sdk.cce.v3.model.ShowNodePoolRequest;
+import com.g42cloud.sdk.cce.v3.model.ShowNodePoolResponse;
+import com.g42cloud.sdk.cce.v3.model.ShowNodeRequest;
+import com.g42cloud.sdk.cce.v3.model.ShowNodeResponse;
+import com.g42cloud.sdk.cce.v3.model.UpdateAddonInstanceRequest;
+import com.g42cloud.sdk.cce.v3.model.UpdateAddonInstanceResponse;
+import com.g42cloud.sdk.cce.v3.model.UpdateClusterRequest;
+import com.g42cloud.sdk.cce.v3.model.UpdateClusterResponse;
+import com.g42cloud.sdk.cce.v3.model.UpdateNodePoolRequest;
+import com.g42cloud.sdk.cce.v3.model.UpdateNodePoolResponse;
+import com.g42cloud.sdk.cce.v3.model.UpdateNodeRequest;
+import com.g42cloud.sdk.cce.v3.model.UpdateNodeResponse;
 import com.g42cloud.sdk.core.ClientBuilder;
 import com.g42cloud.sdk.core.HcClient;
 import com.g42cloud.sdk.core.invoker.AsyncInvoker;
@@ -16,7 +73,8 @@ public class CceAsyncClient {
     }
 
     public static ClientBuilder<CceAsyncClient> newBuilder() {
-        return new ClientBuilder<>(CceAsyncClient::new);
+        ClientBuilder<CceAsyncClient> clientBuilder = new ClientBuilder<>(CceAsyncClient::new);
+        return clientBuilder;
     }
 
     public CompletableFuture<AwakeClusterResponse> awakeClusterAsync(AwakeClusterRequest request) {

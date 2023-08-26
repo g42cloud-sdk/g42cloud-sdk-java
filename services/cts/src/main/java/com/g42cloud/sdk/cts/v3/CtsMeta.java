@@ -5,7 +5,30 @@ import com.g42cloud.sdk.core.http.FieldExistence;
 import com.g42cloud.sdk.core.http.HttpMethod;
 import com.g42cloud.sdk.core.http.HttpRequestDef;
 import com.g42cloud.sdk.core.http.LocationType;
-import com.g42cloud.sdk.cts.v3.model.*;
+import com.g42cloud.sdk.cts.v3.model.CreateNotificationRequest;
+import com.g42cloud.sdk.cts.v3.model.CreateNotificationRequestBody;
+import com.g42cloud.sdk.cts.v3.model.CreateNotificationResponse;
+import com.g42cloud.sdk.cts.v3.model.CreateTrackerRequest;
+import com.g42cloud.sdk.cts.v3.model.CreateTrackerRequestBody;
+import com.g42cloud.sdk.cts.v3.model.CreateTrackerResponse;
+import com.g42cloud.sdk.cts.v3.model.DeleteNotificationRequest;
+import com.g42cloud.sdk.cts.v3.model.DeleteNotificationResponse;
+import com.g42cloud.sdk.cts.v3.model.DeleteTrackerRequest;
+import com.g42cloud.sdk.cts.v3.model.DeleteTrackerResponse;
+import com.g42cloud.sdk.cts.v3.model.ListNotificationsRequest;
+import com.g42cloud.sdk.cts.v3.model.ListNotificationsResponse;
+import com.g42cloud.sdk.cts.v3.model.ListQuotasRequest;
+import com.g42cloud.sdk.cts.v3.model.ListQuotasResponse;
+import com.g42cloud.sdk.cts.v3.model.ListTracesRequest;
+import com.g42cloud.sdk.cts.v3.model.ListTracesResponse;
+import com.g42cloud.sdk.cts.v3.model.ListTrackersRequest;
+import com.g42cloud.sdk.cts.v3.model.ListTrackersResponse;
+import com.g42cloud.sdk.cts.v3.model.UpdateNotificationRequest;
+import com.g42cloud.sdk.cts.v3.model.UpdateNotificationRequestBody;
+import com.g42cloud.sdk.cts.v3.model.UpdateNotificationResponse;
+import com.g42cloud.sdk.cts.v3.model.UpdateTrackerRequest;
+import com.g42cloud.sdk.cts.v3.model.UpdateTrackerRequestBody;
+import com.g42cloud.sdk.cts.v3.model.UpdateTrackerResponse;
 
 @SuppressWarnings("unchecked")
 public class CtsMeta {

@@ -115,22 +115,15 @@ public class ListStaticRoutesRequest {
             if (value == null) {
                 return null;
             }
-            ResourceTypeEnum result = STATIC_FIELDS.get(value);
-            if (result == null) {
-                result = new ResourceTypeEnum(value);
-            }
-            return result;
+            return java.util.Optional.ofNullable(STATIC_FIELDS.get(value)).orElse(new ResourceTypeEnum(value));
         }
 
         public static ResourceTypeEnum valueOf(String value) {
             if (value == null) {
                 return null;
             }
-            ResourceTypeEnum result = STATIC_FIELDS.get(value);
-            if (result != null) {
-                return result;
-            }
-            throw new IllegalArgumentException("Unexpected value '" + value + "'");
+            return java.util.Optional.ofNullable(STATIC_FIELDS.get(value))
+                .orElseThrow(() -> new IllegalArgumentException("Unexpected value '" + value + "'"));
         }
 
         @Override
@@ -199,22 +192,15 @@ public class ListStaticRoutesRequest {
             if (value == null) {
                 return null;
             }
-            SortDirEnum result = STATIC_FIELDS.get(value);
-            if (result == null) {
-                result = new SortDirEnum(value);
-            }
-            return result;
+            return java.util.Optional.ofNullable(STATIC_FIELDS.get(value)).orElse(new SortDirEnum(value));
         }
 
         public static SortDirEnum valueOf(String value) {
             if (value == null) {
                 return null;
             }
-            SortDirEnum result = STATIC_FIELDS.get(value);
-            if (result != null) {
-                return result;
-            }
-            throw new IllegalArgumentException("Unexpected value '" + value + "'");
+            return java.util.Optional.ofNullable(STATIC_FIELDS.get(value))
+                .orElseThrow(() -> new IllegalArgumentException("Unexpected value '" + value + "'"));
         }
 
         @Override
@@ -421,22 +407,19 @@ public class ListStaticRoutesRequest {
     }
 
     @Override
-    public boolean equals(java.lang.Object o) {
-        if (this == o) {
+    public boolean equals(java.lang.Object obj) {
+        if (this == obj) {
             return true;
         }
-        if (o == null || getClass() != o.getClass()) {
+        if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
-        ListStaticRoutesRequest listStaticRoutesRequest = (ListStaticRoutesRequest) o;
-        return Objects.equals(this.routeTableId, listStaticRoutesRequest.routeTableId)
-            && Objects.equals(this.limit, listStaticRoutesRequest.limit)
-            && Objects.equals(this.marker, listStaticRoutesRequest.marker)
-            && Objects.equals(this.destination, listStaticRoutesRequest.destination)
-            && Objects.equals(this.attachmentId, listStaticRoutesRequest.attachmentId)
-            && Objects.equals(this.resourceType, listStaticRoutesRequest.resourceType)
-            && Objects.equals(this.sortKey, listStaticRoutesRequest.sortKey)
-            && Objects.equals(this.sortDir, listStaticRoutesRequest.sortDir);
+        ListStaticRoutesRequest that = (ListStaticRoutesRequest) obj;
+        return Objects.equals(this.routeTableId, that.routeTableId) && Objects.equals(this.limit, that.limit)
+            && Objects.equals(this.marker, that.marker) && Objects.equals(this.destination, that.destination)
+            && Objects.equals(this.attachmentId, that.attachmentId)
+            && Objects.equals(this.resourceType, that.resourceType) && Objects.equals(this.sortKey, that.sortKey)
+            && Objects.equals(this.sortDir, that.sortDir);
     }
 
     @Override

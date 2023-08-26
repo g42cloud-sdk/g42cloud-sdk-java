@@ -101,19 +101,17 @@ public class ShowLogsRequest {
     }
 
     @Override
-    public boolean equals(java.lang.Object o) {
-        if (this == o) {
+    public boolean equals(java.lang.Object obj) {
+        if (this == obj) {
             return true;
         }
-        if (o == null || getClass() != o.getClass()) {
+        if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
-        ShowLogsRequest showLogsRequest = (ShowLogsRequest) o;
-        return Objects.equals(this.domainName, showLogsRequest.domainName)
-            && Objects.equals(this.queryDate, showLogsRequest.queryDate)
-            && Objects.equals(this.pageSize, showLogsRequest.pageSize)
-            && Objects.equals(this.pageNumber, showLogsRequest.pageNumber)
-            && Objects.equals(this.enterpriseProjectId, showLogsRequest.enterpriseProjectId);
+        ShowLogsRequest that = (ShowLogsRequest) obj;
+        return Objects.equals(this.domainName, that.domainName) && Objects.equals(this.queryDate, that.queryDate)
+            && Objects.equals(this.pageSize, that.pageSize) && Objects.equals(this.pageNumber, that.pageNumber)
+            && Objects.equals(this.enterpriseProjectId, that.enterpriseProjectId);
     }
 
     @Override

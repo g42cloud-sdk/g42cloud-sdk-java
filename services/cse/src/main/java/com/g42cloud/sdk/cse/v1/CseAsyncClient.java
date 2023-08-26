@@ -3,7 +3,22 @@ package com.g42cloud.sdk.cse.v1;
 import com.g42cloud.sdk.core.ClientBuilder;
 import com.g42cloud.sdk.core.HcClient;
 import com.g42cloud.sdk.core.invoker.AsyncInvoker;
-import com.g42cloud.sdk.cse.v1.model.*;
+import com.g42cloud.sdk.cse.v1.model.CreateEngineRequest;
+import com.g42cloud.sdk.cse.v1.model.CreateEngineResponse;
+import com.g42cloud.sdk.cse.v1.model.DeleteEngineRequest;
+import com.g42cloud.sdk.cse.v1.model.DeleteEngineResponse;
+import com.g42cloud.sdk.cse.v1.model.DownloadKieRequest;
+import com.g42cloud.sdk.cse.v1.model.DownloadKieResponse;
+import com.g42cloud.sdk.cse.v1.model.ListEnginesRequest;
+import com.g42cloud.sdk.cse.v1.model.ListEnginesResponse;
+import com.g42cloud.sdk.cse.v1.model.ListFlavorsRequest;
+import com.g42cloud.sdk.cse.v1.model.ListFlavorsResponse;
+import com.g42cloud.sdk.cse.v1.model.ShowEngineJobRequest;
+import com.g42cloud.sdk.cse.v1.model.ShowEngineJobResponse;
+import com.g42cloud.sdk.cse.v1.model.ShowEngineRequest;
+import com.g42cloud.sdk.cse.v1.model.ShowEngineResponse;
+import com.g42cloud.sdk.cse.v1.model.UploadKieRequest;
+import com.g42cloud.sdk.cse.v1.model.UploadKieResponse;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -16,7 +31,8 @@ public class CseAsyncClient {
     }
 
     public static ClientBuilder<CseAsyncClient> newBuilder() {
-        return new ClientBuilder<>(CseAsyncClient::new);
+        ClientBuilder<CseAsyncClient> clientBuilder = new ClientBuilder<>(CseAsyncClient::new);
+        return clientBuilder;
     }
 
     public CompletableFuture<CreateEngineResponse> createEngineAsync(CreateEngineRequest request) {
