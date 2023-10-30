@@ -1,5 +1,5 @@
 /*
- * Copyright (c) G42 Technologies Co., Ltd. 2021-2021. All rights reserved.
+ * Copyright (c) G42 Technologies Co., Ltd. 2023-2023. All rights reserved.
  *
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
@@ -21,13 +21,21 @@
 
 package com.g42cloud.sdk.core.auth;
 
-public enum SigningAlgorithm {
-    HMAC_SHA256,
-    HMAC_SM3,
-    ECDSA_P256_SHA256,
-    SM2_SM3;
+import com.g42cloud.sdk.core.exception.SdkException;
 
-    public static SigningAlgorithm getDefault() {
-        return HMAC_SHA256;
+class AKSKSignerFactory {
+    static IAKSKSigner getSigner(SigningAlgorithm algorithm) {
+        switch (algorithm) {
+            case HMAC_SHA256:
+                return AKSKSigner.getInstance();
+            case HMAC_SM3:
+                return SM3AKSKSigner.getInstance();
+            case ECDSA_P256_SHA256:
+                return P256SHA256Signer.getInstance();
+            case SM2_SM3:
+                return SM2SM3Signer.getInstance();
+            default:
+                throw new SdkException("unsupported signing algorithm: " + algorithm);
+        }
     }
 }

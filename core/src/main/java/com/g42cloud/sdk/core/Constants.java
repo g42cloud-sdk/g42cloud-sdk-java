@@ -27,9 +27,13 @@ package com.g42cloud.sdk.core;
 public final class Constants {
     public static final String LINE_SEPARATOR = "\n";
 
-    public static final String SDK_SIGNING_ALGORITHM = "SDK-HMAC-SHA256";
+    public static final String SDK_HMAC_SHA256 = "SDK-HMAC-SHA256";
 
-    public static final String SM3_SIGNING_ALGORITHM = "SDK-HMAC-SM3";
+    public static final String SDK_HMAC_SM3 = "SDK-HMAC-SM3";
+
+    public static final String SDK_ECDSA_P256_SHA256 = "SDK-ECDSA-P256-SHA256";
+
+    public static final String SDK_SM2_SM3 = "SDK-SM2-SM3";
 
     public static final String SECURITY_PROVIDER_BGM = "BGMProvider";
 
@@ -62,6 +66,8 @@ public final class Constants {
     public static final String X_IDP_ID = "X-Idp-Id";
 
     public static final String X_SDK_CONTENT_SHA256 = "X-Sdk-Content-Sha256";
+
+    public static final String X_SDK_CONTENT_SM3 = "X-Sdk-Content-Sm3";
 
     public static final String X_SUBJECT_TOKEN = "X-Subject-Token";
 
@@ -134,6 +140,22 @@ public final class Constants {
     public static final String GLOBAL_REGION_ID = "globe";
 
     public static final String DEFAULT_PROFILE_DIR_NAME = ".g42cloud";
+
+    public static class ErrorMessage {
+        public static final String NO_DOMAIN_ID_FOUND = "no domain id found," +
+                " please select one of the following solutions:\n" +
+                "  1. Manually specify domainId when initializing the credentials," +
+                " GlobalCredentials cred = new GlobalCredentials().withAk(ak).withSk(sk).withDomainId(domainId)\n" +
+                "  2. Use the domain account to grant IAM read permission to the current account\n" +
+                "  3. Replace the ak/sk of the IAM account with the ak/sk of the domain account";
+
+        public static final String NO_PROJECT_ID_FOUND = "no project id found," +
+                " please select one of the following solutions:\n" +
+                "  1. Manually specify projectId when initializing the credentials," +
+                " BasicCredentials cred = new BasicCredentials().withAk(ak).withSk(sk).withProjectId(projectId)\n" +
+                "  2. Use the domain account to grant IAM read permission to the current account\n" +
+                "  3. Replace the ak/sk of the IAM account with the ak/sk of the domain account";
+    }
 
     /**
      * some special status code

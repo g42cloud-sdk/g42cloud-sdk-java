@@ -1,5 +1,5 @@
 /*
- * Copyright (c) G42 Technologies Co., Ltd. 2021-2021. All rights reserved.
+ * Copyright (c) G42 Technologies Co., Ltd. 2023-2023. All rights reserved.
  *
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
@@ -21,13 +21,15 @@
 
 package com.g42cloud.sdk.core.auth;
 
-public enum SigningAlgorithm {
-    HMAC_SHA256,
-    HMAC_SM3,
-    ECDSA_P256_SHA256,
-    SM2_SM3;
+import com.g42cloud.sdk.core.utils.BinaryUtils;
 
-    public static SigningAlgorithm getDefault() {
-        return HMAC_SHA256;
+abstract class AbstractHasher {
+    protected abstract byte[] hash(byte[] data);
+
+    protected abstract byte[] hmac(byte[] data, byte[] key);
+
+    protected String hashHexString(byte[] data) {
+        return BinaryUtils.toHex(hash(data));
     }
+
 }

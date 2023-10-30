@@ -37,13 +37,17 @@ import com.g42cloud.sdk.core.internal.model.KeystoneListProjectsRequest;
 import com.g42cloud.sdk.core.internal.model.KeystoneListProjectsResponse;
 import com.g42cloud.sdk.core.internal.model.KeystoneListRegionsRequest;
 import com.g42cloud.sdk.core.internal.model.KeystoneListRegionsResponse;
+import com.g42cloud.sdk.core.internal.model.Project;
 import com.g42cloud.sdk.core.utils.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.CompletableFuture;
@@ -108,23 +112,34 @@ public class BasicCredentials extends AbstractCredentials<BasicCredentials> {
                 return this;
             }
 
-            String iamEndpoint = StringUtils.isEmpty(getIamEndpoint()) ? getDefaultIamEndpoint() : getIamEndpoint();
+            String iamEndpoint = getUsedIamEndpoint();
             HcClient inner = hcClient.overrideEndpoints(Collections.singletonList(iamEndpoint));
 
             Function<HttpRequest, Boolean> derivedPredicate = getDerivedPredicate();
             setDerivedPredicate(null);
 
+            Logger logger = LoggerFactory.getLogger(hcClient.getClass());
+            logger.info("project id of region '{}' not found in BasicCredentials, " +
+                    "trying to obtain project id from IAM service: {}", regionId, iamEndpoint);
             KeystoneListProjectsRequest request = new KeystoneListProjectsRequest().withName(regionId);
             KeystoneListProjectsResponse response = inner.syncInvokeHttp(request, InnerIamMeta.KEYSTONE_LIST_PROJECTS);
             if (Objects.isNull(response)) {
-                throw new SdkException(
-                        "Failed to get project id, " + "please input project id when initializing BasicCredentials");
+                throw new SdkException(Constants.ErrorMessage.NO_PROJECT_ID_FOUND);
             }
-            if (response.getProjects().size() == 1) {
-                projectId = response.getProjects().get(0).getId();
-            } else {
+
+            List<Project> projects = response.getProjects();
+            if (projects.size() == 1) {
+                projectId = projects.get(0).getId();
+            } else if (projects.size() < 1) {
                 projectId = keystoneCreateProject(inner, regionId);
+            } else {
+                String projectIds = projects.stream().map(Project::getId).collect(Collectors.joining(","));
+                throw new SdkException(String.format(Locale.ROOT, "multiple project ids found: [%s], " +
+                        "please specify one when initializing the credentials, " +
+                        "BasicCredentials cred = " +
+                        "new BasicCredentials().withAk(ak).withSk(sk).withProjectId(projectId)", projectIds));
             }
+            logger.info("success to obtain project id of region '{}': {}", regionId, projectId);
             AuthCache.putAuth(akWithName, projectId);
 
             setDerivedPredicate(derivedPredicate);
@@ -144,10 +159,7 @@ public class BasicCredentials extends AbstractCredentials<BasicCredentials> {
 
         String domainId = getDomainId(client);
         if (StringUtils.isEmpty(domainId)) {
-            throw new SdkException("No domain id found, please select one of the following solutions:\n\t"
-                    + "1. Manually specify domain_id when initializing the credentials.\n\t"
-                    + "2. Use the domain account to grant the current account permissions of the IAM service.\n\t"
-                    + "3. Use AK/SK of the domain account.");
+            throw new SdkException(Constants.ErrorMessage.NO_DOMAIN_ID_FOUND);
         }
 
         return getCreateProjectId(client, regionId, domainId);
@@ -174,10 +186,7 @@ public class BasicCredentials extends AbstractCredentials<BasicCredentials> {
         KeystoneListAuthDomainsResponse response = hcClient.syncInvokeHttp(request,
                 InnerIamMeta.KEYSTONE_LIST_AUTH_DOMAINS);
         if (Objects.isNull(response)) {
-            throw new SdkException("No domain id found, please select one of the following solutions:\n\t"
-                    + "1. Manually specify domain_id when initializing the credentials.\n\t"
-                    + "2. Use the domain account to grant the current account permissions of the IAM service.\n\t"
-                    + "3. Use AK/SK of the domain account.");
+            throw new SdkException(Constants.ErrorMessage.NO_DOMAIN_ID_FOUND);
         }
         return response.getDomains().get(0).getId();
     }
@@ -229,19 +238,17 @@ public class BasicCredentials extends AbstractCredentials<BasicCredentials> {
         }
 
         if (Objects.nonNull(httpRequest.getContentType())
-                && !httpRequest.getContentType().startsWith(Constants.MEDIATYPE.APPLICATION_JSON)) {
+                && !httpRequest.getContentType().startsWith(Constants.MEDIATYPE.APPLICATION_JSON)
+                && !httpRequest.getContentType().startsWith(Constants.MEDIATYPE.APPLICATION_BSON)) {
             builder.addHeader(Constants.X_SDK_CONTENT_SHA256, Constants.UNSIGNED_PAYLOAD);
         }
 
         Map<String, String> headers;
         if (isDerivedAuth(httpRequest)) {
-            headers = DerivedAKSKSigner.sign(builder.build(), this);
-        } else if (httpRequest.getSigningAlgorithm() == SigningAlgorithm.HMAC_SHA256) {
-            headers = AKSKSigner.sign(builder.build(), this);
-        } else if (httpRequest.getSigningAlgorithm() == SigningAlgorithm.HMAC_SM3) {
-            headers = SM3AKSKSigner.sign(builder.build(), this);
+            headers = DerivedAKSKSigner.getInstance().sign(builder.build(), this);
         } else {
-            throw new SdkException("Failed to sign the request");
+            IAKSKSigner signer = AKSKSignerFactory.getSigner(httpRequest.getSigningAlgorithm());
+            headers = signer.sign(builder.build(), this);
         }
 
         builder.addHeaders(headers);
@@ -261,9 +268,8 @@ public class BasicCredentials extends AbstractCredentials<BasicCredentials> {
 
     @Override
     protected void updateAuthTokenByIdToken(HttpClient httpClient) {
-        String iamEndpoint = StringUtils.isEmpty(getIamEndpoint()) ? Constants.DEFAULT_IAM_ENDPOINT : getIamEndpoint();
         HttpRequest httpRequest = Iam.getProjectTokenWithIdTokenRequest(
-                iamEndpoint, getIdpId(), getIdToken(), projectId);
+                getUsedIamEndpoint(), getIdpId(), getIdToken(), projectId);
         CreateTokenWithIdTokenResponse response = Iam.createTokenWithIdToken(httpClient, httpRequest);
         authToken = response.getSubjectToken();
         try {
